@@ -1,0 +1,94 @@
+@charset "UTF-8";   /* contentやコメントに日本語を使うため */
+/* 配色 */
+
+/* header */
+header {
+    display: flex;
+    line-height: normal;
+    /*align-items: flex-end;*/
+    padding-top: 0.3rem;
+    position: fixed;        /* トップバーを固定する（スクロールさせない）。 */
+    top: 0;                 /* 固定位置はページの先頭 */
+    width: 100%;            /* トップバーを固定させた場合に左寄せさせない */
+    z-index: 90;            /* トップバーを固定させた場合に他の要素がスクロールしてきても後ろに隠れないように */
+    background: #fffe;
+}
+header h1 {
+    margin: 0 0 0 20px;
+    /* background: #bbb; */
+}
+header h1 a:hover img {
+    /*filter: brightness(0.5); なぜか効かない（元画像が黒だから？） */
+    filter: contrast(0.2); 
+    /* filter: invert(1); /* 白黒反転 */
+    /* transition: 0.8s; ゆっくり変化させる（hoverではなくa側にかけないと戻るときに一瞬で戻ってしまう） */
+}
+header nav {
+    margin: 0 0 0 auto; /* 右に寄せる（左のマージンを最大にする） */
+    /* background: #ddd; */
+}
+header nav ul {
+    list-style-type: none; /* リストの先頭「・」を表示しない */
+    padding: 0;
+    display: flex; /* 横並びにする */
+    margin-block-start: 0.1rem; /* デフォルト 1em */
+    margin-block-end: 0.1rem;   /* デフォルト 1em */
+    /* background: #ccc; */
+}
+header nav ul li {
+    padding: 0.4rem 0.1rem; /* a リンク文字までの余白 */
+    line-height: 1rem; /* 文字の高さ・・・クリック可能な箱の高さ
+        ？？幅の狭い端末ではメニューの文字が改行される。その高さ */
+    height: 2rem;
+    }
+
+header nav ul a,
+header nav ul a:link,
+header nav ul a:visited {
+    display: block; /* クリック可能エリアを文字だけでなくブロック全体に拡大する <-> inline */
+    padding: 0.0rem 0.5rem;/*15px 10px */
+    text-decoration: none;
+    color: #000;
+    transition: 0.4s linear;    /* 変化時のアニメーション（hover側で設定するとhover解除時はアニメにならないのでこちらに） */
+    /* background: #aaa; エリア範囲確認用 */
+}
+header nav ul a:hover,      /* マウスをのっけた瞬間 */
+header nav ul a:active {    /* クリック後、画面遷移するまで */
+    /*color: #888;*/
+    /* text-decoration:underline;*/
+    transform: translate(0,5px); /* 少し下に移動 他の例：rotate(180deg)：反転;*/
+}
+
+@media screen and (max-width:920px) {
+    header {
+        display: block;
+    }
+    header h1 {
+        margin:10px 0 0;        /* 上に１０ｐｘ */
+        text-align: center;     /* 中央ぞろえ */
+    }
+    /*画像が小さくなりすぎる
+    header h1 img {
+        width: 150px;
+    }*/
+    header nav ul {
+        margin: 0;
+        flex-wrap: wrap;    /* 無理やり１行に収めず、はみ出たら折り返して下段に表示 */
+        justify-content: center /*    flex-start：左寄せ（デフォルト）
+                                        flex-end：右寄せ
+                                        center： 中央寄せ
+                                        space-between：残り余白の均等割り 
+                                        space-around：左右余白 ＋ 均等割り    */
+    }
+    header nav ul li {
+        box-sizing: border-box; /* 幅をcontentsではなく、border含めた全体で指定とする */
+        /* width: 14%;     １項目の幅 */
+        text-align: center;     /* 中央ぞろえ */
+    }
+
+}
+/* @media screen and (max-width:605px) {
+    header nav ul li {
+        width: 20%;     １項目の幅
+    }
+} */

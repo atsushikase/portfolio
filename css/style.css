@@ -1,0 +1,260 @@
+@charset "UTF-8";   /* contentやコメントに日本語を使うため */
+/* 配色 */
+
+html {
+    scroll-behavior: smooth;    /* 「トップへ戻る」クリック時に少し時間をかけてスクロールさせるため。他の影響不明 */
+    font-size: 100%; /* 100% は通常 1em = 1rem = 16px = 12pt , %指定にしておくと、ユーザがブラウザで指定した拡大率が反映される
+    他の px 表記もすべて rem(htmlタグのfont-sizeに対する相対) や em(親のサイズへの相対)に変更すべき */
+}
+body {
+    font-family: "Noto Sans JP";
+    /* font-family: "Yu Mincho","Hiragino Mincho Pro",serif;
+    /* font-family: ,-apple-system, BlinkMacSystemFont, "Helvetica Neue", "游ゴシック Medium", YuGothic, YuGothicM, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; */
+    color: #000
+}
+a,
+a:link {
+    color: #222;    /* #; */
+}
+a:visited {
+    color: #222;    /* #; */
+}
+a:hover {
+    text-decoration: none;
+    color: #555;
+}
+/* img {
+    width: 100%;    親からはみ出さない・・・親に合わせて拡大してしまう画像があのでやめておく
+} */
+
+/* main 全ページ共通 */
+main {
+    line-height: 1.7;
+    /* margin-top: 54px;   トップバーの高さ */
+}
+/*main .inner {
+    width: 990px;
+    margin: 50px auto;  /* 左右のマージンを auto にすることでセンタリングされる */
+/*}*/
+.to_top {  /* トップへスクロールする矢印画像 */
+    width: 48px;
+    position: fixed;    /* ブラウザ画面の絶対位置指定とする */
+    bottom: 50px;
+    right: 50px;
+    opacity: 0.5;   /* 画像の透明度 */
+}
+/* home -- トップページ専用 */
+.kasaneru_ugoku_tate {
+    background: /*url(../images/atsushikase_Portfolio.png),*/url(../images/DSC_0276_rs-05_ton_tr16x9.jpg);
+    background-repeat: /*no-repeat,*/no-repeat;
+    background-position: /*right,*/center; /*  top上を起点にして左右centerに配置 */
+    background-size: /*auto,*/cover; /* 領域内を覆うようにサイズ変更 */
+	position: relative;/*親要素にrelative*/
+
+	margin : 0 auto 0;
+	width : 100%;
+	height: 85vh;	/* 縦スクロール用に追加 */
+	font-family: "Trajan Pro","Impact","Sylfaen","MS P明朝","MS Pmincho",serif; /* ★★フォントは後で選びなおす */
+
+	text-align : center;
+	overflow : hidden;
+    /*background: red;*/
+}
+.kasaneru_ugoku_tate p{
+	position: absolute; /*重ねたい子要素にabsolute*/
+	top: 40%;
+	left: 3%;
+	color: #fff;
+	font-size: 500%; /* 260% 2.6rem; /* 1.8 */
+
+	/*margin: 0 auto 0;*/
+	display : flex; /*inline-block;*/
+    /*text-align: center;*/
+    /*justify-content: center;*/
+	/* padding-left: 100%; */
+	white-space : nowrap;
+	line-height : 1.2em; /* 3.4em */
+	animation : scroll_tate 20s linear infinite; /* 10s */
+}
+/* 右から左にスクロール */
+@keyframes scroll_yoko{
+	0% { transform: translateX(0)}
+	100% { transform: translateX(-100%)}
+}
+/* 上から下にスクロール */
+@keyframes scroll_tate{
+	0% { transform: translateY(2.5em)} /*-6.5em*/
+	100% { transform: translateY(-5.1em)} /*5.1em*/
+}
+section img {
+    box-sizing: border-box; /* width/height:の値にpadding/borderの値を含める */
+}
+.category {
+    /* background: #eee; */
+    margin: 0;
+    padding: 1rem 0;
+    scrollbar-color: #fff #f0f0f0; /* 二つの有効な色。一つ目はスクロールバーのつまみ、二つ目はトラックに適用される。 */
+}
+.category_even {
+    background: #f0f0f0;
+    scrollbar-color: #eee #ddd; /* 二つの有効な色。一つ目はスクロールバーのつまみ、二つ目はトラックに適用される。 */
+}
+.category_title {
+    box-sizing: border-box; /* width/height:の値にpadding/borderの値を含める */
+    padding: 3rem 0 1rem 0;
+    margin: 0; /* 10px 0 20px; 50px 0 20px */
+    font-weight: normal;
+    font-size: 180%; /*28px;*/
+    color: #000;
+    text-align: center;
+}
+.category > ul {
+    list-style-type: none; /* リストの先頭「・」を表示しない */
+    display: flex; /* 要素を横並びに */
+    /* flex-wrap: wrap; 要素の合計サイズが幅を超えたら折り返す。nowrap（初期値）折り返さない。wrap-reverse 逆順で折り返す */
+
+    justify-content: space-around;
+    padding-inline-start: 0px;  /* ul のデフォルトは 40px になっていて左が空く */
+    /* margin: 50px auto;  左右のマージンを auto にすることでセンタリングされる */
+/*}
+.category_design > ul,
+.category_trip > ul {*/
+    flex-wrap: nowrap; /* 要素の合計サイズが幅を超えたら折り返す。nowrap（初期値）折り返さない。wrap-reverse 逆順で折り返す */
+    /* width: 100vw; 画面サイズの 1.0 倍にしておく→すべてのコンテンツは入りきらない */
+    /*height: 100px;*/
+    /*flex-direction: row;*/
+    border: 0px solid rgb(180, 180, 180);
+    overflow-x: scroll; /* 横スクロールバーを出す */
+}
+.category_design > ul > li,
+.category_movie > ul > li,
+.category_photo > ul > li {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0.5rem;
+    /* background: #ccc; */
+    /*min-width: 25%;*/
+    /*max-width: 33%;*/
+    /*height: 25rem;*/
+    font-size: 80%;
+}
+.work_div {
+    width: 18rem;
+    height: 26rem;/*365px;*/
+}
+.work_image {
+    display: flex;
+    justify-content: center;
+    /*width: auto;*/
+    height: 75%;
+}
+.work_image img {
+    width: auto;
+    max-width: 100%;
+    /*height: auto;*/
+    /*max-height: 100%;*/
+    object-fit: contain;
+    padding: 10px 20px;
+
+}
+.work_note {
+    height: 15%;
+}
+.work_note tr th {
+    text-align: right;
+    padding-right: 0.5rem;
+    font-weight: normal;
+    color: #444;
+    min-width: 4rem;
+}
+.category_viewmore {
+    box-sizing: border-box; /* width/height:の値にpadding/borderの値を含める */
+    /*padding: 2rem auto;*/
+    width: 15rem;
+    height: 3rem;
+    margin: 20px auto 20px auto; /* 10px 0 20px; 50px 0 20px */
+    font-weight: normal;
+    font-size: 120%; /*18px;*/
+    /* color: #000; */
+    display: block; /*inline-block; /*; block; inline(要素の横並び可)をやめる noneは非表示 */
+    /*justify-content: center;*/
+    text-align: center;
+    /* background: #666; */
+}
+.trip {
+    list-style-type: none; /* リストの先頭「・」を表示しない */
+    /* display: flex; 要素を横並びに */
+    flex-wrap: wrap; /* 要素の合計サイズが幅を超えたら折り返す。nowrap（初期値）折り返さない。wrap-reverse 逆順で折り返す */
+
+    justify-content: space-around;
+    padding-inline-start: 0px;  /* ul のデフォルトは 40px になっていて左が空く */
+    /* margin: 50px auto;  左右のマージンを auto にすることでセンタリングされる */
+
+    width: 7rem;
+    /*height: 12rem;*/
+    /* margin-bottom: 3rem; 全旅行を折り返してすべて表示する場合に折り返した行が近すぎないよう設定する */
+}
+.trip li {
+    text-align: center;
+    font-size: 85%;
+    
+    /* background: #ccc; */
+}
+.trip .trip_image {
+    height: 5.5rem;
+
+    display: flex;      /* 位置を指定するため */
+    justify-content: center; /* 水平方向の中央揃え */
+    align-items: center; /* 垂直方向の中央揃え */
+    /* border: 1px solid black; 表示位置確認のためのボーダー */
+}
+.trip img {
+    max-width: 6.5rem;
+    /*height: auto;*/
+    max-height: 5.4rem;
+    object-fit: contain;
+}
+.trip_web a {
+    font-size: 60%;
+}
+/*
+@media screen and (max-width:1345px) {
+    .category_movie .work,
+    .category_photo .work {
+            width: 30rem;
+    }
+}
+@media screen and (max-width:1010px) {
+    .category_movie .work,
+    .category_photo .work {
+            width: 20rem;
+    }
+}*/
+@media screen and (max-width:920px) { /* 767px -> .innerのwidthに合わせる。padding含むので＋αしてる */
+    main {
+        /* margin-top: 60px;   トップバーの高さ */
+    }
+    .visual {
+        /*background-size: cover; 領域内を覆うようにサイズ変更→通常サイズも同じにした */
+        /*height: 200px; →画像サイズにまかせることにした*/
+        padding: 40px 30px 0; /* 上　左右　下 */
+    }
+}
+@media screen and (max-width:770px) { 
+    .kasaneru_ugoku_tate p{
+        font-size: 300%; /* 1.6rem 1.8 */
+    }
+    @keyframes scroll_tate{
+        0% { transform: translateY(5.2em)} /*-6.5em*/
+        100% { transform: translateY(-5.1em)} /*5.1em*/
+    }
+}
+@media screen and (max-width:475px) { 
+    .kasaneru_ugoku_tate p{
+        font-size: 200%; /* 1.6rem 1.8 */
+    }
+    @keyframes scroll_tate{
+        0% { transform: translateY(8.2em)} /*-6.5em*/
+        100% { transform: translateY(-4.7em)} /*5.1em*/
+    }
+}
