@@ -87,7 +87,7 @@ main {
 }
 /* 上から下にスクロール */
 @keyframes scroll_tate{
-	0% { transform: translateY(0.5em)} /*-6.5em*/
+	0% { transform: translateY(10em)} /*-6.5em*/
 	100% { transform: translateY(0em)} /*5.1em*/
 }
 section img {
