@@ -54,7 +54,7 @@ main {
 	margin : 0 auto 0;
 	width : 100%;
 	height: 85vh;	/* 縦スクロール用に追加 */
-	font-family: "Trajan Pro","Impact","Sylfaen","MS P明朝","MS Pmincho",serif; /* ★★フォントは後で選びなおす */
+	font-family: "Permanent Marker","Trajan Pro","Impact","Sylfaen","MS P明朝","MS Pmincho",serif; /* ★★フォントは後で選びなおす */
 
 	text-align : center;
 	overflow : hidden;
