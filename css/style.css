@@ -62,10 +62,14 @@ main {
 }
 .kasaneru_ugoku_tate p{
 	position: absolute; /*重ねたい子要素にabsolute*/
-	top: 40%;
+	top: 2%;
 	left: 3%;
 	color: #fff;
 	font-size: 500%; /* 260% 2.6rem; /* 1.8 */
+	text-shadow:
+	        2px 2px 4px black, /* offset-x | offset-y | blur-radius | color */
+	        0 0 1em #222, /* #250d00 */
+	        0 0 0.2em #444; /* #543625*/
 
 	/*margin: 0 auto 0;*/
 	display : flex; /*inline-block;*/
@@ -83,8 +87,8 @@ main {
 }
 /* 上から下にスクロール */
 @keyframes scroll_tate{
-	0% { transform: translateY(2.5em)} /*-6.5em*/
-	100% { transform: translateY(-5.1em)} /*5.1em*/
+	0% { transform: translateY(0.5em)} /*-6.5em*/
+	100% { transform: translateY(0em)} /*5.1em*/
 }
 section img {
     box-sizing: border-box; /* width/height:の値にpadding/borderの値を含める */
@@ -242,19 +246,13 @@ section img {
 }
 @media screen and (max-width:770px) { 
     .kasaneru_ugoku_tate p{
+	top: 15%;
         font-size: 300%; /* 1.6rem 1.8 */
-    }
-    @keyframes scroll_tate{
-        0% { transform: translateY(5.2em)} /*-6.5em*/
-        100% { transform: translateY(-5.1em)} /*5.1em*/
     }
 }
 @media screen and (max-width:475px) { 
     .kasaneru_ugoku_tate p{
+	top: 24%;
         font-size: 200%; /* 1.6rem 1.8 */
-    }
-    @keyframes scroll_tate{
-        0% { transform: translateY(8.2em)} /*-6.5em*/
-        100% { transform: translateY(-4.7em)} /*5.1em*/
     }
 }
