@@ -4,7 +4,7 @@
 /* header */
 header {
     display: flex;
-    line-height: normal;
+    /*line-height: normal;*/
     /*align-items: flex-end;*/
     padding-top: 0.3rem;
     position: fixed;        /* トップバーを固定する（スクロールさせない）。 */
@@ -16,6 +16,9 @@ header {
 header h1 {
     margin: 0 0 0 20px;
     /* background: #bbb; */
+}
+header h1 img {
+    height: 40px;
 }
 header h1 a:hover img {
     /*filter: brightness(0.5); なぜか効かない（元画像が黒だから？） */
@@ -59,7 +62,7 @@ header nav ul a:active {    /* クリック後、画面遷移するまで */
     transform: translate(0,5px); /* 少し下に移動 他の例：rotate(180deg)：反転;*/
 }
 
-@media screen and (max-width:920px) {
+@media screen and (max-width:950px) {
     header {
         display: block;
     }
