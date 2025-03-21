@@ -85,17 +85,18 @@ main {
 	/* padding-left: 100%; */
 	white-space : nowrap;
 	line-height : 1.2em; /* 3.4em */
-	animation : scroll_tate 4s ease-out; /* 10s linear infinite */
+	animation : scroll_tate 6s ease-out; /* 10s linear infinite */
 }
-/* 右から左にスクロール */
+/* 右から左にスクロール
 @keyframes scroll_yoko{
 	0% { transform: translateX(0)}
 	100% { transform: translateX(-100%)}
-}
-/* 上から下にスクロール */
+} */
+/* 下から上にスクロール */
 @keyframes scroll_tate{
-	0% { transform: translateY(4em); opacity: 0;} /*-6.5em*/
-	100% { transform: translateY(0em)} /*5.1em*/
+	0% { transform: translateY(5em); opacity: 0;} /* フォントが読み込まれるまでの時間稼ぎ */
+	20% { transform: translateY(4em); opacity: 0;} 
+	100% { transform: translateY(0em)} 
 }
 section img {
     box-sizing: border-box; /* width/height:の値にpadding/borderの値を含める */
@@ -123,8 +124,8 @@ section img {
 }
 .category_title {
     box-sizing: border-box; /* width/height:の値にpadding/borderの値を含める */
-    padding: 0 10rem 0 1rem;  /* 1.2rem 3rem 1rem 2rem; */
-    margin: 1.2rem 3rem 1rem 2rem; /* 10px 0 20px; 50px 0 20px */
+    padding: 0 6rem 0 1rem;  /* 1.2rem 3rem 1rem 2rem; */
+    margin: 1.2rem 1rem 1rem 2rem; /* 10px 0 20px; 50px 0 20px */
     font-weight: normal;
     font-size: 180%; /*28px;*/
     color: #000;
@@ -146,12 +147,14 @@ section img {
     /*display: inline;*/
     margin-top: 1.5rem;
     margin-left: 2rem;
+    /*color: #800;*/
 }
 .filter_buttons button {
     border: #222;
-    padding: 0.3rem 1rem;
+    padding: 0.5rem 1rem;
     /*box-shadow: 0 0 0 4px #cbd6ee;*/
     font-size: 80%;
+    color: #222;
 }
 .filter_buttons button:hover {
    border-bottom: 2px solid  #333;
@@ -160,20 +163,20 @@ section img {
 .filter_buttons .design_botton3,
 .filter_buttons .design_botton4 {*/
 .filter_buttons .unselected {
-    background: #eee;
+    background: #ddd;
     /*border: 1px solid  #777;*/
 }
 /*.filter_buttons .design_botton1 {*/
 .filter_buttons .selected {
-    background: #ddd;
-    border-top: 1px solid  #bbb;
-    border-right: 1px solid  #bbb;
-    border-left: 1px solid  #bbb;
-    border-bottom: 2px solid  #ddd;
+    background: #bbb;
+    border-top: 1px solid  #999;
+    border-right: 1px solid  #999;
+    border-left: 1px solid  #999;
+    border-bottom: 2px solid  #bbb;
 }
 
 .filter_gallery {
-    background: #ddd;
+    background: #bbb;
 }
 
 .category > ul {
@@ -185,11 +188,9 @@ section img {
     margin-block-end: 0;
     padding-inline-start: 0px;  /* ul のデフォルトは 40px になっていて左が空く */
     margin-top: 0px;
-    padding-top: 2rem;
-    padding-bottom: 1rem; /* コンテンツからスクロールバーまでの距離 */
-/*}
-.category_design > ul,
-.category_trip > ul {*/
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem; /* コンテンツからスクロールバーまでの距離 */
+
     flex-wrap: nowrap; /* 要素の合計サイズが幅を超えたら折り返す。nowrap（初期値）折り返さない。wrap-reverse 逆順で折り返す */
     /* width: 100vw; 画面サイズの 1.0 倍にしておく→すべてのコンテンツは入りきらない */
     /*height: 100px;*/
@@ -214,7 +215,13 @@ section img {
 }
 .work_div {
     width: 16rem; /* 18 */
-    height: 24rem; /* 26 -- 減らすと画像が小さくなる。削りすぎると横スクロールバーが消える */
+    height: 25rem; /* 26 -- 減らすと画像が小さくなる。削りすぎると横スクロールバーが消える */
+    /*display: block;
+    display: flex;
+    flex-direction: column;
+    background-color: #a88;
+    justify-content: center;*/
+
 }
 .category_movie .work_div {
     height: 14rem;
@@ -223,27 +230,82 @@ section img {
     /*width: 16rem;  18 */
     height: 14rem;
 }
+.work_type {
+    display: block;
+    text-align: center;
+    /*display: inline;
+    margin: 0 auto 0 auto;*/
+    /*margin-bottom: 0.5rem; 効かない */
+    padding: 1px 4px;
+    /*border: 1px solid #333;*/
+    color: #333;
+    border-radius: 5px;
+    /*background-color: #666;*/
+}
+.work_year {
+    display: inline;
+    margin: 0 0 0 5px;
+    padding: 0px 4px 0 4px;
+    /*border: 1px solid #333;*/
+    font-size: 90%;
+    color: #ddd; /*#333;*/
+    border-radius: 5px;
+    background-color: #999 /*#9d9;*/
+}
+.work_title {
+    /*display: block;
+    text-align: center;*/
+    margin: 0;
+    padding: 4px 0px 5px 0px;
+    /*border: 1px solid #333;
+    color: #333;
+    border-radius: 5px;
+    background-color: #9d9;*/
+}
+.work_comment {
+    display: block;
+    margin: 2px;
+    padding: 1px 4px;
+    /*color: #333;*/
+    line-height: 1.4;
+
+    border-radius: 5px;
+    background-color: #ccc;
+}
 .work_image {
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    /*margin-top: 0.5rem;*/
     /*width: auto;*/
-    height: 75%;
+    height: 78%;
     color: #666;        /* 「Youtubeリンク」用 */
+    /*background-color: #8a8;*/
 }
 .work_image:hover,        /* マウスをのっけた瞬間 */
 .work_image:active {      /* クリック後、画面遷移するまで */
     color: #aaa;        /* 「Youtubeリンク」用 */
 }
-.work_image img {
-    width: auto;
+.work_image a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*object-fit: contain;*/
     max-width: 100%;
-    max-height: 100%;
+    height: 100%;    /*max-height: 100%; なぜかこれはだめ*/
+    /*background-color: rgb(23, 23, 141);*/
+}
+.work_image img {
+    display: block;
+    max-width: 100%;
+    max-height: 90%;
+    /*width: auto;*/
     /*height: auto;*/
-    /*max-height: 100%;*/
-    object-fit: contain;
-    padding: 10px 20px;
+    /*object-fit: contain;*/
+    /*padding: 10px 20px;*/
+    /*background-color: #88f;*/
 }
 .work_note {
     height: 15%;
