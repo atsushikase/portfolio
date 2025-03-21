@@ -22,6 +22,12 @@
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/lightbox.js"></script><!--ソース：https://github.com/lokesh/lightbox2 参考：https://webdesign-pg.com/lightbox2 -->
     <script>
+        /********************* lightbos のオプション *********************/
+        lightbox.option({
+          /*'resizeDuration': 200,*/
+          'wrapAround': true
+        })
+
         $(function () {
             /********************* フィルター *********************/
             let $filteringBtn = $(".filter_buttons button"),
@@ -53,9 +59,6 @@
                     });
                 });
             });
-
-
-
         });
     </script>
 </head>
@@ -92,33 +95,48 @@
         </div>
         <ul class="filter_gallery">
             <li class="filter_web">
-                <div class="work_div"><a href="https://atsushikase.github.io/portfolio/" target="_blank">
-                    <div class="work_image"><img src="images/thums/webpage_myportfolio_x400.png" alt="ポートフォリオ（本サイト）">公開サイト(github)</div></a>
-                    <table class="work_note">
+                <div class="work_div">
+                    <span class="work_type">Webサイト(html/css作品)<span class="work_year">2025年</span></span>
+                    <div class="work_image">
+                        <a href="https://atsushikase.github.io/portfolio/" target="_blank">
+                        <img src="images/thums/webpage_myportfolio_x400.png" alt="ポートフォリオ（本サイト）">公開サイト(github)</a>
+                    </div>
+                    <!--table class="work_note">
                         <tr><th>作品タイプ</th><td>Webサイト(html/css作品)</td></tr>
                         <tr><th>作品の目的</th><td>ポートフォリオ（本サイト）</td></tr>
                         <tr><th>作成時期</th><td>2025/3</td></tr>
-                    </table>
+                    </table-->
+                    <span class="work_comment"><h4 class="work_title">ポートフォリオサイト（本サイト）</h4>全体像を短時間に把握し、詳細確認したい項目に素早くアクセスできることを重視</span>
                 </div>
             </li>
             <li class="filter_web">
-                <div class="work_div"><a href="https://atsushikase.github.io/web-sample-onsen/" target="_blank">
-                    <div class="work_image"><img src="images/thums/webpage_onsen_x400.png" alt="Webサイト">公開サイト(github)</div></a>
-                    <table class="work_note">
+                <div class="work_div">
+                    <span class="work_type">Webサイト(html/css作品)<span class="work_year">2025年</span></span>
+                    
+                    <div class="work_image">
+                        <a href="https://atsushikase.github.io/web-sample-onsen/" target="_blank">
+                        <img src="images/thums/webpage_onsen_x400.png" alt="Webサイト">公開サイト(github)</a>
+                    </div>
+                    <!--table class="work_note">
                         <tr><th>作品タイプ</th><td>Webサイト(html/css作品)</td></tr>
                         <tr><th>作品の目的</th><td>温泉旅館集客（練習用）</td></tr>
                         <tr><th>作成時期</th><td>2025/3</td></tr>
-                    </table>
+                    </table-->
+                    <span class="work_comment"><h4 class="work_title">架空温泉旅館集客サイト（練習用）</h4>高年齢夫婦の旅行客をターゲットとし、見やすくわかりやすいデザインとした</span>
                 </div>
             </li>
             <li class="filter_ps">
-                <div class="work_div"><a href="#modal-01" class="modal-button">
-                    <div class="work_image"><img src="images/thums/poster_okutamax400.jpg" alt="ポスター">拡大表示</div></a>
-                    <table class="work_note">
+                <div class="work_div">
+                    <span class="work_type">Photoshop作品<span class="work_year">2025年</span></span>
+                    <div class="work_image">
+                        <a href="#modal-01" class="modal-button"><img src="images/thums/poster_okutamax400.jpg" alt="ポスター">拡大表示</a>
+                    </div>
+                    <!--table class="work_note">
                         <tr><th>作品タイプ</th><td>ポスター(Photoshop作品)</td></tr>
                         <tr><th>作品の目的</th><td>観光地の宣伝（練習用）</td></tr>
                         <tr><th>作成時期</th><td>2025/1</td></tr>
-                    </table>
+                    </table-->
+                    <span class="work_comment"><h4 class="work_title">奥多摩観光ポスター（練習用）</h4>職業訓練所提供の写真素材のみを利用し、指定のキャッチコピーに合うようデザイン</span>
                     <div class="modal-wrapper" id="modal-01">
                         <a href="#!" class="modal-overlay"></a>
                         <div class="modal-window">
@@ -132,91 +150,119 @@
                 </div>
             </li>
             <li class="filter_ai">
-                <div class="work_div"><a href="#modal-02" class="modal-button">
-                    <div class="work_image"><img src="images/thums/kawakunx400.jpg" alt="キャラクター">拡大表示</div></a>
-                    <table class="work_note">
+                <div class="work_div">
+                    <span class="work_type">Illustrator作品<span class="work_year">2024年</span></span>
+                    <div class="work_image">
+                        <a href="#modal-02" class="modal-button"><img src="images/thums/kawakun_eda400x331.png" alt="キャラクター">拡大表示</a>
+                    </div>
+                    <!--table class="work_note">
                         <tr><th>作品タイプ</th><td>キャラクター(Illustrator作品)</td></tr>
                         <tr><th>作品の目的</th><td>公園のマスコット（練習用）</td></tr>
                         <tr><th>作成時期</th><td>2024/12</td></tr>
-                    </table>
+                    </table-->
+                    <span class="work_comment"><h4 class="work_title">公園のマスコットキャラクター（練習用）</h4>自ら撮影した写真を下絵にし、美しさと愛らしさを残すよう、ペンツールでデザイン</span>
                     <div class="modal-wrapper" id="modal-02"><a href="#!" class="modal-overlay"></a>
-                        <div class="modal-window"><a href="#!"><img src="images/kawakun-1920x1080.png"></a></div>
+                        <div class="modal-window"><a href="#!"><img src="images/kawakun_eda1457x1080.png"></a></div>
                     </div>            
                 </div>
             </li>
             <li class="filter_ps">
-                <div class="work_div"><a href="#modal-03" class="modal-button">
-                    <div class="work_image"><img src="images/thums/webbanner_nz_x400.jpg" alt="Webバナー">拡大表示</div></a>
-                    <table class="work_note">
+                <div class="work_div">
+                    <span class="work_type">Photoshop作品<span class="work_year">2024年</span></span>
+                    <div class="work_image">
+                        <a href="#modal-03" class="modal-button"><img src="images/thums/webbanner_nz_x400.jpg" alt="Webバナー">拡大表示</a>
+                    </div>
+                    <!--table class="work_note">
                         <tr><th>作品タイプ</th><td>Webバナー(Photoshop作品)</td></tr>
                         <tr><th>作品の目的</th><td>ツアー参加者募集（練習用）</td></tr>
                         <tr><th>作成時期</th><td>2024/12</td></tr>
-                    </table>
+                    </table-->
+                    <span class="work_comment"><h4 class="work_title">ツアー参加者募集Webバナー（練習用）</h4>明るく楽しい、自然あふれる雰囲気を出した。（写真は自ら撮影したもの）</span>
                     <div class="modal-wrapper" id="modal-03"><a href="#!" class="modal-overlay"></a>
                         <div class="modal-window"><a href="#!"><img src="images/webbanner_nz_300x600.jpg"></a></div>
                     </div>            
                 </div>
             </li>
             <li class="filter_ps">
-                <div class="work_div"><a href="#modal-04" class="modal-button">
-                    <div class="work_image"><img src="images/thums/webbanner_horrorx400.jpg" alt="Webバナー">拡大表示</div></a>
-                    <table class="work_note">
+                <div class="work_div">
+                    <span class="work_type">Photoshop作品<span class="work_year">2024年</span></span>
+                    <div class="work_image">
+                        <a href="#modal-04" class="modal-button"><img src="images/thums/webbanner_horrorx400.jpg" alt="Webバナー">拡大表示</a>
+                    </div>
+                    <!--table class="work_note">
                         <tr><th>作品タイプ</th><td>Webバナー(Photoshop作品)</td></tr>
                         <tr><th>作品の目的</th><td>レジャー施設宣伝（練習用）</td></tr>
                         <tr><th>作成時期</th><td>2024/12</td></tr>
-                    </table>
+                    </table-->
+                    <span class="work_comment"><h4 class="work_title">レジャー施設宣伝Webバナー（練習用）</h4>恐い雰囲気を強調するデザインとした</span>
                     <div class="modal-wrapper" id="modal-04"><a href="#!" class="modal-overlay"></a>
                         <div class="modal-window"><a href="#!"><img src="images/webbanner_horror300x250.jpg"></a></div>
                     </div>            
                 </div>
             </li>
             <li class="filter_ai">
-                <div class="work_div"><a href="#modal-05" class="modal-button">
-                    <div class="work_image"><img src="images/thums/card_name_aozorax400.jpg" alt="名刺">拡大表示</div></a>
-                    <table class="work_note">
+                <div class="work_div">
+                    <span class="work_type">Illustrator作品<span class="work_year">2024年</span></span>
+                    <div class="work_image">
+                        <a href="#modal-05" class="modal-button"><img src="images/thums/card_name_aozorax400.jpg" alt="名刺">拡大表示</a>
+                    </div>
+                    <!--table class="work_note">
                         <tr><th>作品タイプ</th><td>名刺(Illustrator作品)</td></tr>
                         <tr><th>作品の目的</th><td>旅行会社社員用（練習用）</td></tr>
                         <tr><th>作成時期</th><td>2024/12</td></tr>
-                    </table>
+                    </table-->
+                    <span class="work_comment"><h4 class="work_title">旅行会社用の名刺（練習用）</h4>空と海をイメージして、爽やかで親しみやすい印象となるようデザインとした</span>
                     <div class="modal-wrapper" id="modal-05"><a href="#!" class="modal-overlay"></a>
                         <div class="modal-window"><a href="#!"><img src="images/card_name_aozora.png"></a></div>
                     </div>            
                 </div>
             </li>
             <li class="filter_ai">
-                <div class="work_div"><a href="#modal-06" class="modal-button">
-                    <div class="work_image"><img src="images/thums/card_name_kawakunx400.jpg" alt="名刺">拡大表示</div></a>
-                    <table class="work_note">
+                <div class="work_div">
+                    <span class="work_type">Illustrator作品<span class="work_year">2024年</span></span>
+                    <div class="work_image">
+                        <a href="#modal-06" class="modal-button"><img src="images/thums/card_name_kawakunx400.jpg" alt="名刺">拡大表示</a>
+                    </div>
+                    <!--table class="work_note">
                         <tr><th>作品タイプ</th><td>名刺(Illustrator作品)</td></tr>
                         <tr><th>作品の目的</th><td>自分用（練習用）</td></tr>
                         <tr><th>作成時期</th><td>2024/12</td></tr>
-                    </table>
+                    </table-->
+                    <span class="work_comment"><h4 class="work_title">自分用の名刺（練習用）</h4>自ら作成したカワセミのキャラクターの色彩に合うようデザインした</span>
                     <div class="modal-wrapper" id="modal-06"><a href="#!" class="modal-overlay"></a>
                         <div class="modal-window"><a href="#!"><img src="images/card_name_kawakun-753x768.jpg"></a></div>
                     </div>            
                 </div>
             </li>
             <li class="filter_ai">
-                <div class="work_div"><a href="#modal-07" class="modal-button">
-                    <div class="work_image"><img src="images/thums/font2025x400.jpg" alt="キャラクター">拡大表示</div></a>
-                    <table class="work_note">
+                <div class="work_div">
+                    <span class="work_type">Illustrator作品<span class="work_year">2024年</span></span>
+                    <div class="work_image">
+                        <a href="#modal-07" class="modal-button"><img src="images/thums/font2025x400.jpg" alt="キャラクター">拡大表示</a>
+                    </div>
+                    <!--table class="work_note">
                         <tr><th>作品タイプ</th><td>キャラクター(Illustrator作品)</td></tr>
                         <tr><th>作品の目的</th><td>年賀状利用（プライベート）</td></tr>
                         <tr><th>作成時期</th><td>2024/12</td></tr>
-                    </table>
+                    </table-->
+                    <span class="work_comment"><h4 class="work_title">蛇で表現した数字（プライベート用）</h4>2025年の年賀状で利用するため、蛇を素材としつつも面白味のある表現とした</span>
                     <div class="modal-wrapper" id="modal-07"><a href="#!" class="modal-overlay"></a>
                         <div class="modal-window"><a href="#!"><img src="images/font2025-1995x1335.png"></a></div>
                     </div>            
                 </div>
             </li>
             <li class="filter_ai">
-                <div class="work_div"><a href="#modal-08" class="modal-button">
-                    <div class="work_image"><img src="images/thums/portfoliox400.jpg" alt="パンフレット">拡大表示</div></a>
-                    <table class="work_note">
+                <div class="work_div">
+                    <span class="work_type">Illustrator作品<span class="work_year">2025年</span></span>
+                    <div class="work_image">
+                        <a href="#modal-08" class="modal-button"><img src="images/thums/portfoliox400.jpg" alt="パンフレット">拡大表示</a>
+                    </div>
+                    <!--table class="work_note">
                         <tr><th>作品タイプ</th><td>パンフレット(Illustrator作品)</td></tr>
                         <tr><th>作品の目的</th><td>自分のポートフォリオ</td></tr>
                         <tr><th>作成時期</th><td>2025/2</td></tr>
-                    </table>
+                    </table-->
+                    <span class="work_comment"><h4 class="work_title">ポートフォリオパンフレット</h4>自分のポートフォリオ。広い分野の技術があること、作品の多様性をアピール</span>
                     <div class="modal-wrapper" id="modal-08"><a href="#!" class="modal-overlay"></a>
                         <div class="modal-window"><a href="#!"><img src="images/portfolio-915x768.jpg"></a></div>
                     </div>            
@@ -229,8 +275,10 @@
         <h2 class="category_title">映像作品</h2>
         <ul>
             <li>
-                <div class="work_div"><a href="https://youtu.be/EnOi9myeHD0" target="_blank">
-                    <div class="work_image"><img src="images/thums/china-wulingyuan.jpg" alt="映像作品１">Youtubeリンク</div></a>
+                <div class="work_div">
+                    <div class="work_image">
+                        <a href="https://youtu.be/EnOi9myeHD0" target="_blank"><img src="images/thums/china-wulingyuan.jpg" alt="映像作品１">Youtubeリンク</a>
+                    </div>
                     <table class="work_note">
                         <tr><th>作品の目的</th><td>中国旅行紹介</td></tr>
                         <tr><th>編集ソフト</th><td>Sony VEGAS Movie Studio</td></tr>
@@ -239,8 +287,10 @@
                 </div>
             </li>
             <li>
-                <div class="work_div"><a href="https://youtu.be/ynxxblrok4c" target="_blank">
-                    <div class="work_image"><img src="images/thums/nz14days-i.jpg" alt="映像作品２">Youtubeリンク</div></a>
+                <div class="work_div">
+                    <div class="work_image">
+                        <a href="https://youtu.be/ynxxblrok4c" target="_blank"><img src="images/thums/nz14days-i.jpg" alt="映像作品２">Youtubeリンク</a>
+                    </div>
                     <table class="work_note">
                         <tr><th>作品の目的</th><td>ニュージーランド旅行紹介</td></tr>
                         <tr><th>編集ソフト</th><td>Sony VEGAS Movie Studio</td></tr>
@@ -249,8 +299,10 @@
                 </div>
             </li>
             <li>
-                <div class="work_div"><a href="https://www.youtube.com/shorts/cm0aSlJfLhg" target="_blank">
-                    <div class="work_image"><img src="images/thums/mm15m.jpg" alt="映像作品３">Youtubeリンク</div></a>
+                <div class="work_div">
+                    <div class="work_image">
+                        <a href="https://www.youtube.com/shorts/cm0aSlJfLhg" target="_blank"><img src="images/thums/mm15m.jpg" alt="映像作品３">Youtubeリンク</a>
+                    </div>
                     <table class="work_note">
                         <tr><th>作品の目的</th><td>職業訓練授業課題</td></tr>
                         <tr><th>編集ソフト</th><td>Insta360製品iPhoneアプリ<br>PowerDirector(iPhone用)</td></tr>
@@ -259,8 +311,10 @@
                 </div>
             </li>
             <li>
-                <div class="work_div"><a href="https://youtu.be/Ao4TLxuwQ6g" target="_blank">
-                    <div class="work_image"><img src="images/thums/meguro50min.webp" alt="映像作品４">Youtubeリンク</div></a>
+                <div class="work_div">
+                    <div class="work_image">
+                        <a href="https://youtu.be/Ao4TLxuwQ6g" target="_blank"><img src="images/thums/meguro50min.webp" alt="映像作品４">Youtubeリンク</a>
+                    </div>
                     <table class="work_note">
                         <tr><th>作品の目的</th><td>職業訓練授業課題</td></tr>
                         <tr><th>編集ソフト</th><td>PowerDirector(iPhone用)</td></tr>
@@ -269,8 +323,9 @@
                 </div>
             </li>
             <li>
-                <div class="work_div"><a href="https://youtu.be/fxklP9dzjlE" target="_blank">
-                    <div class="work_image"><img src="images/thums/ooike12month.webp" alt="映像作品４">Youtubeリンク</div></a>
+                <div class="work_div">
+                    <div class="work_image">
+                        <a href="https://youtu.be/fxklP9dzjlE" target="_blank"><img src="images/thums/ooike12month.webp" alt="映像作品４">Youtubeリンク</a></div>
                     <table class="work_note">
                         <tr><th>作品の目的</th><td>自然観察（プライベート）</td></tr>
                         <tr><th>編集ソフト</th><td>Sony VEGAS Movie Studio</td></tr>
@@ -279,8 +334,9 @@
                 </div>
             </li>
             <li>
-                <div class="work_div"><a href="https://www.youtube.com/shorts/xufk6ujsD80" target="_blank">
-                    <div class="work_image"><img src="images/thums/semi2short.jpg" alt="映像作品４">Youtubeリンク</div></a>
+                <div class="work_div">
+                    <div class="work_image">
+                        <a href="https://www.youtube.com/shorts/xufk6ujsD80" target="_blank"><img src="images/thums/semi2short.jpg" alt="映像作品４">Youtubeリンク</a></div>
                     <table class="work_note">
                         <tr><th>作品の目的</th><td>自然観察（プライベート）</td></tr>
                         <tr><th>編集ソフト</th><td>PhotoStage Slideshow Producer</td></tr>
@@ -562,7 +618,7 @@
     <div class="footer_contents">
         <div class="name_address">
             <div class="mark_name">
-                <img src="images/IMG_9018_9188fortwitter_tr400x400en.png"><span class="ourname">Atsushi Kase</span>
+                <img src="images/IMG_9018_9188fortwitter_tr400x400en.png"><h2 class="ourname">Atsushi Kase</h2>
             </div>
             <table class="address">
                 <tr><th>メール</td><td><img src="images/icon-rainbow-mail_32x32.png"></td><td>kaseあっとnifty.com</a></td></tr>
