@@ -133,7 +133,10 @@ footer .copyright {
 @media screen and (max-width: 610px) {
     footer {
         /*line-height: 0.2;*/
-        font-size: 70%;
+        font-size: 60%;
+    }
+    footer .address{
+        margin: 0 0 0 3%;  /* 左右のマージンを auto にすることでセンタリングされる */
     }
     footer .address img {
         padding: 0.2rem;
