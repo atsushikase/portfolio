@@ -29,15 +29,48 @@
         })
 
         $(function () {
-            /********************* フィルター *********************/
-            let $filteringBtn = $(".filter_buttons button"),
-                $image = $(".filter_gallery li");
+            /********************* フィルター（デザイン作品用） *********************/
+            let $filteringBtn = $(".filter_buttons_design button"),
+                $image = $(".filter_gallery_design li");
             // フィルタリングボタンがクリックされた時の処理
             $filteringBtn.click(function(){
                 let target = $(this).attr("value");
                 // フィルタータブボタン押下時のタブ装飾変更 
-                $(".filter_buttons button").addClass('unselected');
-                $(".filter_buttons button").removeClass('selected');
+                $(".filter_buttons_design button").addClass('unselected');
+                $(".filter_buttons_design button").removeClass('selected');
+                $(this).addClass('selected');
+                // 各画像に対する処理
+                $image.each(function(){
+                    // 初期値として全てを非表示にする
+                    $(this).animate({
+                        "opacity": 0
+                    }, 200, function(){
+                        $(this).hide();
+                        /* 
+                        指定の画像要素にクリックされたボタンのvalueのクラスが入っていれば表示
+                        value属性がallの場合も表示する
+                        */
+                        if($(this).hasClass(target) || target == "all") {
+                            $(this).show();
+                            $(this).animate({
+                                "opacity": 1
+                            }, 200);
+                        }
+                    });
+                });
+            });
+        })
+
+        $(function () { /* デザインと写真で function から分けないとエラーになる。後で統合したい */
+            /********************* フィルター（写真作品用） *********************/
+            let $filteringBtn = $(".filter_buttons_photo button"),
+                $image = $(".filter_gallery_photo li");
+            // フィルタリングボタンがクリックされた時の処理
+            $filteringBtn.click(function(){
+                let target = $(this).attr("value");
+                // フィルタータブボタン押下時のタブ装飾変更 
+                $(".filter_buttons_photo button").addClass('unselected');
+                $(".filter_buttons_photo button").removeClass('selected');
                 $(this).addClass('selected');
                 // 各画像に対する処理
                 $image.each(function(){
@@ -87,47 +120,49 @@
     </div-->
     <section class="category category_odd category_design" id="design">
         <h2 class="category_title">デザイン作品</h2>
-        <div class="filter_buttons">
-            <button class="design_botton1 selected" value="all">ALL</button>
-            <button class="design_botton2 unselected" value="filter_web">Webサイト</button>
-            <button class="design_botton3 unselected" value="filter_ps">Photoshop作品</button>
-            <button class="design_botton4 unselected" value="filter_ai">Illustrator作品</button>
+        <div class="filter_buttons filter_buttons_design">
+            <button class="design_botton_design1 selected" value="all">ALL</button>
+            <button class="design_botton_design2 unselected" value="filter_web">Webサイト</button>
+            <button class="design_botton_design3 unselected" value="filter_ps">Photoshop作品</button>
+            <button class="design_botton_design4 unselected" value="filter_ai">Illustrator作品</button>
         </div>
-        <ul class="filter_gallery">
+        <ul class="filter_gallery filter_gallery_design">
             <li class="filter_web">
                 <div class="work_div">
                     <span class="work_type">Webサイト(html/css作品)<span class="work_year">2025年</span></span>
+                    <h4 class="work_title">ポートフォリオサイト（本サイト）</h4>
                     <div class="work_image">
                         <a href="https://atsushikase.github.io/portfolio/" target="_blank">
-                        <img src="images/thums/webpage_myportfolio_x400.png" alt="ポートフォリオ（本サイト）">公開サイト(github)</a>
+                        <img src="images/thums/webpage_myportfolio_x400.png" alt="ポートフォリオ（本サイト）">公開サイト(github)へのリンク</a>
                     </div>
                     <!--table class="work_note">
                         <tr><th>作品タイプ</th><td>Webサイト(html/css作品)</td></tr>
                         <tr><th>作品の目的</th><td>ポートフォリオ（本サイト）</td></tr>
                         <tr><th>作成時期</th><td>2025/3</td></tr>
                     </table-->
-                    <span class="work_comment"><h4 class="work_title">ポートフォリオサイト（本サイト）</h4>全体像を短時間に把握し、詳細確認したい項目に素早くアクセスできることを重視</span>
+                    <span class="work_comment">全体像を短時間に把握し、詳細確認したい項目に素早くアクセスできることを重視</span>
                 </div>
             </li>
             <li class="filter_web">
                 <div class="work_div">
                     <span class="work_type">Webサイト(html/css作品)<span class="work_year">2025年</span></span>
-                    
+                    <h4 class="work_title">架空温泉旅館集客サイト（練習用）</h4>
                     <div class="work_image">
                         <a href="https://atsushikase.github.io/web-sample-onsen/" target="_blank">
-                        <img src="images/thums/webpage_onsen_x400.png" alt="Webサイト">公開サイト(github)</a>
+                        <img src="images/thums/webpage_onsen_x400.png" alt="Webサイト">公開サイト(github)へのリンク</a>
                     </div>
                     <!--table class="work_note">
                         <tr><th>作品タイプ</th><td>Webサイト(html/css作品)</td></tr>
                         <tr><th>作品の目的</th><td>温泉旅館集客（練習用）</td></tr>
                         <tr><th>作成時期</th><td>2025/3</td></tr>
                     </table-->
-                    <span class="work_comment"><h4 class="work_title">架空温泉旅館集客サイト（練習用）</h4>高年齢夫婦の旅行客をターゲットとし、見やすくわかりやすいデザインとした</span>
+                    <span class="work_comment">高年齢夫婦の旅行客をターゲットとし、<br>見やすくわかりやすいデザインとした</span>
                 </div>
             </li>
             <li class="filter_ps">
                 <div class="work_div">
                     <span class="work_type">Photoshop作品<span class="work_year">2025年</span></span>
+                    <h4 class="work_title">奥多摩観光ポスター（練習用）</h4>
                     <div class="work_image">
                         <a href="#modal-01" class="modal-button"><img src="images/thums/poster_okutamax400.jpg" alt="ポスター">拡大表示</a>
                     </div>
@@ -136,7 +171,7 @@
                         <tr><th>作品の目的</th><td>観光地の宣伝（練習用）</td></tr>
                         <tr><th>作成時期</th><td>2025/1</td></tr>
                     </table-->
-                    <span class="work_comment"><h4 class="work_title">奥多摩観光ポスター（練習用）</h4>職業訓練所提供の写真素材のみを利用し、指定のキャッチコピーに合うようデザイン</span>
+                    <span class="work_comment">職業訓練所提供の写真素材のみを利用し、指定のキャッチコピーに合うようデザイン</span>
                     <div class="modal-wrapper" id="modal-01">
                         <a href="#!" class="modal-overlay"></a>
                         <div class="modal-window">
@@ -152,6 +187,7 @@
             <li class="filter_ai">
                 <div class="work_div">
                     <span class="work_type">Illustrator作品<span class="work_year">2024年</span></span>
+                    <h4 class="work_title">公園のマスコットキャラクター（練習用）</h4>
                     <div class="work_image">
                         <a href="#modal-02" class="modal-button"><img src="images/thums/kawakun_eda400x331.png" alt="キャラクター">拡大表示</a>
                     </div>
@@ -160,7 +196,7 @@
                         <tr><th>作品の目的</th><td>公園のマスコット（練習用）</td></tr>
                         <tr><th>作成時期</th><td>2024/12</td></tr>
                     </table-->
-                    <span class="work_comment"><h4 class="work_title">公園のマスコットキャラクター（練習用）</h4>自ら撮影した写真を下絵にし、美しさと愛らしさを残すよう、ペンツールでデザイン</span>
+                    <span class="work_comment">自ら撮影した写真を下絵にし、美しさと愛らしさを残すよう、ペンツールでデザイン</span>
                     <div class="modal-wrapper" id="modal-02"><a href="#!" class="modal-overlay"></a>
                         <div class="modal-window"><a href="#!"><img src="images/kawakun_eda1457x1080.png"></a></div>
                     </div>            
@@ -169,6 +205,7 @@
             <li class="filter_ps">
                 <div class="work_div">
                     <span class="work_type">Photoshop作品<span class="work_year">2024年</span></span>
+                    <h4 class="work_title">ツアー参加者募集Webバナー（練習用）</h4>
                     <div class="work_image">
                         <a href="#modal-03" class="modal-button"><img src="images/thums/webbanner_nz_x400.jpg" alt="Webバナー">拡大表示</a>
                     </div>
@@ -177,7 +214,7 @@
                         <tr><th>作品の目的</th><td>ツアー参加者募集（練習用）</td></tr>
                         <tr><th>作成時期</th><td>2024/12</td></tr>
                     </table-->
-                    <span class="work_comment"><h4 class="work_title">ツアー参加者募集Webバナー（練習用）</h4>明るく楽しい、自然あふれる雰囲気を出した。（写真は自ら撮影したもの）</span>
+                    <span class="work_comment">明るく楽しい、自然あふれる雰囲気を<br>出した。（写真は自ら撮影したもの）</span>
                     <div class="modal-wrapper" id="modal-03"><a href="#!" class="modal-overlay"></a>
                         <div class="modal-window"><a href="#!"><img src="images/webbanner_nz_300x600.jpg"></a></div>
                     </div>            
@@ -186,6 +223,7 @@
             <li class="filter_ps">
                 <div class="work_div">
                     <span class="work_type">Photoshop作品<span class="work_year">2024年</span></span>
+                    <h4 class="work_title">レジャー施設宣伝Webバナー（練習用）</h4>
                     <div class="work_image">
                         <a href="#modal-04" class="modal-button"><img src="images/thums/webbanner_horrorx400.jpg" alt="Webバナー">拡大表示</a>
                     </div>
@@ -194,7 +232,7 @@
                         <tr><th>作品の目的</th><td>レジャー施設宣伝（練習用）</td></tr>
                         <tr><th>作成時期</th><td>2024/12</td></tr>
                     </table-->
-                    <span class="work_comment"><h4 class="work_title">レジャー施設宣伝Webバナー（練習用）</h4>恐い雰囲気を強調するデザインとした</span>
+                    <span class="work_comment">恐い雰囲気を強調するデザインとした</span>
                     <div class="modal-wrapper" id="modal-04"><a href="#!" class="modal-overlay"></a>
                         <div class="modal-window"><a href="#!"><img src="images/webbanner_horror300x250.jpg"></a></div>
                     </div>            
@@ -203,6 +241,7 @@
             <li class="filter_ai">
                 <div class="work_div">
                     <span class="work_type">Illustrator作品<span class="work_year">2024年</span></span>
+                    <h4 class="work_title">旅行会社用の名刺（練習用）</h4>
                     <div class="work_image">
                         <a href="#modal-05" class="modal-button"><img src="images/thums/card_name_aozorax400.jpg" alt="名刺">拡大表示</a>
                     </div>
@@ -211,7 +250,7 @@
                         <tr><th>作品の目的</th><td>旅行会社社員用（練習用）</td></tr>
                         <tr><th>作成時期</th><td>2024/12</td></tr>
                     </table-->
-                    <span class="work_comment"><h4 class="work_title">旅行会社用の名刺（練習用）</h4>空と海をイメージして、爽やかで親しみやすい印象となるようデザインとした</span>
+                    <span class="work_comment">空と海をイメージして、爽やかで親しみ<br>やすい印象となるようデザインとした</span>
                     <div class="modal-wrapper" id="modal-05"><a href="#!" class="modal-overlay"></a>
                         <div class="modal-window"><a href="#!"><img src="images/card_name_aozora.png"></a></div>
                     </div>            
@@ -220,6 +259,7 @@
             <li class="filter_ai">
                 <div class="work_div">
                     <span class="work_type">Illustrator作品<span class="work_year">2024年</span></span>
+                    <h4 class="work_title">自分用の名刺（練習用）</h4>
                     <div class="work_image">
                         <a href="#modal-06" class="modal-button"><img src="images/thums/card_name_kawakunx400.jpg" alt="名刺">拡大表示</a>
                     </div>
@@ -228,7 +268,7 @@
                         <tr><th>作品の目的</th><td>自分用（練習用）</td></tr>
                         <tr><th>作成時期</th><td>2024/12</td></tr>
                     </table-->
-                    <span class="work_comment"><h4 class="work_title">自分用の名刺（練習用）</h4>自ら作成したカワセミのキャラクターの色彩に合うようデザインした</span>
+                    <span class="work_comment">自ら作成したカワセミのキャラクター<br>の色彩に合うようデザインした</span>
                     <div class="modal-wrapper" id="modal-06"><a href="#!" class="modal-overlay"></a>
                         <div class="modal-window"><a href="#!"><img src="images/card_name_kawakun-753x768.jpg"></a></div>
                     </div>            
@@ -237,6 +277,7 @@
             <li class="filter_ai">
                 <div class="work_div">
                     <span class="work_type">Illustrator作品<span class="work_year">2024年</span></span>
+                    <h4 class="work_title">蛇で表現した数字（プライベート用）</h4>
                     <div class="work_image">
                         <a href="#modal-07" class="modal-button"><img src="images/thums/font2025x400.jpg" alt="キャラクター">拡大表示</a>
                     </div>
@@ -245,7 +286,7 @@
                         <tr><th>作品の目的</th><td>年賀状利用（プライベート）</td></tr>
                         <tr><th>作成時期</th><td>2024/12</td></tr>
                     </table-->
-                    <span class="work_comment"><h4 class="work_title">蛇で表現した数字（プライベート用）</h4>2025年の年賀状で利用するため、蛇を素材としつつも面白味のある表現とした</span>
+                    <span class="work_comment">2025年の年賀状で利用するため、蛇を<br>素材としつつも面白味のある表現とした</span>
                     <div class="modal-wrapper" id="modal-07"><a href="#!" class="modal-overlay"></a>
                         <div class="modal-window"><a href="#!"><img src="images/font2025-1995x1335.png"></a></div>
                     </div>            
@@ -254,6 +295,7 @@
             <li class="filter_ai">
                 <div class="work_div">
                     <span class="work_type">Illustrator作品<span class="work_year">2025年</span></span>
+                    <h4 class="work_title">ポートフォリオパンフレット</h4>
                     <div class="work_image">
                         <a href="#modal-08" class="modal-button"><img src="images/thums/portfoliox400.jpg" alt="パンフレット">拡大表示</a>
                     </div>
@@ -262,7 +304,7 @@
                         <tr><th>作品の目的</th><td>自分のポートフォリオ</td></tr>
                         <tr><th>作成時期</th><td>2025/2</td></tr>
                     </table-->
-                    <span class="work_comment"><h4 class="work_title">ポートフォリオパンフレット</h4>自分のポートフォリオ。広い分野の技術があること、作品の多様性をアピール</span>
+                    <span class="work_comment">自分のポートフォリオ。広い分野の技術<br>があること、作品の多様性をアピール</span>
                     <div class="modal-wrapper" id="modal-08"><a href="#!" class="modal-overlay"></a>
                         <div class="modal-window"><a href="#!"><img src="images/portfolio-915x768.jpg"></a></div>
                     </div>            
@@ -276,72 +318,90 @@
         <ul>
             <li>
                 <div class="work_div">
-                    <div class="work_image">
-                        <a href="https://youtu.be/EnOi9myeHD0" target="_blank"><img src="images/thums/china-wulingyuan.jpg" alt="映像作品１">Youtubeリンク</a>
-                    </div>
-                    <table class="work_note">
-                        <tr><th>作品の目的</th><td>中国旅行紹介</td></tr>
-                        <tr><th>編集ソフト</th><td>Sony VEGAS Movie Studio</td></tr>
-                        <tr><th>作成時期</th><td>2020/5</td></tr>
-                    </table>
-                </div>
-            </li>
-            <li>
-                <div class="work_div">
+                    <span class="work_type">旅行動画（プライベート）<span class="work_year">2017年</span></span>
+                    <h4 class="work_title">New Zealand Trip in 14 Days Digest</h4>
                     <div class="work_image">
                         <a href="https://youtu.be/ynxxblrok4c" target="_blank"><img src="images/thums/nz14days-i.jpg" alt="映像作品２">Youtubeリンク</a>
                     </div>
-                    <table class="work_note">
+                    <span class="work_comment">Youtubeで46万回再生の動画の音楽入替版<br>編集ソフト: Sony VEGAS Movie Studio</span>
+                    <!--table class="work_note">
                         <tr><th>作品の目的</th><td>ニュージーランド旅行紹介</td></tr>
                         <tr><th>編集ソフト</th><td>Sony VEGAS Movie Studio</td></tr>
                         <tr><th>作成時期</th><td>2017/5</td></tr>
-                    </table>
+                    </table-->
                 </div>
             </li>
             <li>
                 <div class="work_div">
+                    <span class="work_type">旅行動画（プライベート）<span class="work_year">2020年</span></span>
+                    <h4 class="work_title">China Tour 8 Days 中国 武陵源・鳳凰古城</h4>
+                    <div class="work_image">
+                        <a href="https://youtu.be/EnOi9myeHD0" target="_blank"><img src="images/thums/china-wulingyuan.jpg" alt="映像作品１">Youtubeリンク</a>
+                    </div>
+                    <span class="work_comment">映像シーンの切替と音楽リズムを合わせた<br>編集ソフト: Sony VEGAS Movie Studio</span>
+                    <!--table class="work_note">
+                        <tr><th>作品の目的</th><td>中国旅行紹介</td></tr>
+                        <tr><th>編集ソフト</th><td>Sony VEGAS Movie Studio</td></tr>
+                        <tr><th>作成時期</th><td>2020/5</td></tr>
+                    </table-->
+                </div>
+            </li>
+            <li>
+                <div class="work_div">
+                    <span class="work_type">職業訓練授業課題<span class="work_year">2025年</span></span>
+                    <h4 class="work_title">MM15ビル 2025年1月11日 午前9時</h4>
                     <div class="work_image">
                         <a href="https://www.youtube.com/shorts/cm0aSlJfLhg" target="_blank"><img src="images/thums/mm15m.jpg" alt="映像作品３">Youtubeリンク</a>
                     </div>
-                    <table class="work_note">
+                    <span class="work_comment">360度カメラでの１カット映像。<br>iPhoneアプリにて2時間半で編集。</span>
+                    <!--table class="work_note">
                         <tr><th>作品の目的</th><td>職業訓練授業課題</td></tr>
                         <tr><th>編集ソフト</th><td>Insta360製品iPhoneアプリ<br>PowerDirector(iPhone用)</td></tr>
                         <tr><th>作成時期</th><td>2025/1</td></tr>
-                    </table>
+                    </table!-->
                 </div>
             </li>
             <li>
                 <div class="work_div">
+                    <span class="work_type">職業訓練授業課題<span class="work_year">2025年</span></span>
+                    <h4 class="work_title">目黒50分の昼飯</h4>
                     <div class="work_image">
                         <a href="https://youtu.be/Ao4TLxuwQ6g" target="_blank"><img src="images/thums/meguro50min.webp" alt="映像作品４">Youtubeリンク</a>
                     </div>
-                    <table class="work_note">
+                    <span class="work_comment">撮影時間５分。当日初めて利用するiPhoneアプリで１時間半で編集</span>
+                    <!--table class="work_note">
                         <tr><th>作品の目的</th><td>職業訓練授業課題</td></tr>
                         <tr><th>編集ソフト</th><td>PowerDirector(iPhone用)</td></tr>
                         <tr><th>作成時期</th><td>2025/1</td></tr>
-                    </table>
+                    </table!-->
                 </div>
             </li>
             <li>
                 <div class="work_div">
+                    <span class="work_type">自然観察動画（プライベート）<span class="work_year">2023年</span></span>
+                    <h4 class="work_title">横浜市こども自然公園の12ヶ月</h4>
                     <div class="work_image">
                         <a href="https://youtu.be/fxklP9dzjlE" target="_blank"><img src="images/thums/ooike12month.webp" alt="映像作品４">Youtubeリンク</a></div>
-                    <table class="work_note">
+                    <span class="work_comment">同じ経路で撮影した12ヶ月の映像を合成<br>編集ソフト: Sony VEGAS Movie Studio</span>
+                    <!--table class="work_note">
                         <tr><th>作品の目的</th><td>自然観察（プライベート）</td></tr>
                         <tr><th>編集ソフト</th><td>Sony VEGAS Movie Studio</td></tr>
                         <tr><th>作成時期</th><td>2025/1</td></tr>
-                    </table>
+                    </table!-->
                 </div>
             </li>
             <li>
                 <div class="work_div">
+                    <span class="work_type">自然観察動画（プライベート）<span class="work_year">2025年</span></span>
+                    <h4 class="work_title">蝉の羽化（タイムラプス動画）</h4>
                     <div class="work_image">
                         <a href="https://www.youtube.com/shorts/xufk6ujsD80" target="_blank"><img src="images/thums/semi2short.jpg" alt="映像作品４">Youtubeリンク</a></div>
-                    <table class="work_note">
+                    <span class="work_comment">4時間超の蝉の羽化を1分で見れるよう1,000枚程度の写真を動画化</span>
+                    <!--table class="work_note">
                         <tr><th>作品の目的</th><td>自然観察（プライベート）</td></tr>
                         <tr><th>編集ソフト</th><td>PhotoStage Slideshow Producer</td></tr>
                         <tr><th>作成時期</th><td>2025/1</td></tr>
-                    </table>
+                    </table!-->
                 </div>
             </li>
         </ul>
@@ -349,163 +409,227 @@
     </section>
     <section class="category category_odd category_photo" id="photo">
         <h2 class="category_title">写真作品<span class="h2migi">写真クリックで拡大表示</span></h2>
-        <ul>
-            <li>
+        <div class="filter_buttons filter_buttons_photo">
+            <button class="design_botton_photo1 selected" value="all">ALL</button>
+            <button class="design_botton_photo2 unselected" value="filter_l">Landscape</button>
+            <button class="design_botton_photo3 unselected" value="filter_p">Plant</button>
+            <button class="design_botton_photo4 unselected" value="filter_h">Human</button>
+            <button class="design_botton_photo5 unselected" value="filter_n">Night</button>
+            <button class="design_botton_photo6 unselected" value="filter_s">Sunset</button>
+            <button class="design_botton_photo7 unselected" value="filter_o">Object</button>
+        </div>
+        <ul class="filter_gallery filter_gallery_photo">
+            <li class="filter_p">
                 <div class="work_div">
                     <div class="work_image">
-                        <a href="images/DSC_0276_rs-05_ton_tr16x9.jpg" data-lightbox="photo01" data-title="Whistler, Canada"><img src="images/DSC_0276_rs-05_ton_tr16x9.jpg" alt="Whistler, Canada"></a>
+                        <a href="p/p01.jpg" data-lightbox="a" data-title="Plant">
+                            <img src="p/t/p01.jpg" alt="Plant">
+                        </a>
                     </div>
-                    <!--table class="work_note">
-                        <tr><th>作品の目的</th><td>スキー場の風景（プライベート）</td></tr>
-                        <tr><th>使用カメラ</th><td>Nikon 1 J1</td></tr>
-                        <tr><th>作成時期</th><td>2012/1</td></tr>
-                    </table-->
                 </div>
             </li>
-            <li>
-                <div class="work_div">
-                    <div class="work_image">
-                        <a href="images/human_018x1280.jpg" data-lightbox="photo01" data-title="Playing Tennis"><img src="images/human_018x1280.jpg" alt="Playing Tennis"></a>
-                    </div>
-                    <!--table class="work_note">
-                        <tr><th>作品の目的</th><td>テニスの１シーン（プライベート）</td></tr>
-                        <tr><th>使用カメラ</th><td>Nikon D300</td></tr>
-                        <tr><th>作成時期</th><td>2015/5</td></tr>
-                    </table-->
-                </div>
-            </li>
-            <li>
-                <div class="work_div">
-                    <div class="work_image">
-                        <a href="images/autumnleaves_001x1280.jpg" data-lightbox="photo01" data-title="Autumn Leaves"><img src="images/autumnleaves_001x1280.jpg" alt="Autumn Leaves"></a>
-                    </div>
-                    <!--table class="work_note">
-                        <tr><th>作品の目的</th><td>職業訓練授業課題</td></tr>
-                        <tr><th>使用カメラ</th><td>Canon EOS R7</td></tr>
-                        <tr><th>作成時期</th><td>2025/1</td></tr>
-                    </table-->
-                </div>
-            </li>
-            <li>
-                <div class="work_div">
-                    <div class="work_image">
-                        <a href="images/autumnleaves_005x1280.jpg" data-lightbox="photo01" data-title="Autumn Leaves"><img src="images/autumnleaves_005x1280.jpg" alt="Autumn Leaves"></a>
-                    </div>
-                    <!--table class="work_note">
-                        <tr><th>作品の目的</th><td>職業訓練授業課題</td></tr>
-                        <tr><th>使用カメラ</th><td>Canon EOS R7</td></tr>
-                        <tr><th>作成時期</th><td>2025/1</td></tr>
-                    </table-->
-                </div>
-            </li>
-            <li>
-                <div class="work_div">
-                    <div class="work_image">
-                        <a href="images/autumnleaves_025x1280.jpg" data-lightbox="photo01" data-title="Autumn Leaves"><img src="images/autumnleaves_025x1280.jpg" alt="Autumn Leaves"></a>
-                    </div>
-                    <!--table class="work_note">
-                        <tr><th>作品の目的</th><td>職業訓練授業課題</td></tr>
-                        <tr><th>使用カメラ</th><td>Canon EOS R7</td></tr>
-                        <tr><th>作成時期</th><td>2025/1</td></tr>
-                    </table-->
-                </div>
-            </li>
-            <li>
-                <div class="work_div">
-                    <div class="work_image">
-                        <a href="images/human_020x1280.jpg" data-lightbox="photo01" data-title="Bridge and Child"><img src="images/human_020x1280.jpg" alt="Bridge and Child"></a>
-                    </div>
-                    <!--table class="work_note">
-                        <tr><th>作品の目的</th><td>職業訓練授業課題</td></tr>
-                        <tr><th>使用カメラ</th><td>Canon EOS R7</td></tr>
-                        <tr><th>作成時期</th><td>2025/1</td></tr>
-                    </table-->
-                </div>
-            </li>
-            <li>
-                <div class="work_div">
-                    <div class="work_image">
-                        <a href="images/nightsky_001x1280.jpg" data-lightbox="photo01" data-title="Milky Way"><img src="images/nightsky_001x1280.jpg" alt="Milky Way"></a>
-                    </div>
-                    <!--table class="work_note">
-                        <tr><th>作品の目的</th><td>職業訓練授業課題</td></tr>
-                        <tr><th>使用カメラ</th><td>Canon EOS R7</td></tr>
-                        <tr><th>作成時期</th><td>2025/1</td></tr>
-                    </table-->
-                </div>
-            </li>
-            <li>
-                <div class="work_div">
-                    <div class="work_image">
-                        <a href="images/nightsky_005x1280.jpg" data-lightbox="photo01" data-title="firework"><img src="images/nightsky_005x1280.jpg" alt="firework"></a>
-                    </div>
-                    <!--table class="work_note">
-                        <tr><th>作品の目的</th><td>職業訓練授業課題</td></tr>
-                        <tr><th>使用カメラ</th><td>Canon EOS R7</td></tr>
-                        <tr><th>作成時期</th><td>2025/1</td></tr>
-                    </table-->
-                </div>
-            </li>
-            <li>
-                <div class="work_div">
-                    <div class="work_image">
-                        <a href="images/nightview_014x1280.jpg" data-lightbox="photo01" data-title="Night of Yokohama"><img src="images/nightview_014x1280.jpg" alt="Night of Yokohama"></a>
-                    </div>
-                    <!--table class="work_note">
-                        <tr><th>作品の目的</th><td>職業訓練授業課題</td></tr>
-                        <tr><th>使用カメラ</th><td>Canon EOS R7</td></tr>
-                        <tr><th>作成時期</th><td>2025/1</td></tr>
-                    </table-->
-                </div>
-            </li>
-            <li>
-                <div class="work_div">
-                    <div class="work_image">
-                        <a href="images/object_009x1280.jpg" data-lightbox="photo01" data-title="Gundam in Odaiba"><img src="images/object_009x1280.jpg" alt="Gundam in Odaiba"></a>
-                    </div>
-                    <!--table class="work_note">
-                        <tr><th>作品の目的</th><td>職業訓練授業課題</td></tr>
-                        <tr><th>使用カメラ</th><td>Canon EOS R7</td></tr>
-                        <tr><th>作成時期</th><td>2025/1</td></tr>
-                    </table-->
-                </div>
-            </li>
-            <li>
-                <div class="work_div">
-                    <div class="work_image">
-                        <a href="images/sunsetsunrise_002x1280.jpg" data-lightbox="photo01" data-title="Sunset"><img src="images/sunsetsunrise_002x1280.jpg" alt="Sunset"></a>
-                    </div>
-                    <!--table class="work_note">
-                        <tr><th>作品の目的</th><td>職業訓練授業課題</td></tr>
-                        <tr><th>使用カメラ</th><td>Canon EOS R7</td></tr>
-                        <tr><th>作成時期</th><td>2025/1</td></tr>
-                    </table-->
-                </div>
-            </li>
-            <li>
-                <div class="work_div">
-                    <div class="work_image">
-                        <a href="images/nightsky_002x1280.jpg" data-lightbox="photo01" data-title="Orion and Comets"><img src="images/nightsky_002x1280.jpg" alt="Orion and Comets"></a>
-                    </div>
-                    <!--table class="work_note">
-                        <tr><th>作品の目的</th><td>●●彗星とオリオン座（プライベート）</td></tr>
-                        <tr><th>使用カメラ</th><td>Sony α6300</td></tr>
-                        <tr><th>作成時期</th><td>20●●/●●</td></tr>
-                    </table-->
-                </div>
-            </li>
-            <li>
-                <div class="work_div">
-                    <div class="work_image">
-                        <a href="images/object_001x1280.jpg" data-lightbox="photo01" data-title="Still life works taken in class"><img src="images/object_001x1280.jpg" alt="Still life works taken in class"></a>
-                    </div>
-                    <!--table class="work_note">
-                        <tr><th>作品の目的</th><td>職業訓練授業課題</td></tr>
-                        <tr><th>使用カメラ</th><td>Canon EOS R7</td></tr>
-                        <tr><th>作成時期</th><td>2025/1</td></tr>
-                    </table-->
-                </div>
-            </li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p02.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p02.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p03.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p03.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p04.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p04.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p05.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p05.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p06.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p06.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p07.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p07.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p08.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p08.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p09.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p09.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p10.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p10.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p11.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p11.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p12.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p12.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p13.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p13.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p14.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p14.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p15.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p15.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p16.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p16.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p17.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p17.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p18.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p18.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p19.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p19.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p20.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p20.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p21.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p21.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p22.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p22.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p23.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p23.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p24.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p24.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p25.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p25.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p26.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p26.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p27.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p27.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p28.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p28.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p29.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p29.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p30.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p30.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p31.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p31.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p32.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p32.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p33.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p33.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p34.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p34.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p35.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p35.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p36.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p36.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p37.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p37.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p38.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p38.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p39.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p39.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p40.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p40.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p41.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p41.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p42.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p42.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p43.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p43.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p44.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p44.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p45.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p45.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p46.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p46.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p47.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p47.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p48.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p48.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p49.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p49.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p50.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p50.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_p"><div class="work_div"><div class="work_image"><a href="p/p51.jpg" data-lightbox="a" data-title="Plant"><img src="p/t/p51.jpg" alt="Plant"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h01.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h01.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h02.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h02.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h03.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h03.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h04.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h04.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h05.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h05.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h06.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h06.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h07.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h07.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h08.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h08.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h09.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h09.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h10.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h10.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h11.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h11.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h12.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h12.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h13.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h13.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h14.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h14.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h15.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h15.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h16.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h16.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h17.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h17.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h18.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h18.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h19.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h19.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h20.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h20.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h21.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h21.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h22.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h22.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h23.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h23.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h24.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h24.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h25.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h25.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h26.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h26.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h27.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h27.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_h"><div class="work_div"><div class="work_image"><a href="p/h28.jpg" data-lightbox="h" data-title="Human"><img src="p/t/h28.jpg" alt="Human"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l01.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l01.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l02.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l02.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l03.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l03.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l04.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l04.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l05.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l05.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l06.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l06.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l07.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l07.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l08.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l08.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l09.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l09.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l10.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l10.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l11.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l11.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l12.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l12.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l13.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l13.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l14.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l14.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l15.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l15.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l16.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l16.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l17.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l17.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l18.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l18.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l19.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l19.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l20.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l20.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l21.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l21.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l22.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l22.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l23.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l23.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l24.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l24.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l25.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l25.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l26.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l26.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l27.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l27.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l28.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l28.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l29.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l29.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l30.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l30.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l31.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l31.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l32.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l32.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l33.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l33.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l34.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l34.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l35.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l35.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l36.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l36.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l37.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l37.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l38.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l38.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l39.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l39.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l40.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l40.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l41.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l41.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l42.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l42.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l43.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l43.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l44.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l44.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l45.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l45.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l46.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l46.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l47.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l47.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l48.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l48.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l49.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l49.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l50.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l50.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l51.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l51.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l52.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l52.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l53.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l53.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l54.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l54.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l55.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l55.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l56.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l56.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l57.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l57.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_l"><div class="work_div"><div class="work_image"><a href="p/l58.jpg" data-lightbox="l" data-title="Landscape"><img src="p/t/l58.jpg" alt="Landscape"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n01.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n01.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n02.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n02.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n03.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n03.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n04.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n04.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n05.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n05.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n06.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n06.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n07.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n07.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n08.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n08.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n09.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n09.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n10.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n10.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n11.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n11.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n12.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n12.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n13.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n13.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n14.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n14.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n15.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n15.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n16.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n16.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n17.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n17.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n18.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n18.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n19.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n19.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n20.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n20.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n21.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n21.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n22.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n22.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n23.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n23.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n24.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n24.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n25.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n25.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n26.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n26.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_n"><div class="work_div"><div class="work_image"><a href="p/n27.jpg" data-lightbox="n" data-title="Night"><img src="p/t/n27.jpg" alt="Night"></a></div></div></li>
+            <li class="filter_o"><div class="work_div"><div class="work_image"><a href="p/o01.jpg" data-lightbox="o" data-title="Object"><img src="p/t/o01.jpg" alt="Object"></a></div></div></li>
+            <li class="filter_o"><div class="work_div"><div class="work_image"><a href="p/o02.jpg" data-lightbox="o" data-title="Object"><img src="p/t/o02.jpg" alt="Object"></a></div></div></li>
+            <li class="filter_o"><div class="work_div"><div class="work_image"><a href="p/o03.jpg" data-lightbox="o" data-title="Object"><img src="p/t/o03.jpg" alt="Object"></a></div></div></li>
+            <li class="filter_o"><div class="work_div"><div class="work_image"><a href="p/o04.jpg" data-lightbox="o" data-title="Object"><img src="p/t/o04.jpg" alt="Object"></a></div></div></li>
+            <li class="filter_o"><div class="work_div"><div class="work_image"><a href="p/o05.jpg" data-lightbox="o" data-title="Object"><img src="p/t/o05.jpg" alt="Object"></a></div></div></li>
+            <li class="filter_o"><div class="work_div"><div class="work_image"><a href="p/o06.jpg" data-lightbox="o" data-title="Object"><img src="p/t/o06.jpg" alt="Object"></a></div></div></li>
+            <li class="filter_o"><div class="work_div"><div class="work_image"><a href="p/o07.jpg" data-lightbox="o" data-title="Object"><img src="p/t/o07.jpg" alt="Object"></a></div></div></li>
+            <li class="filter_o"><div class="work_div"><div class="work_image"><a href="p/o08.jpg" data-lightbox="o" data-title="Object"><img src="p/t/o08.jpg" alt="Object"></a></div></div></li>
+            <li class="filter_o"><div class="work_div"><div class="work_image"><a href="p/o09.jpg" data-lightbox="o" data-title="Object"><img src="p/t/o09.jpg" alt="Object"></a></div></div></li>
+            <li class="filter_o"><div class="work_div"><div class="work_image"><a href="p/o10.jpg" data-lightbox="o" data-title="Object"><img src="p/t/o10.jpg" alt="Object"></a></div></div></li>
+            <li class="filter_o"><div class="work_div"><div class="work_image"><a href="p/o11.jpg" data-lightbox="o" data-title="Object"><img src="p/t/o11.jpg" alt="Object"></a></div></div></li>
+            <li class="filter_o"><div class="work_div"><div class="work_image"><a href="p/o12.jpg" data-lightbox="o" data-title="Object"><img src="p/t/o12.jpg" alt="Object"></a></div></div></li>
+            <li class="filter_o"><div class="work_div"><div class="work_image"><a href="p/o13.jpg" data-lightbox="o" data-title="Object"><img src="p/t/o13.jpg" alt="Object"></a></div></div></li>
+            <li class="filter_o"><div class="work_div"><div class="work_image"><a href="p/o14.jpg" data-lightbox="o" data-title="Object"><img src="p/t/o14.jpg" alt="Object"></a></div></div></li>
+            <li class="filter_o"><div class="work_div"><div class="work_image"><a href="p/o15.jpg" data-lightbox="o" data-title="Object"><img src="p/t/o15.jpg" alt="Object"></a></div></div></li>
+            <li class="filter_o"><div class="work_div"><div class="work_image"><a href="p/o16.jpg" data-lightbox="o" data-title="Object"><img src="p/t/o16.jpg" alt="Object"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s01.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s01.jpg" alt="Sunset"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s02.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s02.jpg" alt="Sunset"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s03.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s03.jpg" alt="Sunset"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s04.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s04.jpg" alt="Sunset"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s05.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s05.jpg" alt="Sunset"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s06.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s06.jpg" alt="Sunset"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s07.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s07.jpg" alt="Sunset"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s08.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s08.jpg" alt="Sunset"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s09.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s09.jpg" alt="Sunset"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s10.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s10.jpg" alt="Sunset"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s11.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s11.jpg" alt="Sunset"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s12.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s12.jpg" alt="Sunset"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s13.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s13.jpg" alt="Sunset"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s14.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s14.jpg" alt="Sunset"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s15.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s15.jpg" alt="Sunset"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s16.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s16.jpg" alt="Sunset"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s17.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s17.jpg" alt="Sunset"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s18.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s18.jpg" alt="Sunset"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s19.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s19.jpg" alt="Sunset"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s20.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s20.jpg" alt="Sunset"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s21.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s21.jpg" alt="Sunset"></a></div></div></li>
+            <li class="filter_s"><div class="work_div"><div class="work_image"><a href="p/s22.jpg" data-lightbox="s" data-title="Sunset"><img src="p/t/s22.jpg" alt="Sunset"></a></div></div></li>            
+            
         </ul>
         <!--a href="design.html" class="category_viewmore">View More</a-->
     </section>
@@ -514,98 +638,98 @@
         <ul>
             <li>
                 <ul class="trip">
-                    <li class="trip_date">2019/9</li>
+                    <li><div class="trip_date">2019/9</div></li>
+                    <li class="trip_dest"><h4 class="work_title">中国</h4></li>
+                    <li class="trip_dest_d">武陵源・鳳凰古城</li>
                     <li class="trip_image"><img src="images/thums/china-wulingyuan.jpg"></li>
-                    <li class="trip_dest">中国</li>
-                    <li class="trip_dest">武陵源・鳳凰古城</li>
                     <li class="trip_web"><a href="https://youtu.be/EnOi9myeHD0" target="_blank">旅行動画</a></li>
                     <li class="trip_web"><a href="https://twilog.togetter.com/a_kase/hashtags-%E4%B8%AD%E5%9B%BD%E6%97%85%E8%A1%8C2019?order=allasc&tweets_order=asc" target="_blank">ツイート記録</a></li>
                 </ul>
             </li>
             <li>
                 <ul class="trip">
-                    <li class="trip_date">2016/12</li>
+                    <li><div class="trip_date">2016/12</div></li>
+                    <li class="trip_dest"><h4 class="work_title">ニュージーランド</h4></li>
+                    <li class="trip_dest_d">全島周遊16日間</li>
                     <li class="trip_image"><img src="images/thums/nz14days-i.jpg"></li>
-                    <li class="trip_dest">ニュージーランド</li>
-                    <li class="trip_dest">全島周遊16日間</li>
                     <li class="trip_web"><a href="https://youtu.be/ynxxblrok4c" target="_blank">旅行動画</a></li>
                     <li class="trip_web"><a href="https://twilog.togetter.com/a_kase/hashtags-NZ%E6%97%85%E8%A1%8C?order=allasc" target="_blank">ツイート記録</a></li>
                 </ul>
             </li>
             <li>
                 <ul class="trip">
-                    <li class="trip_date">2012/1</li>
+                    <li><div class="trip_date">2012/1</div></li>
+                    <li class="trip_dest"><h4 class="work_title">カナダ</h4></li>
+                    <li class="trip_dest_d">ウィスラーSKI</li>
                     <li class="trip_image"><img src="images/DSC_0276_rs-05_ton_tr16x9.jpg"></li>
-                    <li class="trip_dest">カナダ</li>
-                    <li class="trip_dest">ウィスラーSKI</li>
                     <li class="trip_web"><a href="https://kase.hatenablog.jp/entry/20121104/1351999089" target="_blank">ブログ</a></li>
                 </ul>
             </li>
             <li>
                 <ul class="trip">
-                   <li class="trip_date">2010/3</li>
+                   <li><div class="trip_date">2010/3</div></li>
+                    <li class="trip_dest"><h4 class="work_title">オーストラリア</h4></li>
+                    <li class="trip_dest_d">タスマニア</li>
                     <li class="trip_image"><img src="images/landscape_017x1280.jpg"></li>
-                    <li class="trip_dest">オーストラリア</li>
-                    <li class="trip_dest">タスマニア</li>
                     <li class="trip_web"><a href="https://kase.hatenablog.jp/entry/20100523/1274569843" target="_blank">ブログ</a></li>
                 </ul>
             </li>
             <!--li>
                 <ul class="trip">
-                    <li class="trip_date">2001/7</li>
+                    <li><div class="trip_date">2001/7</div></li>
+                    <li class="trip_dest"><h4 class="work_title">アメリカ</h4></li>
+                    <li class="trip_dest_d">西部周遊</li>
                     <li class="trip_image"><img src="images/trip01.jpg"></li>
-                    <li class="trip_dest">アメリカ</li>
-                    <li class="trip_dest">西部周遊</li>
                 </ul>
             </li-->
             <li>
                 <ul class="trip">
-                    <li class="trip_date">1996/6</li>
+                    <li><div class="trip_date">1996/6</div></li>
+                    <li class="trip_dest"><h4 class="work_title">スイス</h4></li>
+                    <li class="trip_dest_d">周遊</li>
                     <li class="trip_image"><img src="images/rsw22y.jpg"></li>
-                    <li class="trip_dest">スイス</li>
-                    <li class="trip_dest">周遊</li>
                     <li class="trip_web"><a href="http://kase.a.la9.jp/rsw_1.htm" target="_blank">旅行記サイト</a></li>
                 </ul>
             </li>
             <li>
                 <ul class="trip">
-                    <li class="trip_date">1997/2</li>
+                    <li><div class="trip_date">1997/2</div></li>
+                    <li class="trip_dest"><h4 class="work_title">ニュージーランド</h4></li>
+                    <li class="trip_dest_d">南島周遊</li>
                     <li class="trip_image"><img src="images/rnz43x.jpg"></li>
-                    <li class="trip_dest">ニュージーランド</li>
-                    <li class="trip_dest">南島周遊</li>
                     <li class="trip_web"><a href="http://kase.a.la9.jp/rnz_1.htm" target="_blank">旅行記サイト</a></li>
                 </ul>
             </li>
             <li>
                 <ul class="trip">
-                    <li class="trip_date">1996/9</li>
+                    <li><div class="trip_date">1996/9</div></li>
+                    <li class="trip_dest"><h4 class="work_title">カナダ</h4></li>
+                    <li class="trip_dest_d">ロッキー山脈</li>
                     <li class="trip_image"><img src="images/rcan014x.jpg"></li>
-                    <li class="trip_dest">カナダ</li>
-                    <li class="trip_dest">ロッキー山脈</li>
                     <li class="trip_web"><a href="http://kase.a.la9.jp/rcan_1.htm" target="_blank">旅行記サイト</a></li>
                 </ul>
             </li>            <li>
                 <ul class="trip">
-                    <li class="trip_date">1995/3</li>
+                    <li><div class="trip_date">1995/3</div></li>
+                    <li class="trip_dest"><h4 class="work_title">日本</h4></li>
+                    <li class="trip_dest_d">八丈島・三宅島</li>
                     <li class="trip_image"><img src="images/rizukojx.jpg"></li>
-                    <li class="trip_dest">日本</li>
-                    <li class="trip_dest">八丈島・三宅島</li>
                     <li class="trip_web"><a href="http://kase.a.la9.jp/rizu.htm" target="_blank">旅行記サイト</a></li>
                 </ul>
             </li>            </li>            <li>
                 <ul class="trip">
-                    <li class="trip_date">1994/9</li>
+                    <li><div class="trip_date">1994/9</div></li>
+                    <li class="trip_dest"><h4 class="work_title">日本</h4></li>
+                    <li class="trip_dest_d">九州周遊</li>
                     <li class="trip_image"><img src="images/rkyukusx.jpg"></li>
-                    <li class="trip_dest">日本</li>
-                    <li class="trip_dest">九州周遊</li>
                     <li class="trip_web"><a href="http://kase.a.la9.jp/rkyu.htm" target="_blank">旅行記サイト</a></li>
                 </ul>
             </li>            </li>            <li>
                 <ul class="trip">
-                    <li class="trip_date">1994/5</li>
+                    <li><div class="trip_date">1994/5</div></li>
+                    <li class="trip_dest"><h4 class="work_title">北欧</h4></li>
+                    <li class="trip_dest_d">４ヶ国周遊</li>
                     <li class="trip_image"><img src="images/rhok001x.jpg"></li>
-                    <li class="trip_dest">北欧</li>
-                    <li class="trip_dest">４ヶ国周遊</li>
                     <li class="trip_web"><a href="http://kase.a.la9.jp/rhok.htm" target="_blank">旅行記サイト</a></li>
                 </ul>
             </li>
