@@ -105,13 +105,19 @@ body.lb-disable-scrolling {
   left: 0;
   float: left;
   background: url(../images/lightbox/prev.png) left 48% no-repeat;
-  opacity: 0;
+  opacity: 0; /* default:0 */
   -webkit-transition: opacity 0.6s;
   -moz-transition: opacity 0.6s;
   -o-transition: opacity 0.6s;
   transition: opacity 0.6s;
-}
 
+  animation : fuwatto 2s ease-out; /* 左右の矢印を最初は表示し、徐々に消す */
+}
+/* 左右の矢印を最初は表示し、徐々に消す */
+@keyframes fuwatto {
+	0% { transform: translateY(0em); opacity: 1.0;} /* フォントが読み込まれるまでの時間稼ぎ */
+	100% { transform: translateY(0em)} 
+}
 .lb-nav a.lb-prev:hover {
   opacity: 1;
 }
@@ -121,11 +127,12 @@ body.lb-disable-scrolling {
   right: 0;
   float: right;
   background: url(../images/lightbox/next.png) right 48% no-repeat;
-  opacity: 0;
+  opacity: 0; /* default:0 */
   -webkit-transition: opacity 0.6s;
   -moz-transition: opacity 0.6s;
   -o-transition: opacity 0.6s;
   transition: opacity 0.6s;
+  animation : fuwatto 2s ease-out; /* 左右の矢印を最初は表示し、徐々に消す */
 }
 
 .lb-nav a.lb-next:hover {

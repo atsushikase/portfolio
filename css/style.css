@@ -135,7 +135,9 @@ section img {
     /*text-align: center;*/
     /*display: inline;*/
 }
-.category_photo .category_title {
+.category_movie .category_title ,
+.category_photo .category_title ,
+.category_trip .category_title {
     padding: 0 1rem 0 1rem;  /* コメントの分だけ減らす */
 }
 .h2migi {
@@ -186,7 +188,7 @@ section img {
     display: flex; /* 要素を横並びに */
     /* flex-wrap: wrap; 要素の合計サイズが幅を超えたら折り返す。nowrap（初期値）折り返さない。wrap-reverse 逆順で折り返す */
 
-    justify-content: space-around;
+    /*justify-content: space-around;*/
     margin-block-end: 0;
     padding-inline-start: 0px;  /* ul のデフォルトは 40px になっていて左が空く */
     margin-top: 0px;
@@ -228,11 +230,11 @@ section img {
 }
 .category_photo > ul {
     flex-direction: column;
-
-    height: 22rem;
+    /*justify-content: left;*/
+    /*align-items: flex-start;*/
+    height: 23rem; /*なぜかChrome表示倍率100%だと22remで収まるが、少し倍率下げるだけで2行になってしまう。23remなら50%でも表示可能 */
     /*width: auto;*/
     /*width: 320%;   */
-    justify-content: flex-start;
     flex-wrap: wrap; /* 要素の合計サイズが幅を超えたら折り返す。nowrap（初期値）折り返さない。wrap-reverse 逆順で折り返す */
     overflow-x: none; /* auto:横スクロールバーを消す（親側で出す） */
 }
@@ -438,12 +440,13 @@ section img {
     object-fit: contain;
 }
 .trip_web a {
-    font-size: 80%;
-    color: #666;
+    font-size: 90%;
+    color: #444;
 }
 .trip_web a:hover,        /* マウスをのっけた瞬間 */
 .trip_web a:active {      /* クリック後、画面遷移するまで */
-    color: #aaa;
+    color: #000;
+    text-decoration:underline;
     /* 効かない transform: translate(0,5px); 少し下に移動 他の例：rotate(180deg)：反転;*/
 }
 /*
@@ -482,10 +485,20 @@ section img {
     }
     .filter_buttons {
         /*margin-top: 1.5rem;*/
-        margin-left: 1rem;
+        margin-left: 1rem; /*1rem;*/
+        /*margin-right: 0rem; */
+    }
+    .category_photo .filter_buttons {
+        /*margin-top: 1.5rem;*/
+        margin-left: 0.5rem; /*1rem;*/
+        margin-right: 0rem;/* */
     }
     .filter_buttons button {
         padding: 0.5rem 0.5rem;
+        font-size: 70%;
+    }
+    .category_photo .filter_buttons button {
+        padding: 0.5rem 0.4rem;
         font-size: 70%;
     }
 }
@@ -494,12 +507,14 @@ section img {
 .modal-wrapper {
     z-index: 999;
     position: fixed;
+    /*display: flex;*/
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     padding: 0;/*5px 5px;*/
     text-align: center;
+    /*background-color: #8f8;*/
   }
   
   .modal-wrapper:not(:target) {
@@ -524,7 +539,8 @@ section img {
   
   .modal-wrapper .modal-window {
     box-sizing: border-box;
-    display: inline-block;
+    display: inline-block; /*inline-block;flex;*/
+
     z-index: 20;
     position: relative;
     /*width: 70%;
@@ -534,6 +550,7 @@ section img {
     /*background: #eee; バックグラウンドは透明にする*/
     /*box-shadow: 0 0 30px rgba(0, 0, 0, .6); 効いているようにみえない*/
     vertical-align: middle;/**/
+    /*background-color: #f88;*/
   }
   /*
   .modal-wrapper .modal-window {
@@ -581,3 +598,31 @@ section img {
   .modal-window a:hover img {
     filter: brightness(1); 
 }
+
+/******* スクロールボタン用 参考：https://alicia-ing.com/programming/front-end/arrow-horizon-scroll/ ******/
+.ScrollArrow_Arrow {
+    position: absolute;
+    top: 140%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .ScrollArrow_Arrow.left {
+    left: 0;
+  }
+
+  .ScrollArrow_Arrow.right {
+    right: 0;
+  }
+
+  .ScrollArrow_Hide {
+    display: none;
+  }
