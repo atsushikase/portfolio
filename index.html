@@ -22,7 +22,7 @@
     <!-- JavaScript -- 初期表示時に必要ないなら、bodyの一番下に持っていく -->
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/lightbox.js"></script><!--ソース：https://github.com/lokesh/lightbox2 参考：https://webdesign-pg.com/lightbox2 -->
-    <script src="js/scroll-hint.js"></script>
+    <script src="js/scroll-hint.min.js"></script>
     <script>
         /********************* lightbos のオプション *********************/
         lightbox.option({
@@ -35,7 +35,7 @@
             /********************* scrollable *********************/
             new ScrollHint('.js-scrollable', {
                 scrollHintIconAppendClass: 'scroll-hint-icon-white',
-                remainingTime: 3000 /* 自動で消える時間(ms)  */
+                remainingTime: 4000 /* 自動で消える時間(ms)  */
             });
             /********************* フィルター（デザイン作品用） *********************/
             let $filteringBtn = $(".filter_buttons_design button"),
