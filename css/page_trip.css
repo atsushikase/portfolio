@@ -1,0 +1,244 @@
+@charset "utf-8";
+.page_trip {
+	margin: 0 4%;
+	/* height: auto; */
+	--color-trip-detail1: #eee;/* #3594cb */
+	--color-trip-detail2: #ddd;/*  */
+	--color-trip-line: #bbb;/* #afdcf8 */
+	--color-trip-icon: #ddd;/* #46a4da */
+	--color-trip-country: #777;
+	--color-trip-year: #222;
+	--color-trip-font: #111;
+}
+/*
+@font-face {
+	font-family: 'ecoico';
+	src:url('../fonts/timelineicons/ecoico.eot');
+	src:url('../fonts/timelineicons/ecoico.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/timelineicons/ecoico.woff') format('woff'),
+		url('../fonts/timelineicons/ecoico.ttf') format('truetype'),
+		url('../fonts/timelineicons/ecoico.svg#ecoico') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}  Made with http://icomoon.io/ */
+
+/* リスト全体 */
+.cbp_tmtimeline {
+	margin: 30px 0 0 0;
+	padding: 0;
+	list-style: none;
+	position: relative;
+} 
+
+/* The line 縦棒の位置や色など */
+.cbp_tmtimeline::before {
+	content: '';
+	position: absolute;
+	top: 0;		/* 本来topとbottomは片方しか意味がないはずだが*/
+	bottom: 0;	/* どちらかを消すと線が引かれない。topからbottomまで線を引く？*/
+	width: 10px;	/* 線の太さ */
+	background-color: var(--color-trip-line);
+	left: 30%;				/* 左からどれくらいの位置に線を描くか */
+	margin-left: -10px;		/* ↑をピクセル単位で修正 */
+}
+
+.cbp_tmtimeline > li {
+	position: relative;
+}
+
+/* The date/time */
+.cbp_tmtimeline > li .cbp_tmtime {
+	display: block;
+	width: 25%;	/* 端。線が20%の位置なので少し開けて17%、元は25% */
+	/* padding-right: 100px; 参考サイトにあった記載 */
+	/* padding-left: 20px; /* 左を少し空ける */
+	padding-left: 2%; /* 左を少し空ける */
+	/* padding-right: 150px; /* 右を少し空けたいが効かない */
+	/* margin-right: 150px; /* 右を少し空けたいが効かない */
+	position: absolute;
+}
+.cbp_tmtimeline > li .cbp_tmtime span {
+	display: block;
+	text-align: right;
+	padding: 0 10px 0 0; 
+}
+.cbp_tmtimeline > li .cbp_tmtime span:first-child {
+	font-size: 0.9em;
+	color: var(--color-trip-year) /*#bdd0db; */
+}
+.cbp_tmtimeline > li .cbp_tmtime span:last-child {
+	font-size: 150%; /* 1.9em */
+	color: var(--color-trip-country); 
+	text-align: center;
+}
+/* .cbp_tmtimeline > li:nth-child(odd) .cbp_tmtime span:last-child {
+	color: var(--color-trip-country);
+} */
+
+/* Right content */
+.cbp_tmtimeline  li .cbp_tmlabel {
+	margin: 0 5px 10px 35%; /* 0 0 15px 25% */
+	padding: 10px 10px 10px 10px; /* 1em *//* 写真が枠の下にはみ出るのはなぜ？？ */
+	background-color: var(--color-trip-detail1);
+	color: var(--color-trip-font);
+	font-size: 1.0em; /* 1.2em */
+	font-weight: 400;
+	line-height: 1.4;
+	position: relative; /* これがないと三角矢印が消える。 */
+	border-radius: 10px;
+}
+
+.cbp_tmtimeline  img {
+	float: left;	/* 要素を左に寄せて、続く要素を右に回り込ませる */
+	/*margin: 0 10px 5px 0;*/
+	padding: 0 10px 5px 0;
+}
+
+.cbp_tmtimeline .cbp_tmlabel .cbp_tmtitle h2 {
+	/*display: flex;	/* 子要素が横並び可なら横並びにする */
+	/*clear: left;	/* 次の要素を右に置かせず、下に置く */
+	/* clear: both; */
+	/* background-color: #333333; */
+	margin-bottom: 0.7rem;
+}
+
+.cbp_tmtimeline  li:nth-child(odd) .cbp_tmlabel {
+	background-color: var(--color-trip-detail2);
+}
+
+.cbp_tmtimeline  li .cbp_tmlabel h2 { 
+	margin-top: 0px;
+	padding: 0 0 10px 0;
+	border-bottom: 1px solid rgba(255,255,255,0.4);
+	/* clear: left; */
+}
+.cbp_tmtimeline  li .cbp_tmlabel p { 
+	/* clear: both; */
+}
+
+/* The triangle */
+/* borderの太さを四角の辺の長さに近づけることで三角形を作り出す 参考：https://liginc.co.jp/web/html-css/html/164641 */
+/* 最近はこちらのやり方が良いらしい→ https://qiita.com/degudegu2510/items/09f34d4b218c9df6bb57 */
+.cbp_tmtimeline  li .cbp_tmlabel:after {
+	right: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-right-color: var(--color-trip-detail1);
+	border-width: 10px;
+	top: 10px;
+}
+
+.cbp_tmtimeline  li:nth-child(odd) .cbp_tmlabel:after {
+	border-right-color: var(--color-trip-detail2);
+}
+
+/* The icons */
+.cbp_tmtimeline > li .cbp_tmicon {
+	width: 40px;
+	height: 40px;
+	font-family: 'ecoico';
+	/* speak: none; */
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	font-size: 1.4em;
+	line-height: 40px;
+	-webkit-font-smoothing: antialiased;
+	position: absolute;
+	color: var(--color-trip-font);
+	background-color: var(--color-trip-icon);
+	border-radius: 50%;
+	box-shadow: 0 0 0 8px var(--color-trip-line);
+	text-align: center;
+	left: 30%;
+	top: 0;
+	margin: 0 0 0 -25px;
+}
+
+.cbp_tmicon-jp:before {
+	content: "Jp";
+}
+.cbp_tmicon-cn:before {
+	content: "Cn";
+}
+.cbp_tmicon-nz:before {
+	content: "Nz";
+}
+.cbp_tmicon-earth:before {
+	content: "e003";
+}
+.trip_reffer {
+	text-align: right;
+	font-weight: 400;
+}
+.trip_reffer .trip_reffer a,
+.trip_reffer a:link,
+.trip_reffer a:visited {
+    text-decoration: underline;
+    color: #444;    /* #; */
+    /* transition: 0.4s linear;    変化時のアニメーション（hover側で設定するとhover解除時はアニメにならないのでこちらに） */
+}
+.trip_reffer a:hover,        /* マウスをのっけた瞬間 */
+.trip_reffer a:active {      /* クリック後、画面遷移するまで */
+    color: #888;
+    /* 効かない transform: translate(0,5px); 少し下に移動 他の例：rotate(180deg)：反転;*/
+}
+/* Example Media Queries */
+@media screen and (max-width: 65.375em) {
+	.cbp_tmtimeline > li .cbp_tmtime span:last-child {
+		font-size: 130%; /* 1.5em; */
+	}
+}
+
+@media screen and (max-width: 47.2em) {
+	.cbp_tmtimeline:before {
+		display: none;
+	}
+	.cbp_tmtimeline > li .cbp_tmtime {
+		width: 100%;
+		position: relative;
+		padding: 0 0 5px 0;
+	}
+	.cbp_tmtimeline > li .cbp_tmtime span {
+		text-align: left;
+	}
+	.cbp_tmtimeline > li .cbp_tmtime span:first-child {	/* year */
+		margin-left: 70px;
+		margin-top: 2px;
+	}
+	.cbp_tmtimeline > li .cbp_tmtime span:last-child {	/* country */
+		/* font-size: 1.9em;
+		color: var(--color-trip-country);  */
+		text-align: left;
+		margin-left: 70px;
+		margin-top: 2px;
+	}
+	.cbp_tmtimeline > li .cbp_tmlabel {
+		margin: 0 0 30px 0;
+		padding: 1em;
+		font-weight: 400;
+		font-size: 95%;
+	}
+	.cbp_tmtimeline > li .cbp_tmlabel:after {
+		right: auto;
+		left: 20px;
+		border-right-color: transparent;
+		border-bottom-color: var(--color-trip-detail1);
+		top: -20px;
+	}
+	.cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel:after {
+		border-right-color: transparent;
+		border-bottom-color: var(--color-trip-detail2);
+	}
+	.cbp_tmtimeline > li .cbp_tmicon {
+		/* position: relative; */
+		float: right;
+		left: auto; /* */
+		margin: 10px 5px 0 10px; /* -55px 5px 0 0px;*/
+	}	
+}

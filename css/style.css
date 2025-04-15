@@ -30,9 +30,10 @@ a:hover img {
     /* filter: invert(1); /* 白黒反転 */
     /* transition: 0.8s; ゆっくり変化させる（hoverではなくa側にかけないと戻るときに一瞬で戻ってしまう） */
 }
-/* img {
-    width: 100%;    親からはみ出さない・・・親に合わせて拡大してしまう画像があのでやめておく
-} */
+img {
+    max-width: 100%;    /*親からはみ出さない・・・親に合わせて拡大してしまう画像があのでやめておく → max-widthつかうべき*/
+    object-fit: contain; /* 縦横比を変えずに枠内に収める */
+}
 
 /* main 全ページ共通 */
 main {
@@ -44,10 +45,11 @@ main {
     margin: 50px auto;  /* 左右のマージンを auto にすることでセンタリングされる */
 /*}*/
 .to_top {  /* トップへスクロールする矢印画像 */
+    z-index: 100;
     width: 48px;
     position: fixed;    /* ブラウザ画面の絶対位置指定とする */
-    bottom: 50px;
-    right: 50px;
+    bottom: 30px;
+    right: 30px;
     opacity: 0.5;   /* 画像の透明度 */
 }
 /* home -- トップページ専用 */
@@ -65,14 +67,14 @@ main {
 
 	text-align : center;
 	overflow : hidden;
-    /*background: red;*/
+    /*background-color: red;*/
 }
 .kasaneru_ugoku_tate p{
 	position: absolute; /*重ねたい子要素にabsolute*/
-	top: 2%;
+	bottom: calc(52% - 100vw / 10 );    /* top: 2%; */
 	left: 3%;
 	color: #fff;
-	font-size: 500%; /* 260% 2.6rem; /* 1.8 */
+	font-size: calc(100vw / 14); /* 500% 260% 2.6rem; /* 1.8 */
 	text-shadow:
 	        2px 2px 4px black, /* offset-x | offset-y | blur-radius | color */
 	        0 0 1em #222, /* #250d00 */
@@ -98,34 +100,38 @@ main {
 	20% { transform: translateY(4em); opacity: 0;} 
 	100% { transform: translateY(0em)} 
 }
+.section_start {
+    position: relative;
+    top: -3rem;
+}
 section img {
     box-sizing: border-box; /* width/height:の値にpadding/borderの値を含める */
 }
 .category {
-    /* background: #eee; */
+    /* background-color: #eee; */
     margin: 0;
     padding: 1rem 0 0 0; /* bottomはスクロールバーから下の距離なので 0  */
     scrollbar-color: #fff #f0f0f0; /* 二つの有効な色。一つ目はスクロールバーのつまみ、二つ目はトラックに適用される。 */
 }
 .category_odd {
-    background: #f0f0f0;
+    background-color: #f0f0f0;
     scrollbar-color: #c0c0c0 #f0f0f0; /* 二つの有効な色。一つ目はスクロールバーのつまみ、二つ目はトラックに適用される。 */
 }
 .category_even {
-    background: #fff;
+    background-color: #fff;
     scrollbar-color: #ddd #fff; /* 二つの有効な色。一つ目はスクロールバーのつまみ、二つ目はトラックに適用される。 */
 }
 .category_design {
-    background: #f0f0f0;
+    background-color: #f0f0f0;
     scrollbar-color: #aaa #ddd; /* 二つの有効な色。一つ目はスクロールバーのつまみ、二つ目はトラックに適用される。 */
 }
-.category_trip {
+/* .category_trip {
     padding-bottom: 2rem;
-}
+} */
 .category_title {
     box-sizing: border-box; /* width/height:の値にpadding/borderの値を含める */
     padding: 0 6rem 0 1rem;  /* 1.2rem 3rem 1rem 2rem; */
-    margin: 1.2rem 1rem 1rem 2rem; /* 10px 0 20px; 50px 0 20px */
+    margin: 1.2rem 1rem 1rem 1.8rem; /* 10px 0 20px; 50px 0 20px */
     font-weight: normal;
     font-size: 180%; /*28px;*/
     color: #000;
@@ -135,31 +141,87 @@ section img {
     /*text-align: center;*/
     /*display: inline;*/
 }
+.category_design .category_title ,
 .category_movie .category_title ,
-.category_photo .category_title ,
 .category_trip .category_title {
-    padding: 0 1rem 0 1rem;  /* コメントの分だけ減らす */
+    padding: 0 2rem 0 1rem;  /* コメントの分だけ減らす */
 }
-.h2migi {
-    font-size: 50%; /*28px;*/
+/* .category_movie .category_title ,
+.category_photo .category_title ,
+.category_trip .category_title , */
+.category_design .category_title {
+    @media screen and (max-width:410px) { 
+        padding: 0 0 0 0.1rem;
+        /* margin-left: 0.2rem; */
+    }
+}
+
+/* .h2migi {
+    font-size: 50%;
     color: #aaa;
     margin-left: 1rem;
+} */
+.to_detail:link,
+.to_detail:visited {
+    /* text-decoration: underline; */
+    font-size: 50%;
+    margin-left: 0.5rem;
+    /* margin-top: -2rem; */
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.4rem;
+    box-shadow: 1px 1px 3px black;
+    /* color: #ff8800 */
+    /* background-color: #ddd; */
+    @media screen and (min-width:475px) { 
+        margin-left: 2rem;
+    }
+}
+/* .to_detail_page:link,
+.to_detail_page:visited {
+
+    margin-left: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    box-shadow: 2px 2px 5px black;
+
+    background-color: #ddd;
+} */
+.link_description {
+    display: block;
+    font-size: 80%;
+    color: #888;
+    margin-left: 2rem;
+    height: 2rem;
 }
 .filter_buttons {
     /*display: inline;*/
     margin-top: 1.5rem;
-    margin-left: 2rem;
+    margin-right: 0rem;
+    margin-left: 0.5rem;
+    @media screen and (min-width:475px) { 
+        margin-left: 2rem;
+    }
     /*color: #800;*/
 }
 .filter_buttons button {
     border: #222;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.5rem;
     /*box-shadow: 0 0 0 4px #cbd6ee;*/
-    font-size: 80%;
+    font-size: 70%;
     color: #222;
+    @media screen and (min-width:475px) { 
+        padding: 0.5rem 1rem;
+        font-size: 80%;
+    }
 }
 .category_photo .filter_buttons button {
-    padding: 0.5rem 0.5rem;
+    padding: 0.5rem 0.4rem;
+    @media screen and (min-width:475px) { 
+        padding: 0.5rem 0.5rem;
+    }
+    @media screen and (min-width:590px) { 
+        padding: 0.5rem 1rem;
+    }
 }
 .filter_buttons button:hover {
    border-bottom: 2px solid  #333;
@@ -168,19 +230,19 @@ section img {
 .filter_buttons .design_botton3,
 .filter_buttons .design_botton4 {*/
 .filter_buttons .unselected {
-    background: #ddd;
+    background-color: #ddd;
     /*border: 1px solid  #777;*/
 }
 /*.filter_buttons .design_botton1 {*/
 .filter_buttons .selected {
-    background: #bbb;
+    background-color: #bbb;
     border-top: 1px solid  #999;
     border-right: 1px solid  #999;
     border-left: 1px solid  #999;
     border-bottom: 2px solid  #bbb;
 }
 .filter_gallery {
-    background: #bbb;
+    background-color: #bbb;
 }
 
 .category > ul {
@@ -216,7 +278,7 @@ section img {
     /*height: 11rem;*/
     /*max-height: 50%; */
     font-size: 80%;
-    /*background: #1cc;  */
+    /*background-color: #1cc;  */
 }
 .category_photo > ul > li {
     margin: 0; /*0.1rem;*/
@@ -262,7 +324,8 @@ section img {
     /*margin-bottom: 0.5rem; 効かない */
     padding: 1px 4px;
     /*border: 1px solid #333;*/
-    color: #333;
+    font-size: 110%;
+    color: #111;
     border-radius: 5px;
     /*background-color: #666;*/
 }
@@ -271,10 +334,10 @@ section img {
     margin: 0 0 0 5px;
     padding: 0px 4px 0 4px;
     /*border: 1px solid #333;*/
-    font-size: 90%;
+    font-size: 100%;
     color: #ddd; /*#333;*/
     border-radius: 5px;
-    background-color: #999/* #9d9;*/
+    background-color: #777/* #9d9;*/
 }
 .work_title {
     /*display: block;*/
@@ -336,23 +399,16 @@ section img {
     height: 100%; /*  max-height: 100%;  なぜかこれはだめ*/
     /*background-color: rgb(23, 23, 141);*/
 }
-.category_movie .work_image a {
-    /* height: 70%;  max-height: 100%;  なぜかこれはだめ*/
-}
 .work_image img {
     display: block;
     max-width: 100%;
     max-height: 90%;
-    /*width: auto;*/
-    /*height: auto;*/
     /*object-fit: contain;*/
     /*padding: 10px 20px;*/
     /*background-color: #88f;*/
 }
 .category_photo .work_image img {
     max-height: 97%;
-    /*width: auto;*/
-    /*height: auto;*/
 }
 .category_photo .work_image a img,
 .category_photo .work_image a:link img,
@@ -388,7 +444,7 @@ section img {
     display: block; /*inline-block; /*; block; inline(要素の横並び可)をやめる noneは非表示 */
     /*justify-content: center;*/
     text-align: center;
-    /* background: #666; */
+    /* background-color: #666; */
 }
 .trip {
     list-style-type: none; /* リストの先頭「・」を表示しない */
@@ -408,7 +464,7 @@ section img {
 .trip li {
     text-align: center;
     font-size: 85%;
-    /* background: #ccc; */
+    /* background-color: #ccc; */
 }
 .trip .trip_date {
     display: inline;
@@ -416,10 +472,10 @@ section img {
     margin: 0 0 0 5px;
     padding: 0px 4px 0 4px;
     /*border: 1px solid #333;*/
-    font-size: 90%;
+    /* font-size: 90%; */
     color: #ddd; /*#333;*/
     border-radius: 5px;
-    background-color: #999/* #9d9;*/
+    background-color: #777/* #9d9;*/
 }
 .trip .trip_dest {
     margin-top: 0.2rem;  
@@ -449,58 +505,21 @@ section img {
     text-decoration:underline;
     /* 効かない transform: translate(0,5px); 少し下に移動 他の例：rotate(180deg)：反転;*/
 }
-/*
-@media screen and (max-width:1345px) {
-    .category_movie .work,
-    .category_photo .work {
-            width: 30rem;
-    }
-}
-@media screen and (max-width:1010px) {
-    .category_movie .work,
-    .category_photo .work {
-            width: 20rem;
-    }
-}*/
-@media screen and (max-width:920px) { /* 767px -> .innerのwidthに合わせる。padding含むので＋αしてる */
-    /*main {
-         margin-top: 60px;   トップバーの高さ
-    } */
-    .visual {
-        /*background-size: cover; 領域内を覆うようにサイズ変更→通常サイズも同じにした */
-        /*height: 200px; →画像サイズにまかせることにした*/
-        padding: 40px 30px 0; /* 上　左右　下 */
-    }
-}
-@media screen and (max-width:770px) { 
-    .kasaneru_ugoku_tate p{
-	top: 15%;
-        font-size: 300%; /* 1.6rem 1.8 */
-    }
-}
-@media screen and (max-width:475px) { 
-    .kasaneru_ugoku_tate p{
-	top: 24%;
-        font-size: 200%; /* 1.6rem 1.8 */
-    }
-    .filter_buttons {
-        /*margin-top: 1.5rem;*/
-        margin-left: 1rem; /*1rem;*/
-        /*margin-right: 0rem; */
-    }
-    .category_photo .filter_buttons {
-        /*margin-top: 1.5rem;*/
-        margin-left: 0.5rem; /*1rem;*/
-        margin-right: 0rem;/* */
-    }
-    .filter_buttons button {
-        padding: 0.5rem 0.5rem;
-        font-size: 70%;
-    }
-    .category_photo .filter_buttons button {
-        padding: 0.5rem 0.4rem;
-        font-size: 70%;
-    }
+
+/******* 詳細画面共通 ******/
+.categorypage_title {
+    box-sizing: border-box; /* width/height:の値にpadding/borderの値を含める */
+    padding: 0 0rem 0 0rem;   /*アンダーラインの左右はみだし幅 */
+    margin: 10rem auto; /*1.2rem 1rem 1rem 2rem */
+    width: calc(12rem + 16%);
+    font-weight: normal;
+    font-size: 180%; /*28px;*/
+    color: #000;
+
+    /* display: inline-block; */
+    border-bottom: 2px solid #000;
+    text-align: center;
+    /*display: inline;*/
 }
 
 /******* モーダル表示用 参考：https://dubdesign.net/download/html-css/modal-window ******/
@@ -547,7 +566,7 @@ section img {
     max-width: 600px;*/
     /*padding: 10px;
     border-radius: 2px;*/
-    /*background: #eee; バックグラウンドは透明にする*/
+    /*background-color: #eee; バックグラウンドは透明にする*/
     /*box-shadow: 0 0 30px rgba(0, 0, 0, .6); 効いているようにみえない*/
     vertical-align: middle;/**/
     /*background-color: #f88;*/
@@ -566,7 +585,7 @@ section img {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0, 0, 0, .8)
+    background-color: rgba(0, 0, 0, .8)
   }
   /* クローズボタンはフォント導入が必要なので保留
   .modal-wrapper .modal-close {

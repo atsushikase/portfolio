@@ -1,0 +1,65 @@
+.about {
+    display: flex;
+    align-items: flex-start;
+    /* background-color: #eee; */
+
+}
+.facename {
+    display: flex;
+}
+.hiragana {
+    font-weight: normal;
+    font-size: 60%;
+}
+.pc {
+    display: none;
+}
+.about img {
+    margin-top: 3rem;
+    margin-left: 2rem;
+    /* padding: 3rem; */
+    max-width: 25%;
+    /* vertical-align: top; */
+}
+.facename img {
+    margin-top: 0rem;
+    margin-left: 0rem;
+    margin-right: 1rem;
+    max-width: 25%;
+}
+.about > div {
+    padding: 2rem calc(10% - 2rem); /* 4rem; */
+}
+.about h3 {
+    font-size: 200%;
+    margin-bottom: 2rem;
+}
+.about_detail {
+    padding: 0 1rem;
+}
+.about a,
+.about a:link,
+.about a:visited {
+    /* text-decoration: underline; */
+    color: #999;  
+    /* background-color: #ddd; */
+    /* transition: 0.4s linear;    変化時のアニメーション（hover側で設定するとhover解除時はアニメにならないのでこちらに） */
+}
+.about a:hover,        /* マウスをのっけた瞬間 */
+.about a:active {      /* クリック後、画面遷移するまで */
+    color: #ccc;
+    /* 効かない transform: translate(0,5px); 少し下に移動 他の例：rotate(180deg)：反転;*/
+}
+@media screen and (min-width:600px) {
+    .sp {
+        display: none;
+    }
+    .pc {
+        display: flex;
+    }
+}
+@media screen and (min-width:410px) {
+    .small_sp {
+        display: none;
+    }
+}

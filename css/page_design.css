@@ -1,0 +1,121 @@
+@charset "UTF-8";   /* contentやコメントに日本語を使うため */
+
+.design_section {
+    /* display: flex; */
+    /* justify-content: center;    横 */
+    padding: 2rem calc(10% - 2rem); /* 4rem; */
+    font-size: 90%;
+}
+.design_section:nth-child(odd) {
+    background-color:#ccc; /*#dd;*/
+}
+.design_section:nth-child(even) {
+    background-color:#ddd; /*#f8f8f8;*/
+}
+.design_image {
+    display: block;
+    justify-content: center;   /*  横 */
+    margin: 0 auto;
+    /* max-width: 50%; */
+    /* width: 30rem; */
+    width: 80vw; 
+    /* width: 100%; */
+    /* height: calc(24vw + 2rem);  */
+    /* height: auto; */
+    min-height: 45vw; /* 39.375 = 70 * 9 / 16 */
+    /* background-color: rgb(147, 224, 160); */
+}
+.design_image a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    /* 横 */
+    align-items: center;
+    /*object-fit: contain;*/
+    box-sizing: border-box; /* width/height:の値にpadding/borderの値を含める */
+    /* margin-top: 1rem; */
+    /* padding-top: 1rem;  タイトルの上に図がはみ出ないように */
+    max-width: 100%;
+    /* height: 100% だと画像より小さくなる;  max-height: 100%;  なぜかこれはだめ*/
+    /* background-color: rgb(135, 135, 212); */
+}
+.design_image img {
+    width: 100%;
+    max-height: 50vh; /*20rem; */
+    max-width: 80vw;
+    object-fit: contain;
+    /* box-shadow : 0 0 10px #2F1F1F ; Webサイトの下の「～」がおかしくなる */
+}
+.design_note {
+    /* height: 15%; */
+    /*margin: 0 0 0 1%;  1rem */
+    margin: 2rem auto 0 auto;
+    /*padding: 0 0 2rem 0;*/
+    font-size: 90%;
+    /* line-height: 3.5; */
+}
+.design_note tr {
+    margin: 3rem;
+    height: 2rem;
+    vertical-align: top;
+    text-align: left;
+}
+.design_note tr th {
+    /* text-align: center; */
+    padding-right: 0.5rem;
+    font-weight: normal;
+    color: #444;
+    min-width: 5rem;
+}
+.design_note tr td {
+    max-width: 60vw;
+}
+.design_type {
+    margin: 5px;
+    padding: 2px 7px 3px 6px;
+    /*border: 1px solid #333;*/
+    font-size: 90%;
+    color: #fff; /*#333;*/
+    border-radius: 5px;
+    background-color: #333/* #9d9;*/
+}
+
+@media screen and (min-width:840px) {
+    .design_section {
+        font-size: 100%;
+    }
+    .design_note tr {
+        height: 2.5rem;
+    }
+    .design_note tr th {
+        min-width: 6rem;
+    }
+    /* .design_note tr td {
+        min-height: 5rem;
+        max-height: 5.5rem;
+    } */
+}
+@media screen and (min-width:680px) {
+    .design_detail {
+        /* width: 30em; */
+        /* margin-right: 2rem; */
+        /* background-color: rgb(219, 142, 187); */
+        display: flex;
+        align-items: flex-start;
+        flex-direction: row-reverse;
+    }
+    .design_note {
+        width: calc(40vw + 2rem); 
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+    .design_image {
+        padding: 0 1rem;
+        width: calc(40vw + 2rem); 
+        /* width: 100%; */
+        /* height: calc(24vw + 2rem);  */
+        height: auto;
+        min-height: auto;
+        aspect-ratio: 16 / 9;
+        /* object-fit: contain; */
+    }
+}
