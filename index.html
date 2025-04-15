@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <meta name="description" content="Atsushi Kase's Portfolio Site">
+    <meta name="description" content="加瀬 篤(Atsushi Kase)のポートフォリオサイトです。Webサイト、Photoshop、Illustrator等の作品や、自ら撮影した写真・動画等を紹介しています。">
     <title>Atsushi Kase Portfolio Site</title>
     <link rel="stylesheet" href="css/normalize.css"><!--ブラウザ種類ごとの違いをなくす https://necolas.github.io/normalize.css/ -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/page_about.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/lightbox.css">
@@ -18,111 +19,45 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&family=Permanent+Marker&display=swap" rel="stylesheet">
     <!--link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Permanent+Marker&display=swap" rel="stylesheet"-->
     <!--link href="https://fonts.googleapis.com/css2?family=Murecho:wght@100..900&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&family=Permanent+Marker&family=Yusei+Magic&family=Zen+Kurenaido&display=swap" rel="stylesheet"-->
-
-    <!-- JavaScript -- 初期表示時に必要ないなら、bodyの一番下に持っていく -->
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/lightbox.js"></script><!--ソース：https://github.com/lokesh/lightbox2 参考：https://webdesign-pg.com/lightbox2 -->
-    <script src="js/scroll-hint.min.js"></script>
-    <script>
-        /********************* lightbos のオプション *********************/
-        lightbox.option({
-          /*'resizeDuration': 200,*/
-          'wrapAround': true
-        })
-
-
-        $(function () {
-            /********************* scrollable *********************/
-            new ScrollHint('.js-scrollable', {
-                scrollHintIconAppendClass: 'scroll-hint-icon-white',
-                remainingTime: 4000 /* 自動で消える時間(ms)  */
-            });
-            /********************* フィルター（デザイン作品用） *********************/
-            let $filteringBtn = $(".filter_buttons_design button"),
-                $image = $(".filter_gallery_design li");
-            // フィルタリングボタンがクリックされた時の処理
-            $filteringBtn.click(function(){
-                let target = $(this).attr("value");
-                // フィルタータブボタン押下時のタブ装飾変更 
-                $(".filter_buttons_design button").addClass('unselected');
-                $(".filter_buttons_design button").removeClass('selected');
-                $(this).addClass('selected');
-                // 各画像に対する処理
-                $image.each(function(){
-                    // 初期値として全てを非表示にする
-                    $(this).animate({
-                        "opacity": 0
-                    }, 200, function(){
-                        $(this).hide();
-                        /* 
-                        指定の画像要素にクリックされたボタンのvalueのクラスが入っていれば表示
-                        value属性がallの場合も表示する
-                        */
-                        if($(this).hasClass(target) || target == "all") {
-                            $(this).show();
-                            $(this).animate({
-                                "opacity": 1
-                            }, 200);
-                        }
-                    });
-                });
-            });
-        })
-
-        $(function () { /* デザインと写真で function から分けないとエラーになる。後で統合したい */
-            /********************* フィルター（写真作品用） *********************/
-            let $filteringBtn = $(".filter_buttons_photo button"),
-                $image = $(".filter_gallery_photo li");
-            // フィルタリングボタンがクリックされた時の処理
-            $filteringBtn.click(function(){
-                let target = $(this).attr("value");
-                // フィルタータブボタン押下時のタブ装飾変更 
-                $(".filter_buttons_photo button").addClass('unselected');
-                $(".filter_buttons_photo button").removeClass('selected');
-                $(this).addClass('selected');
-                // 各画像に対する処理
-                $image.each(function(){
-                    // 初期値として全てを非表示にする
-                    $(this).animate({
-                        "opacity": 0
-                    }, 200, function(){
-                        $(this).hide();
-                        /* 
-                        指定の画像要素にクリックされたボタンのvalueのクラスが入っていれば表示
-                        value属性がallの場合も表示する
-                        */
-                        if($(this).hasClass(target) || target == "all") {
-                            $(this).show();
-                            $(this).animate({
-                                "opacity": 1
-                            }, 200);
-                            /********************************/
-                            /*   $(this).setAttribute("data-lightbox", "show"); "li"の下の"a"のattributeを変更しないといけない */
-                        /*}
-                        else {
-                               $(this).setAttribute("data-lightbox", "noshow"); "li"の下の"a"のattributeを変更しないといけない */
-                        /********************************/
-                        }
-                    });
-                });
-            });
-        });
-    </script>
 </head>
 <body>
 <header>
-    <h1><a href="index.html"><img src="images/logo_face_name_MVboli1.png" alt="加瀬 篤(KASE Atsushi)のポートフォリオ"></a></h1>
-    <nav><ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="design.html">デザイン作品</a></li>
-        <li><a href="movie.html">映像作品</a></li>
-        <li><a href="photo.html">写真作品</a></li>
-        <li><a href="travellog.html">旅行記</a></li>
-        <li><a href="about.html">プロフィール</a></li>
-        <li><a href="contact.html">コンタクト</a></li>
-    </ul></nav>
+    <h1><a href="index.html"><img src="images/logo_face_name_MVboli1.png" alt="Atsushi Kase's Portfolio Site"></a></h1>
+    <nav>
+        <ul class="pc_menu">
+            <li><a href="index.html">HOME</a></li>
+            <li class="nav_item1"><a href="index.html#design">デザイン作品一覧</a></li>
+            <li class="nav_item1"><a href="index.html#movie">映像作品一覧</a></li>
+            <li class="nav_item1"><a href="index.html#photo">写真作品</a></li>
+            <li class="nav_item1"><a href="index.html#about">プロフィール</a></li>
+            <li class="nav_item2"><a href="design.html">デザイン作品</a></li>
+            <li class="nav_item2"><a href="movie.html">映像作品</a></li>
+            <li class="nav_item2"><a href="travellog.html">旅行記</a></li>
+        </ul>
+       <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
+       <input id="drawer_input" class="drawer_hidden" type="checkbox">
+       <!-- ハンバーガーアイコン -->
+       <label for="drawer_input" class="drawer_open"><span></span></label>
+       <!-- ハンバーガー内メニュー -->
+       <div class="drawer_nav_content">
+            <ul class="drawer_nav_list">
+                <li class="drawer_nav_item"><a href="index.html">HOME</a></li>
+                <div class="drawer_nav_menu1">
+                    <li class="drawer_nav_item"><a class="drawer_asharp" href="index.html#design">デザイン作品一覧</a></li>
+                    <li class="drawer_nav_item"><a class="drawer_asharp" href="index.html#movie">映像作品一覧</a></li>
+                    <li class="drawer_nav_item"><a class="drawer_asharp" href="index.html#photo">写真作品</a></li>
+                    <li class="drawer_nav_item"><a class="drawer_asharp" href="index.html#about">プロフィール</a></li>
+                </div>
+                <div class="drawer_nav_menu2">
+                    <li class="drawer_nav_item"><a href="design.html">デザイン作品</a></li>
+                    <li class="drawer_nav_item"><a href="movie.html">映像作品</a></li>
+                    <li class="drawer_nav_item"><a href="travellog.html">旅行記</a></li>
+                </div>
+            </ul>
+        </div>
+    </nav>
 </header>
-<main>
+<main class="page_trip">
     <a href="#"><img src="images/to_top3-100x100.gif" alt="先頭にスクロールする" class="to_top"></a>
     <div class="kasaneru_ugoku_tate">
         <!--img src="images/tasmania.jpg"-->
@@ -132,8 +67,9 @@
     <!--div class="visual">
         <img src="images/atsushikase_Portfolio_white.png" alt="Atsushi Kase Portfolio"><p>Atsushi Kase Portfolio</p>
     </div-->
-    <section class="category category_odd category_design" id="design">
-        <h2 class="category_title">デザイン作品</h2>
+    <section class="category category_odd category_design">
+        <div class="section_start" id="design"></div>
+        <h2 class="category_title">デザイン作品<a class="to_detail" href="design.html">詳細説明ページ</a></h2>
         <!-- <img src="images/arrow-right.png" alt="横スクロールできます" class="to_right"> -->
         <div class="filter_buttons filter_buttons_design">
             <button class="design_botton_design1 selected" value="all">ALL</button>
@@ -144,7 +80,7 @@
         <ul class="filter_gallery filter_gallery_design js-scrollable">
             <li class="filter_web">
                 <div class="work_div">
-                    <span class="work_type">Webサイト(html/css作品)<span class="work_year">2025年</span></span>
+                    <span class="work_type">Webサイト<span class="work_year">html/css/js 2025年</span></span>
                     <h4 class="work_title">ポートフォリオサイト（本サイト）</h4>
                     <div class="work_image">
                         <a href="https://atsushikase.github.io/portfolio/" target="_blank">
@@ -160,7 +96,7 @@
             </li>
             <li class="filter_web">
                 <div class="work_div">
-                    <span class="work_type">Webサイト(html/css作品)<span class="work_year">2025年</span></span>
+                    <span class="work_type">Webサイト<span class="work_year">html/css 2025年</span></span>
                     <h4 class="work_title">架空温泉旅館集客サイト（練習用）</h4>
                     <div class="work_image">
                         <a href="https://atsushikase.github.io/web-sample-onsen/" target="_blank">
@@ -171,12 +107,12 @@
                         <tr><th>作品の目的</th><td>温泉旅館集客（練習用）</td></tr>
                         <tr><th>作成時期</th><td>2025/3</td></tr>
                     </table-->
-                    <span class="work_comment">高年齢夫婦の旅行客をターゲットとし、<br>見やすくわかりやすいデザインとした</span>
+                    <span class="work_comment">高年齢夫婦の旅行客をターゲットとし、<br>見やすくわかりやすいようにデザイン</span>
                 </div>
             </li>
             <li class="filter_ps">
                 <div class="work_div">
-                    <span class="work_type">Photoshop作品<span class="work_year">2025年</span></span>
+                    <span class="work_type">ポスター<span class="work_year">Photoshop 2025年</span></span>
                     <h4 class="work_title">奥多摩観光ポスター（練習用）</h4>
                     <div class="work_image">
                         <a href="#modal-01" class="modal-button"><img src="images/thums/poster_okutamax400.jpg" alt="ポスター">拡大表示</a>
@@ -201,7 +137,7 @@
             </li>
             <li class="filter_ai">
                 <div class="work_div">
-                    <span class="work_type">Illustrator作品<span class="work_year">2024年</span></span>
+                    <span class="work_type">キャラクター<span class="work_year">Illustrator 2024年</span></span>
                     <h4 class="work_title">公園のマスコットキャラクター（練習用）</h4>
                     <div class="work_image">
                         <a href="#modal-02" class="modal-button"><img src="images/thums/kawakun_eda400x331.png" alt="キャラクター">拡大表示</a>
@@ -219,7 +155,7 @@
             </li>
             <li class="filter_ps">
                 <div class="work_div">
-                    <span class="work_type">Photoshop作品<span class="work_year">2024年</span></span>
+                    <span class="work_type">Webバナー<span class="work_year">Photoshop 2024年</span></span>
                     <h4 class="work_title">ツアー参加者募集Webバナー（練習用）</h4>
                     <div class="work_image">
                         <a href="#modal-03" class="modal-button"><img src="images/thums/webbanner_nz_x400.jpg" alt="Webバナー">拡大表示</a>
@@ -237,7 +173,7 @@
             </li>
             <li class="filter_ps">
                 <div class="work_div">
-                    <span class="work_type">Photoshop作品<span class="work_year">2024年</span></span>
+                    <span class="work_type">Webバナー<span class="work_year">Photoshop 2024年</span></span>
                     <h4 class="work_title">レジャー施設宣伝Webバナー（練習用）</h4>
                     <div class="work_image">
                         <a href="#modal-04" class="modal-button"><img src="images/thums/webbanner_horrorx400.jpg" alt="Webバナー">拡大表示</a>
@@ -255,7 +191,7 @@
             </li>
             <li class="filter_ai">
                 <div class="work_div">
-                    <span class="work_type">Illustrator作品<span class="work_year">2024年</span></span>
+                    <span class="work_type">名刺<span class="work_year">Illustrator 2024年</span></span>
                     <h4 class="work_title">旅行会社用の名刺（練習用）</h4>
                     <div class="work_image">
                         <a href="#modal-05" class="modal-button"><img src="images/thums/card_name_aozorax400.jpg" alt="名刺">拡大表示</a>
@@ -273,7 +209,7 @@
             </li>
             <li class="filter_ai">
                 <div class="work_div">
-                    <span class="work_type">Illustrator作品<span class="work_year">2024年</span></span>
+                    <span class="work_type">名刺<span class="work_year">Illustrator 2024年</span></span>
                     <h4 class="work_title">自分用の名刺（練習用）</h4>
                     <div class="work_image">
                         <a href="#modal-06" class="modal-button"><img src="images/thums/card_name_kawakunx400.jpg" alt="名刺">拡大表示</a>
@@ -291,7 +227,7 @@
             </li>
             <li class="filter_ai">
                 <div class="work_div">
-                    <span class="work_type">Illustrator作品<span class="work_year">2024年</span></span>
+                    <span class="work_type">キャラクター<span class="work_year">Illustrator 2024年</span></span>
                     <h4 class="work_title">蛇で表現した数字（プライベート用）</h4>
                     <div class="work_image">
                         <a href="#modal-07" class="modal-button"><img src="images/thums/font2025x400.jpg" alt="キャラクター">拡大表示</a>
@@ -309,7 +245,7 @@
             </li>
             <li class="filter_ai">
                 <div class="work_div">
-                    <span class="work_type">Illustrator作品<span class="work_year">2025年</span></span>
+                    <span class="work_type">パンフレット<span class="work_year">Illustrator 2025年</span></span>
                     <h4 class="work_title">ポートフォリオパンフレット</h4>
                     <div class="work_image">
                         <a href="#modal-08" class="modal-button"><img src="images/thums/portfoliox400.jpg" alt="パンフレット">拡大表示</a>
@@ -328,8 +264,10 @@
         </ul>
         <!--a href="design.html" class="category_viewmore">View More</a-->
     </section>
-    <section class="category category_even category_movie" id="movie">
-        <h2 class="category_title">映像作品<span class="h2migi">リンク先は全てYouTube</span></h2>
+    <section class="category category_even category_movie">
+        <div class="section_start" id="movie"></div>
+        <h2 class="category_title">映像作品<a class="to_detail" href="movie.html">詳細説明ページ</a></h2>
+        <span class="link_description">リンク先は全てYouTube</span>
         <ul class="js-scrollable">
             <li>
                 <div class="work_div">
@@ -338,7 +276,7 @@
                     <div class="work_image">
                         <a href="https://youtu.be/ynxxblrok4c" target="_blank"><img src="images/thums/nz14days-i.jpg" alt="映像作品２"></a><!--Youtubeリンク</a-->
                     </div>
-                    <span class="work_comment">Youtubeで46万回再生の動画の音楽入替版<br>編集ソフト: Sony VEGAS Movie Studio</span>
+                    <span class="work_comment">Youtubeで46万回再生の動画の音楽入替版<br>音楽リズムを合わせて映像シーンを切替</span>
                     <!--table class="work_note">
                         <tr><th>作品の目的</th><td>ニュージーランド旅行紹介</td></tr>
                         <tr><th>編集ソフト</th><td>Sony VEGAS Movie Studio</td></tr>
@@ -353,7 +291,7 @@
                     <div class="work_image">
                         <a href="https://youtu.be/EnOi9myeHD0" target="_blank"><img src="images/thums/china-wulingyuan.jpg" alt="映像作品１"></a><!--Youtubeリンク</a-->
                     </div>
-                    <span class="work_comment">映像シーンの切替と音楽リズムを合わせた<br>編集ソフト: Sony VEGAS Movie Studio</span>
+                    <span class="work_comment">音楽リズムを合わせて映像シーンを切替</span>
                     <!--table class="work_note">
                         <tr><th>作品の目的</th><td>中国旅行紹介</td></tr>
                         <tr><th>編集ソフト</th><td>Sony VEGAS Movie Studio</td></tr>
@@ -393,7 +331,7 @@
             </li>
             <li>
                 <div class="work_div">
-                    <span class="work_type">自然観察動画（プライベート）<span class="work_year">2023年</span></span>
+                    <span class="work_type">自然観察（プライベート）<span class="work_year">2023年</span></span>
                     <h4 class="work_title">横浜市こども自然公園の12ヶ月</h4>
                     <div class="work_image">
                         <a href="https://youtu.be/fxklP9dzjlE" target="_blank"><img src="images/thums/ooike12month.webp" alt="映像作品４"></a><!--Youtubeリンク</a-->
@@ -408,7 +346,7 @@
             </li>
             <li>
                 <div class="work_div">
-                    <span class="work_type">自然観察動画（プライベート）<span class="work_year">2025年</span></span>
+                    <span class="work_type">自然観察（プライベート）<span class="work_year">2015年</span></span>
                     <h4 class="work_title">蝉の羽化（タイムラプス動画）</h4>
                     <div class="work_image">
                         <a href="https://www.youtube.com/shorts/xufk6ujsD80" target="_blank"><img src="images/thums/semi2short.jpg" alt="映像作品４"></a><!--Youtubeリンク</a-->
@@ -424,10 +362,12 @@
         </ul>
         <!--a href="design.html" class="category_viewmore">View More</a-->
     </section>
-    <section class="category category_odd category_photo" id="photo">
-        <h2 class="category_title">写真作品<span class="h2migi">写真クリックで拡大表示</span></h2>
+    <section class="category category_odd category_photo">
+        <div class="section_start" id="photo"></div>
+        <h2 class="category_title">写真作品</h2>
+        <span class="link_description">写真クリックで拡大表示</span>
         <div class="filter_buttons filter_buttons_photo">
-            <button class="design_botton_photo1 unselected" value="filter_a">ALL</button>
+            <button class="design_botton_photo1 selected" value="filter_a">ALL</button>
             <button class="design_botton_photo2 unselected" value="filter_l">Landscape</button>
             <button class="design_botton_photo3 unselected" value="filter_p">Plant</button>
             <button class="design_botton_photo4 unselected" value="filter_h">Human</button>
@@ -912,8 +852,46 @@
         </ul>
         <!--a href="design.html" class="category_viewmore">View More</a-->
     </section>
-    <section class="category category_even category_trip" id="trip">
-        <h2 class="category_title">旅行記<span class="h2migi">リンク先は全て外部サイト</span></h2>
+    <section class="category category_even category_about">
+        <div class="section_start" id="about"></div>
+        <h2 class="category_title">プロフィール</h2>
+        <!-- <h2 class="categorypage_title">プロフィール</h2> -->
+        <div class="about">
+            <img class="pc" src="images/IMG_9018_9188fortwitter_tr400x400en.png" alt="本人顔写真">
+            <div>
+                <div class="facename">
+                    <img class="sp" src="images/IMG_9018_9188fortwitter_tr400x400en.png" alt="本人顔写真">
+                    <h3>加瀬　篤<br class="small_sp"><span class="hiragana">（かせ あつし）</span></h3>
+                </div>
+            
+                <h4>経歴</h4>
+                <div class="about_detail">
+                    <p>30数年務めたIT・コンサル系の会社を2024年に退職</p>
+                    <p>大学時代よりコンピュータ関連に携わり、在職時は主に技術系の分野で活動</p>
+                    <ul>
+                        <li>システムの設計・開発・運用・品質監理</li>
+                        <li>ITサービスの企画開発</li>
+                        <li>サイバーセキュリティコンサルティング</li>
+                        <li>AIビジネス開発<!--（データ分析等を学び、退職時の部署はAIビジネスシステム開発部。--><a href="https://www.nri-secure.co.jp/blog/generative-ai-risks" target="_blank">（在職時のブログ「生成AIのリスクを整理する｜３つの観点でリスクと対策を解説」）</a></li>
+                    </ul>  
+                    <p>1990年代前半は電話網を通じてネット接続し株取引を行うファミリーコンピュータ上で動くソフトウェアの開発を担当、
+                    2000年代後半は3D仮想空間内でアバターを利用して新卒採用セミナーや大学オープンキャンパスを行うサービスの開発を
+                    担当するなど、変わりもの系のサービスも色々と経験</p>
+                    
+                    <p>また、炎上プロジェクトも数多く経験</p>
+                    
+                    <p>退職後は、趣味として身に着けていた写真・動画制作・プログラミングの知識を活かして、Webクリエイターを志す。
+                    基礎から学びなおすべく2024/11～2025/5にかけて職業訓練校へ</p>
+                </div>
+                <h4>趣味</h4>
+                <div class="about_detail"><p>旅行、写真撮影、動画作成、テニス、音楽鑑賞<br>
+                旅行に関しては、趣味の写真や動画を駆使して様々な形で記録を残しています（下記）</p></div>
+            </div>    
+        </div>
+    </section>
+    <section class="category category_odd category_trip" id="trip">
+        <h2 class="category_title">旅行記<a class="to_detail" href="travellog.html">旅行記詳細ページ</a></h2>
+        <span class="link_description">リンク先は全て外部サイト</span>
         <ul class="js-scrollable">
             <li>
                 <ul class="trip">
@@ -996,7 +974,8 @@
                     <li class="trip_image"><img src="images/rcan014x.jpg"></li>
                     <li class="trip_web"><a href="http://kase.a.la9.jp/rcan_1.htm" target="_blank">旅行記サイト</a></li>
                 </ul>
-            </li>            <li>
+            </li>
+            <li>
                 <ul class="trip">
                     <li><div class="trip_date">1995/3</div></li>
                     <li class="trip_dest"><h4 class="work_title">日本</h4></li>
@@ -1004,7 +983,8 @@
                     <li class="trip_image"><img src="images/rizukojx.jpg"></li>
                     <li class="trip_web"><a href="http://kase.a.la9.jp/rizu.htm" target="_blank">旅行記サイト</a></li>
                 </ul>
-            </li>            </li>            <li>
+            </li>
+            <!-- <li>
                 <ul class="trip">
                     <li><div class="trip_date">1994/9</div></li>
                     <li class="trip_dest"><h4 class="work_title">日本</h4></li>
@@ -1012,7 +992,8 @@
                     <li class="trip_image"><img src="images/rkyukusx.jpg"></li>
                     <li class="trip_web"><a href="http://kase.a.la9.jp/rkyu.htm" target="_blank">旅行記サイト</a></li>
                 </ul>
-            </li>            </li>            <li>
+            </li> -->
+            <li>
                 <ul class="trip">
                     <li><div class="trip_date">1994/5</div></li>
                     <li class="trip_dest"><h4 class="work_title">北欧</h4></li>
@@ -1033,7 +1014,7 @@
                 <img src="images/IMG_9018_9188fortwitter_tr400x400en.png"><h2 class="ourname">Atsushi Kase</h2>
             </div>
             <table class="address">
-                <tr><th>メール</td><td><img src="images/icon-rainbow-mail_32x32.png"></td><td>kaseあっとnifty.com</a></td></tr>
+                <tr><th>メール(コンタクト)</td><td><img src="images/icon-rainbow-mail_32x32.png"></td><td>kaseあっとnifty.com</a></td></tr>
                 <tr><th>Youtube</th><td><img src="images/icon-rainbow-youtube3_32x32.png"></td><td><a href="https://youtube.com/atsushikase" target="_blank">@atsushikase</a></td></tr>
                 <tr><th>Instagram</th><td><img src="images/icon-rainbow-insta3_32x32.png"></td><td><a href="https://www.instagram.com/a_kase/" target="_blank">@a_kase</a></td></tr>
                 <tr><th>X(Twitter)</th><td><img src="images/icon-rainbow-twitter1_32x32.png"></td><td><a href="https://x.com/a_kase" target="_blank">@a_kase</a></td></tr>
@@ -1041,13 +1022,18 @@
             </table>
         </div>
         <nav><ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="design.html">デザイン作品</a></li>
-            <li><a href="movie.html">映像作品</a></li>
-            <li><a href="photo.html">写真作品</a></li>
-            <li><a href="travellog.html">旅行記</a></li>
-            <li><a href="about.html">プロフィール</a></li>
-            <li><a href="contact.html">コンタクト</a></li>
+            <li class="sitemapmenu_item"><a href="index.html">HOME</a></li>
+            <div class="sitemapmenu1">
+                <li class="sitemapmenu1_item"><a href="index.html#design">デザイン作品一覧</a></li>
+                <li class="sitemapmenu1_item"><a href="index.html#movie">映像作品一覧</a></li>
+                <li class="sitemapmenu1_item"><a href="index.html#photo">写真作品</a></li>
+                <li class="sitemapmenu1_item"><a href="index.html#about">プロフィール</a></li>
+            </div>
+            <div class="sitemapmenu2">
+                <li class="sitemapmenu2_item"><a href="design.html">デザイン作品</a></li>
+                <li class="sitemapmenu2_item"><a href="movie.html">映像作品</a></li>
+                <li class="sitemapmenu2_item"><a href="travellog.html">旅行記</a></li>
+            </div>
         </ul></nav>
     </div>
     <ul>
@@ -1056,30 +1042,42 @@
     </ul>
     <p class="copyright"><small>&copy; Atsushi Kase</small></p> <!--サイトの最後であることを感覚的にわかりやすくするには右に配置する-->
 </footer>
+<!-- JavaScript -- 初期表示時に必要ないなら、bodyの一番下に持っていく -->
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/lightbox.js"></script><!--ソース：https://github.com/lokesh/lightbox2 参考：https://webdesign-pg.com/lightbox2 -->
+<script src="js/scroll-hint.min.js"></script>
 <script>
-    // 写真の表示を絞り込む処理(最初の画面表示時は「filter_a」の画像のみ表示する)
-    let $filteringBtn = $(".filter_buttons_photo button"),
-            $image = $(".filter_gallery_photo li");
-    let target = "filter_a";
-    $image.each(function(){
-        // 初期値として全てを非表示にする
-        $(this).animate({
-            "opacity": 0
-        }, 200, function(){
-            $(this).hide();
-            /* 
-            指定の画像要素にクリックされたボタンのvalueのクラスが入っていれば表示
-            value属性がallの場合も表示する
-            */
-            if($(this).hasClass(target) || target == "all") {
-                $(this).show();
-                $(this).animate({
-                    "opacity": 1
-                }, 200);
-            }
-        });
-    });
+    /********************* lightbox のオプション *********************/
+    lightbox.option({
+        /*'resizeDuration': 200,*/
+        'wrapAround': true
+    })
 
+    $(function () {
+        /********************* scrollable *********************/
+        new ScrollHint('.js-scrollable', {
+            scrollHintIconAppendClass: 'scroll-hint-icon-white',
+            remainingTime: 4000 /* 自動で消える時間(ms)  */
+        });
+        /********************* ハンバーガーメニュークリック時にメニューを隠す *********************/
+        const checkbox = document.getElementById('drawer_input');
+        const targetElements = document.querySelectorAll('.drawer_nav_content');
+        $('a.drawer_asharp').on('click', function(event) {
+            //event.preventDefault(); // リンクのデフォルト動作を防止（例: ページ遷移など）
+            $('.drawer_nav_content').css('right', '-12rem'); // 特定のクラスを非表示に設定
+            checkbox.checked = false; // チェックボックスをオフにする
+        });
+        checkbox.addEventListener('change', () => {
+            targetElements.forEach(element => {
+                if (checkbox.checked) {
+                    element.style.right = '0rem';
+                } else {
+                    element.style.right = '-12rem';
+                }
+            });
+        });
+    })
 </script>
+<script src="js/filter_photo.js"></script>
 </body>
 </html>

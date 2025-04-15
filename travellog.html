@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/lightbox.css">
+    <link rel="stylesheet" href="css/page_trip.css">
 
     <!-- for Webフォント(Google Fonts) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,25 +20,194 @@
 
 </head>
 <body>
-<header>
-    <h1><a href="index.html"><img src="images/logo_face_name_MVboli1.png" alt="加瀬 篤(KASE Atsushi)のポートフォリオ"></a></h1>
-    <nav><ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="design.html">デザイン作品</a></li>
-        <li><a href="movie.html">映像作品</a></li>
-        <li><a href="photo.html">写真作品</a></li>
-        <li><a href="travellog.html">旅行記</a></li>
-        <li><a href="about.html">プロフィール</a></li>
-        <li><a href="contact.html">コンタクト</a></li>
-    </ul></nav>
-</header>
+    <header>
+        <h1><a href="index.html"><img src="images/logo_face_name_MVboli1.png" alt="Atsushi Kase's Portfolio Site"></a></h1>
+        <nav>
+            <ul class="pc_menu">
+                <li><a href="index.html">HOME</a></li>
+                <li class="nav_item1"><a href="index.html#design">デザイン作品一覧</a></li>
+                <li class="nav_item1"><a href="index.html#movie">映像作品一覧</a></li>
+                <li class="nav_item1"><a href="index.html#photo">写真作品</a></li>
+                <li class="nav_item1"><a href="index.html#about">プロフィール</a></li>
+                <li class="nav_item2"><a href="design.html">デザイン作品</a></li>
+                <li class="nav_item2"><a href="movie.html">映像作品</a></li>
+                <li class="nav_item2"><a href="travellog.html">旅行記</a></li>
+            </ul>
+           <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
+           <input id="drawer_input" class="drawer_hidden" type="checkbox">
+           <!-- ハンバーガーアイコン -->
+           <label for="drawer_input" class="drawer_open"><span></span></label>
+           <!-- ハンバーガー内メニュー -->
+           <div class="drawer_nav_content">
+                <ul class="drawer_nav_list">
+                    <li class="drawer_nav_item"><a href="index.html">HOME</a></li>
+                    <div class="drawer_nav_menu1">
+                        <li class="drawer_nav_item"><a href="index.html#design">デザイン作品一覧</a></li>
+                        <li class="drawer_nav_item"><a href="index.html#movie">映像作品一覧</a></li>
+                        <li class="drawer_nav_item"><a href="index.html#photo">写真作品</a></li>
+                        <li class="drawer_nav_item"><a href="index.html#about">プロフィール</a></li>
+                    </div>
+                    <div class="drawer_nav_menu2">
+                        <li class="drawer_nav_item"><a href="design.html">デザイン作品</a></li>
+                        <li class="drawer_nav_item"><a href="movie.html">映像作品</a></li>
+                        <li class="drawer_nav_item"><a href="travellog.html">旅行記</a></li>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+<main class="page_trip">
+    <h2 class="categorypage_title">旅行記</h2>
+    <ul class="cbp_tmtimeline">
+        <li>
+            <time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>2024/9</span> <span>日本</span></time>
+            <div class="cbp_tmicon">Jp</div>
+            <div class="cbp_tmlabel">
+                <div class="cbp_tmtitle">
+                    <img src="images/hakodate.jpg" width="120" height="90" alt="thum">
+                    <h2>函館(4日間)</h2>
+                </div>
+                <p>函館・五稜郭・大沼などを周遊</p>
+                <div class="trip_reffer">ツイート記録：<a href="https://twilog.togetter.com/a_kase/hashtags-%E5%87%BD%E9%A4%A8%E6%97%85%E8%A1%8C?order=allasc" target="_blank">Twilog</a>
+                </div>
+            </div>
+        </li>
+        <li>
+            <time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>2019/9</span> <span>中国</span></time>
+            <div class="cbp_tmicon">Cn</div>
+            <div class="cbp_tmlabel">
+                <div class="cbp_tmtitle">
+                    <img src="images/thums/china-wulingyuan.jpg" width="120" height="90" alt="thum">
+                    <h2>武陵源・鳳凰古城</h2>
+                </div>
+                <p>張家界・武陵源・鳳凰古城をメインに、広州、長沙、老司城跡、南方長城などを巡るパッケージツアーに参加したときの様子</p>
+                <div class="trip_reffer">旅行動画：<a href="https://youtu.be/EnOi9myeHD0" target="_blank">Youtube</a>　
+                    ツイート記録：<a href="https://twilog.togetter.com/a_kase/hashtags-%E4%B8%AD%E5%9B%BD%E6%97%85%E8%A1%8C2019?order=allasc&tweets_order=asc" target="_blank">Twilog</a>
+                </div>
+            </div>
+        </li>
+        <li>
+            <time class="cbp_tmtime" datetime="2013-04-11T12:04"><span>2016/12</span> <span>ニュージーランド</span></time>
+            <div class="cbp_tmicon">Nz</div>
+            <div class="cbp_tmlabel">
+                <div class="cbp_tmtitle">
+                    <img src="images/thums/nz14days-i.jpg" width="120" height="90" alt="thum">
+                    <h2>ニュージーランド全島周遊16日間</h2>
+                </div>
+                <p>Auckland観光、90 mile beach、ニュージーランド最北端 Cape Reinga、Paihia Hole in the rock クルーズツアー、Auckland～Wellingtin間長距離鉄道、Wellingtin観光、Wellington～Picton間フェリー、Christchurch、The TranzAlpine Tour、テカポ湖（善き羊飼いの教会）、Aoraki/Mt Cook、Queenstown、Doubtful Sound</p>
+                <div class="trip_reffer">
+                    旅行動画：<a href="https://youtu.be/ynxxblrok4c" target="_blank">Youtube</a>　ツイート記録：<a href="https://twilog.togetter.com/a_kase/hashtags-NZ%E6%97%85%E8%A1%8C?order=allasc" target="_blank">Twilog</a>
+                </div>
+            </div>
+        </li>
+        <li><time class="cbp_tmtime" datetime="2013-04-13 05:36"><span>2012/1</span> <span>カナダ</span></time>
+            <div class="cbp_tmicon cbp_tmicon-phone"></div>
+            <div class="cbp_tmlabel">
+                <div class="cbp_tmtitle">
+                    <img src="images/DSC_0276_rs-05_ton_tr16x9.jpg" width="120" height="90" alt="thum">
+                    <h2>カナダ ウィスラー(SKI)＆バンクーバー</h2>
+                </div>
+                <p>カナダの西部、バンクーバーから車で２時間くらいの場所にあるスキーリゾート、ウィスラーでスキーをしてきました。帰りはバンクーバーに寄り、キャピラノの吊り橋やGranville Island Public Marketなどを楽しみました。</p>
+                <div class="trip_reffer">
+                    ブログ：<a href="https://kase.hatenablog.jp/entry/20121104/1351999089" target="_blank">Kase's Diary</a>
+                </div>
+            </div>
+        </li>
+        <li><time class="cbp_tmtime" datetime="2013-04-13 05:36"><span>2010/3</span> <span>オーストラリア</span></time>
+            <div class="cbp_tmicon cbp_tmicon-phone"></div>
+            <div class="cbp_tmlabel">
+                <div class="cbp_tmtitle">
+                    <img src="images/landscape_017x1280.jpg" width="120" height="90" alt="thum">
+                    <h2>オーストラリア タスマニア</h2>
+                </div>
+                <p>シドニーで観光した後、ホバートからタスマニアに入り、リッチモンド〜セントクレア湖〜ストラーン～West Coast Wilderness Railway〜Henty Dunes大砂丘～
+                    クレイドルマウンテン国立公園〜ワイルドライフパーク〜ワイングラスベイ〜ロス〜ローンセストンを周遊</p>
+                <div class="trip_reffer">
+                    ブログ：<a href="https://kase.hatenablog.jp/entry/20100523/1274569843" target="_blank">Kase's Diary</a>
+                </div>
+            </div>
+        </li>
+        <li><time class="cbp_tmtime" datetime="2013-04-13 05:36"><span>1996/6</span> <span>スイス</span></time>
+            <div class="cbp_tmicon cbp_tmicon-phone"></div>
+            <div class="cbp_tmlabel">
+                <div class="cbp_tmtitle">
+                    <img src="images/rsw22y.jpg" width="120" height="90" alt="thum">
+                    <h2>スイス 周遊</h2>
+                </div>
+                <p>チューリヒから氷河急行に乗り、マッターホルンのあるツェルマットへ。ツェルマットではゴルナーグラート登山鉄道やロープウェイを楽しみ、また鉄道でツェルマットからヴェンゲンへ。ユングフラウヨッホ、グリンデルワルトを周遊し、ラウターブルンネンからミューレンへ。インターラーケンではブリエンツのバレンベルクに寄り、また列車でジュネーブへ。</p>
+                <div class="trip_reffer">
+                    旅行記サイト：<a href="http://kase.a.la9.jp/rsw_1.htm" target="_blank">Kase's Home Page</a>
+                </div>
+            </div>
+        </li>
+        <li><time class="cbp_tmtime" datetime="2013-04-13 05:36"><span>1997/2</span> <span>ニュージーランド</span></time>
+            <div class="cbp_tmicon cbp_tmicon-phone"></div>
+            <div class="cbp_tmlabel">
+                <div class="cbp_tmtitle">
+                    <img src="images/rnz43x.jpg" width="120" height="90" alt="thum">
+                    <h2>ニュージーランド 南島周遊</h2>
+                </div>
+                <p>クライストチャーチ、マウントクック、クイーンズタウン、ミルフォードサウンド、テアナウを訪問</p>
+                <div class="trip_reffer">
+                    旅行記サイト：<a href="http://kase.a.la9.jp/rnz_1.htm" target="_blank">Kase's Home Page</a>
+                </div>
+            </div>
+        </li>
+        <li><time class="cbp_tmtime" datetime="2013-04-13 05:36"><span>1996/9</span> <span>カナダ</span></time>
+            <div class="cbp_tmicon cbp_tmicon-phone"></div>
+            <div class="cbp_tmlabel">
+                <div class="cbp_tmtitle">
+                    <img src="images/rcan014x.jpg" width="120" height="90" alt="thum">
+                    <h2>カナダ ロッキー山脈</h2>
+                </div>
+                <p>飛行機でカルガリーに入り、レンタカーを借りてバンフ～レイクルイーズ～ジャスパーを周ってきたときの記録。サルファーマウンテン、ぺイトーレイク、アサバスカ氷河、ジャスパー近郊のウィスラーマウンテン、アサバスカ滝、マウントエディスキャベル、ヨーホー国立公園などを訪問</p>
+                <div class="trip_reffer">
+                    旅行記サイト：<a href="http://kase.a.la9.jp/rcan_1.htm" target="_blank">Kase's Home Page</a>
+                </div>
+            </div>
+        </li>
+        <li><time class="cbp_tmtime" datetime="2013-04-13 05:36"><span>1995/3</span> <span>日本</span></time>
+            <div class="cbp_tmicon cbp_tmicon-phone"></div>
+            <div class="cbp_tmlabel">
+                <div class="cbp_tmtitle">
+                    <img src="images/rizukojx.jpg" width="120" height="90" alt="thum">
+                    <h2>八丈島・三宅島</h2>
+                </div>
+                <p>八丈島（八丈富士・裏見の滝/温泉）・三宅島を訪れた時のメモ</p>
+                <div class="trip_reffer">
+                    旅行記サイト：<a href="http://kase.a.la9.jp/rizu.htm" target="_blank">Kase's Home Page</a>
+                </div>
+            </div>
+        </li>
+        <!-- <li><time class="cbp_tmtime" datetime="2013-04-13 05:36"><span>1994/9</span> <span>日本</span></time>
+            <div class="cbp_tmicon cbp_tmicon-phone"></div>
+            <div class="cbp_tmlabel">
+                <div class="cbp_tmtitle">
+                    <img src="images/rkyukusx.jpg" width="120" height="90" alt="thum">
+                    <h2>九州周遊</h2>
+                </div>
+                <p>九州周遊</p>
+                <div class="trip_reffer">
+                    旅行記サイト：<a href="http://kase.a.la9.jp/rkyu.htm" target="_blank">Kase's Home Page</a>
+                </div>
+            </div>
+        </li> -->
+        <li><time class="cbp_tmtime" datetime="2013-04-13 05:36"><span>1994/5</span> <span>北欧</span></time>
+            <div class="cbp_tmicon cbp_tmicon-phone"></div>
+            <div class="cbp_tmlabel">
+                <div class="cbp_tmtitle">
+                    <img src="images/rhok001x.jpg" width="120" height="90" alt="thum">
+                    <h2>北欧 ４ヶ国周遊</h2>
+                </div>
+                <p>北欧４カ国(フィンランド、スウェーデン、ノルウェー、デンマーク) をパッケージツアーで周遊したときの記録</p>
+                <div class="trip_reffer">
+                    旅行記サイト：<a href="http://kase.a.la9.jp/rhok.htm" target="_blank">Kase's Home Page</a>
+                </div>
+            </div>
+        </li>
 
-<main>
-    <br><br><br><br><br>
-    <h2 style="text-align: center;">ページ作成中</h2>
-    <br><br><br>
 </main>
-
 <footer>
     <div class="footer_contents">
         <div class="name_address">
@@ -46,7 +215,7 @@
                 <img src="images/IMG_9018_9188fortwitter_tr400x400en.png"><h2 class="ourname">Atsushi Kase</h2>
             </div>
             <table class="address">
-                <tr><th>メール</td><td><img src="images/icon-rainbow-mail_32x32.png"></td><td>kaseあっとnifty.com</a></td></tr>
+                <tr><th>メール(コンタクト)</td><td><img src="images/icon-rainbow-mail_32x32.png"></td><td>kaseあっとnifty.com</a></td></tr>
                 <tr><th>Youtube</th><td><img src="images/icon-rainbow-youtube3_32x32.png"></td><td><a href="https://youtube.com/atsushikase" target="_blank">@atsushikase</a></td></tr>
                 <tr><th>Instagram</th><td><img src="images/icon-rainbow-insta3_32x32.png"></td><td><a href="https://www.instagram.com/a_kase/" target="_blank">@a_kase</a></td></tr>
                 <tr><th>X(Twitter)</th><td><img src="images/icon-rainbow-twitter1_32x32.png"></td><td><a href="https://x.com/a_kase" target="_blank">@a_kase</a></td></tr>
@@ -54,13 +223,18 @@
             </table>
         </div>
         <nav><ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="design.html">デザイン作品</a></li>
-            <li><a href="movie.html">映像作品</a></li>
-            <li><a href="photo.html">写真作品</a></li>
-            <li><a href="travellog.html">旅行記</a></li>
-            <li><a href="about.html">プロフィール</a></li>
-            <li><a href="contact.html">コンタクト</a></li>
+            <li class="sitemapmenu_item"><a href="index.html">HOME</a></li>
+            <div class="sitemapmenu1">
+                <li class="sitemapmenu1_item"><a href="index.html#design">デザイン作品一覧</a></li>
+                <li class="sitemapmenu1_item"><a href="index.html#movie">映像作品一覧</a></li>
+                <li class="sitemapmenu1_item"><a href="index.html#photo">写真作品</a></li>
+                <li class="sitemapmenu1_item"><a href="index.html#about">プロフィール</a></li>
+            </div>
+            <div class="sitemapmenu2">
+                <li class="sitemapmenu2_item"><a href="design.html">デザイン作品</a></li>
+                <li class="sitemapmenu2_item"><a href="movie.html">映像作品</a></li>
+                <li class="sitemapmenu2_item"><a href="travellog.html">旅行記</a></li>
+            </div>
         </ul></nav>
     </div>
     <ul>

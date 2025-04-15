@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/lightbox.css">
+    <link rel="stylesheet" href="css/page_design.css">
 
     <!-- for Webフォント(Google Fonts) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,25 +20,163 @@
 
 </head>
 <body>
-<header>
-    <h1><a href="index.html"><img src="images/logo_face_name_MVboli1.png" alt="加瀬 篤(KASE Atsushi)のポートフォリオ"></a></h1>
-    <nav><ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="design.html">デザイン作品</a></li>
-        <li><a href="movie.html">映像作品</a></li>
-        <li><a href="photo.html">写真作品</a></li>
-        <li><a href="travellog.html">旅行記</a></li>
-        <li><a href="about.html">プロフィール</a></li>
-        <li><a href="contact.html">コンタクト</a></li>
-    </ul></nav>
-</header>
-
+    <header>
+        <h1><a href="index.html"><img src="images/logo_face_name_MVboli1.png" alt="Atsushi Kase's Portfolio Site"></a></h1>
+        <nav>
+            <ul class="pc_menu">
+                <li><a href="index.html">HOME</a></li>
+                <li class="nav_item1"><a href="index.html#design">デザイン作品一覧</a></li>
+                <li class="nav_item1"><a href="index.html#movie">映像作品一覧</a></li>
+                <li class="nav_item1"><a href="index.html#photo">写真作品</a></li>
+                <li class="nav_item1"><a href="index.html#about">プロフィール</a></li>
+                <li class="nav_item2"><a href="design.html">デザイン作品</a></li>
+                <li class="nav_item2"><a href="movie.html">映像作品</a></li>
+                <li class="nav_item2"><a href="travellog.html">旅行記</a></li>
+            </ul>
+           <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
+           <input id="drawer_input" class="drawer_hidden" type="checkbox">
+           <!-- ハンバーガーアイコン -->
+           <label for="drawer_input" class="drawer_open"><span></span></label>
+           <!-- ハンバーガー内メニュー -->
+           <div class="drawer_nav_content">
+                <ul class="drawer_nav_list">
+                    <li class="drawer_nav_item"><a href="index.html">HOME</a></li>
+                    <div class="drawer_nav_menu1">
+                        <li class="drawer_nav_item"><a href="index.html#design">デザイン作品一覧</a></li>
+                        <li class="drawer_nav_item"><a href="index.html#movie">映像作品一覧</a></li>
+                        <li class="drawer_nav_item"><a href="index.html#photo">写真作品</a></li>
+                        <li class="drawer_nav_item"><a href="index.html#about">プロフィール</a></li>
+                    </div>
+                    <div class="drawer_nav_menu2">
+                        <li class="drawer_nav_item"><a href="design.html">デザイン作品</a></li>
+                        <li class="drawer_nav_item"><a href="movie.html">映像作品</a></li>
+                        <li class="drawer_nav_item"><a href="travellog.html">旅行記</a></li>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
 <main>
-    <br><br><br><br><br>
-    <h2 style="text-align: center;">ページ作成中</h2>
-    <br><br><br>
+    <h2 class="categorypage_title">映像作品</h2>
+    <section class="design_section">
+        <h4 class="design_title">New Zealand Trip in 14 Days Digest</h4>
+        <div class="design_detail">
+            <iframe class="design_image" src="https://www.youtube.com/embed/ynxxblrok4c?si=dXcYbECAadhdlZfM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe><!--  width="560" height="315" -->
+            <table class="design_note">
+                <tr><th>作品の目的</th><td>ニュージーランド旅行紹介（プライベート）</td></tr>
+                <tr><th>編集ソフト</th><td>Sony VEGAS Movie Studio</td></tr>
+                <tr><th>映像の長さ</th><td>54分</td></tr>
+                <tr><th>使用素材</th><td>自ら撮影した動画と写真</td></tr>
+                <tr><th>撮影機材</th><td>動画： SONY AS300R<br>写真： iPhone6、SONY a6300</td></tr>
+                <tr><th>作成時間</th><td>約150時間</td></tr>
+                <tr><th>作成時期</th><td>2017/5</td></tr>
+                <tr><th>コンセプト</th><td>シーンの切換えを0.5秒単位に統一し、全BGMをBPM120の音楽にすることで、リズムにあった軽快な旅行動画としました。
+                    この動画はYoutubeで45万回再生され、これにより、チャンネル登録者1000人を達成。（ 現在この映像は利用している音楽の著作権の関係で公開停止となっています。このため、全BGMをBPM120のフリー素材に差し替えたバージョンを公開しています）</td></tr>
+            </table>
+        </div>
+        <!-- <div class="design_image">
+                <a href="https://youtu.be/ynxxblrok4c" target="_blank"><img src="images/thums/nz14days-i.jpg" alt="New Zealand Trip in 14 Days Digest"></a>
+        </div> -->
+    </section>
+    <section class="design_section">
+        <h4 class="design_title">China Tour 8 Days 中国 武陵源・鳳凰古城</h4>
+        <div class="design_detail">
+            <!-- <div class="design_image">
+                <a href="https://youtu.be/EnOi9myeHD0" target="_blank"><img src="images/thums/china-wulingyuan.jpg" alt="China Tour 8 Days 中国 武陵源・鳳凰古城"></a>
+            </div> -->
+            <iframe class="design_image" src="https://www.youtube.com/embed/EnOi9myeHD0?si=nO_9iU3qmj7FhfRV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+            <table class="design_note">
+                <tr><th>作品の目的</th><td>中国旅行紹介（プライベート）</td></tr>
+                <tr><th>編集ソフト</th><td>Sony VEGAS Movie Studio</td></tr>
+                <tr><th>映像の長さ</th><td>58分</td></tr>
+                <tr><th>使用素材</th><td>自ら撮影した動画と写真</td></tr>
+                <tr><th>撮影機材</th><td>動画： SONY AS300R<br>写真： SONY a6300</td></tr>
+                <tr><th>作成時間</th><td>約100時間</td></tr>
+                <tr><th>作成時期</th><td>2020/5</td></tr>
+                <tr><th>コンセプト</th><td>シーンの切換えを0.5秒単位に統一し、全BGMをBPM120の音楽にすることで、リズムにあった軽快な旅行動画としました。</td></tr>
+            </table>
+        </div>
+    </section>
+    <section class="design_section">
+        <h4 class="design_title">MM15ビル 2025年1月11日 午前9時</h4>
+        <div class="design_detail">
+            <div class="design_image">
+                <a href="https://www.youtube.com/shorts/cm0aSlJfLhg" target="_blank"><img src="images/thums/mm15m.jpg" alt="MM15ビル 2025年1月11日 午前9時">Youtubeリンク（ショート動画）</a><!--Youtubeリンク</a-->
+            </div>
+            <table class="design_note">
+                <tr><th>作品の目的</th><td>職業訓練授業課題</td></tr>
+                <tr><th>映像の長さ</th><td>1分11秒</td></tr>
+                <tr><th>使用素材</th><td>自ら撮影した動画と写真</td></tr>
+                <tr><th>撮影機材</th><td>Insta360 ONE RS 1-inch / iPhoneXS</td></tr>
+                <tr><th>編集機材</th><td>iPhoneXS</td></tr>
+                <tr><th>編集ソフト</th><td>画角等調整：Insta360製品iPhoneアプリ<br>再生速度調整、テロップ・音楽追加：PowerDirector(無料利用機能のみ)</td></tr>
+                <tr><th>作成時間</th><td>2時間30分</td></tr>
+                <tr><th>作成時期</th><td>2025/1</td></tr>
+                <tr><th>コンセプト</th><td>動画作成実習として作成したMM15ビル入口から教室までの１カット映像（早送りあり）です。午前9時に撮影し、2時間半ほどで編集しました。</td></tr>
+            </table>
+        </div>
+    </section>
+    <section class="design_section">
+        <h4 class="design_title">目黒50分の昼飯</h4>
+        <div class="design_detail">
+            <!-- <div class="design_image">
+                <a href="https://youtu.be/Ao4TLxuwQ6g" target="_blank"><img src="images/thums/meguro50min.webp" alt="映像作品４"></a>
+            </div> -->
+            <iframe class="design_image" src="https://www.youtube.com/embed/Ao4TLxuwQ6g?si=UUcQUFOqCB-O3Mee" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <table class="design_note">
+                <tr><th>作品の目的</th><td>職業訓練授業課題</td></tr>
+                <tr><th>映像の長さ</th><td>1分44秒</td></tr>
+                <tr><th>使用素材</th><td>自ら撮影した動画と写真</td></tr>
+                <tr><th>撮影機材</th><td>iPhoneXS</td></tr>
+                <tr><th>編集機材</th><td>iPhoneXS</td></tr>
+                <tr><th>編集ソフト</th><td>PowerDirector(無料利用機能のみ)</td></tr>
+                <tr><th>作成時間</th><td>1時間30分</td></tr>
+                <tr><th>作成時期</th><td>2025/1</td></tr>
+                <tr><th>コンセプト</th><td>動画作成実習として、職業訓練学校に通う日常のエピソードをユーモアを入れて編集した映像です。撮影から動画編集までをiPhoneXSのみで実施しています。動画編集アプリは当日初めて利用するものでした。撮影時間５分、撮影終了後編集完了まで極短時間（１時間半）で作成しています。</td></tr>
+            </table>
+        </div>
+    </section>
+    <section class="design_section">
+        <h4 class="design_title">横浜市こども自然公園の12ヶ月</h4>
+        <div class="design_detail">
+            <!-- <div class="design_image">
+                <a href="https://youtu.be/fxklP9dzjlE" target="_blank"><img src="images/thums/ooike12month.webp" alt="映像作品４"></a>
+            </div> -->
+            <iframe class="design_image" src="https://www.youtube.com/embed/fxklP9dzjlE?si=6qxhYu7YXngyRIhn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <table class="design_note">
+                <tr><th>作品の目的</th><td>自然観察動画（プライベート）</td></tr>
+                <tr><th>編集ソフト</th><td>Sony VEGAS Movie Studio</td></tr>
+                <tr><th>映像の長さ</th><td>58分</td></tr>
+                <tr><th>使用素材</th><td>自ら撮影した動画と写真</td></tr>
+                <tr><th>撮影機材</th><td>SONY a6300</td></tr>
+                <tr><th>作成時間</th><td>約40時間</td></tr>
+                <tr><th>作成時期</th><td>2023年</td></tr>
+                <tr><th>コンセプト</th><td>同じ経路で撮影した12ヶ月の映像を合成</td></tr>
+            </table>
+        </div>
+    </section>
+    <section class="design_section">
+        <h4 class="design_title">蝉の羽化（タイムラプス動画）</h4>
+        <div class="design_detail">
+            <div class="design_image">
+                <a href="https://www.youtube.com/shorts/xufk6ujsD80" target="_blank"><img src="images/thums/semi2short.jpg" alt="蝉の羽化（タイムラプス動画）">Youtubeリンク（ショート動画）</a>
+            </div>
+            <table class="design_note">
+                <tr><th>作品の目的</th><td>自然観察動画（プライベート）</td></tr>
+                <!-- <tr><th>編集ソフト</th><td></td></tr> -->
+                <tr><th>映像の長さ</th><td>x分</td></tr>
+                <tr><th>使用素材</th><td>自ら撮影した動画と写真</td></tr>
+                <tr><th>撮影機材</th><td>Nikon D300</td></tr>
+                <!-- <tr><th>作成時間</th><td>約40時間</td></tr> -->
+                <tr><th>作成時期</th><td>2015/8</td></tr>
+                <tr><th>コンセプト</th><td>4時間超の蝉の羽化を1分で見れるよう1,000枚程度の写真を動画化</td></tr>
+            </table>
+        </div>
+    </section>
 </main>
-
 <footer>
     <div class="footer_contents">
         <div class="name_address">
@@ -46,7 +184,7 @@
                 <img src="images/IMG_9018_9188fortwitter_tr400x400en.png"><h2 class="ourname">Atsushi Kase</h2>
             </div>
             <table class="address">
-                <tr><th>メール</td><td><img src="images/icon-rainbow-mail_32x32.png"></td><td>kaseあっとnifty.com</a></td></tr>
+                <tr><th>メール(コンタクト)</td><td><img src="images/icon-rainbow-mail_32x32.png"></td><td>kaseあっとnifty.com</a></td></tr>
                 <tr><th>Youtube</th><td><img src="images/icon-rainbow-youtube3_32x32.png"></td><td><a href="https://youtube.com/atsushikase" target="_blank">@atsushikase</a></td></tr>
                 <tr><th>Instagram</th><td><img src="images/icon-rainbow-insta3_32x32.png"></td><td><a href="https://www.instagram.com/a_kase/" target="_blank">@a_kase</a></td></tr>
                 <tr><th>X(Twitter)</th><td><img src="images/icon-rainbow-twitter1_32x32.png"></td><td><a href="https://x.com/a_kase" target="_blank">@a_kase</a></td></tr>
@@ -54,13 +192,18 @@
             </table>
         </div>
         <nav><ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="design.html">デザイン作品</a></li>
-            <li><a href="movie.html">映像作品</a></li>
-            <li><a href="photo.html">写真作品</a></li>
-            <li><a href="travellog.html">旅行記</a></li>
-            <li><a href="about.html">プロフィール</a></li>
-            <li><a href="contact.html">コンタクト</a></li>
+            <li class="sitemapmenu_item"><a href="index.html">HOME</a></li>
+            <div class="sitemapmenu1">
+                <li class="sitemapmenu1_item"><a href="index.html#design">デザイン作品一覧</a></li>
+                <li class="sitemapmenu1_item"><a href="index.html#movie">映像作品一覧</a></li>
+                <li class="sitemapmenu1_item"><a href="index.html#photo">写真作品</a></li>
+                <li class="sitemapmenu1_item"><a href="index.html#about">プロフィール</a></li>
+            </div>
+            <div class="sitemapmenu2">
+                <li class="sitemapmenu2_item"><a href="design.html">デザイン作品</a></li>
+                <li class="sitemapmenu2_item"><a href="movie.html">映像作品</a></li>
+                <li class="sitemapmenu2_item"><a href="travellog.html">旅行記</a></li>
+            </div>
         </ul></nav>
     </div>
     <ul>

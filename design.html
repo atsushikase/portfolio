@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/lightbox.css">
+    <link rel="stylesheet" href="css/page_design.css">
 
     <!-- for Webフォント(Google Fonts) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,25 +20,272 @@
 
 </head>
 <body>
-<header>
-    <h1><a href="index.html"><img src="images/logo_face_name_MVboli1.png" alt="加瀬 篤(KASE Atsushi)のポートフォリオ"></a></h1>
-    <nav><ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="design.html">デザイン作品</a></li>
-        <li><a href="movie.html">映像作品</a></li>
-        <li><a href="photo.html">写真作品</a></li>
-        <li><a href="travellog.html">旅行記</a></li>
-        <li><a href="about.html">プロフィール</a></li>
-        <li><a href="contact.html">コンタクト</a></li>
-    </ul></nav>
-</header>
-
+    <header>
+        <h1><a href="index.html"><img src="images/logo_face_name_MVboli1.png" alt="Atsushi Kase's Portfolio Site"></a></h1>
+        <nav>
+            <ul class="pc_menu">
+                <li><a href="index.html">HOME</a></li>
+                <li class="nav_item1"><a href="index.html#design">デザイン作品一覧</a></li>
+                <li class="nav_item1"><a href="index.html#movie">映像作品一覧</a></li>
+                <li class="nav_item1"><a href="index.html#photo">写真作品</a></li>
+                <li class="nav_item1"><a href="index.html#about">プロフィール</a></li>
+                <li class="nav_item2"><a href="design.html">デザイン作品</a></li>
+                <li class="nav_item2"><a href="movie.html">映像作品</a></li>
+                <li class="nav_item2"><a href="travellog.html">旅行記</a></li>
+            </ul>
+           <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
+           <input id="drawer_input" class="drawer_hidden" type="checkbox">
+           <!-- ハンバーガーアイコン -->
+           <label for="drawer_input" class="drawer_open"><span></span></label>
+           <!-- ハンバーガー内メニュー -->
+           <div class="drawer_nav_content">
+                <ul class="drawer_nav_list">
+                    <li class="drawer_nav_item"><a href="index.html">HOME</a></li>
+                    <div class="drawer_nav_menu1">
+                        <li class="drawer_nav_item"><a href="index.html#design">デザイン作品一覧</a></li>
+                        <li class="drawer_nav_item"><a href="index.html#movie">映像作品一覧</a></li>
+                        <li class="drawer_nav_item"><a href="index.html#photo">写真作品</a></li>
+                        <li class="drawer_nav_item"><a href="index.html#about">プロフィール</a></li>
+                    </div>
+                    <div class="drawer_nav_menu2">
+                        <li class="drawer_nav_item"><a href="design.html">デザイン作品</a></li>
+                        <li class="drawer_nav_item"><a href="movie.html">映像作品</a></li>
+                        <li class="drawer_nav_item"><a href="travellog.html">旅行記</a></li>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
 <main>
-    <br><br><br><br><br>
-    <h2 style="text-align: center;">ページ作成中</h2>
-    <br><br><br>
-</main>
+    <h2 class="categorypage_title">デザイン作品</h2>
+    <section class="design_section">
+        <h4 class="design_title"><span class="design_type">Webサイト</span>ポートフォリオ（本サイト）</h4>
+        <div class="design_detail">
+            <div class="design_image">
+                <a href="https://atsushikase.github.io/portfolio/" target="_blank">
+                <img src="images/thums/webpage_myportfolio_x400.png" alt="ポートフォリオ（本サイト）">クリックで公開サイト(github)を表示</a>
+            </div>
+            <table class="design_note">
+                <tr><th>作品の目的</th><td>自らのポートフォリオ発表</td></tr>
+                <tr><th>使用ツール</th><td>VS Code (html/css/JavaScript)</td></tr>
+                <tr><th>作成時期</th><td>2025/3</td></tr>
+                <tr><th>デザイン<br>コンセプト</th><td>全体像を短時間に把握し、詳細確認したい項目に素早くアクセスできることを重視</td></tr>
+            </table>
+        </div>
+    </section>
+    <section class="design_section">
+        <h4 class="design_title"><span class="design_type">Webサイト</span>温泉旅館集客サイト</h4>
+        <div class="design_detail">
+            <!-- <span class="work_type">Webサイト(html/css作品)<span class="work_year">2025年</span></span> -->
+            <div class="design_image">
+                <a href="https://atsushikase.github.io/web-sample-onsen/" target="_blank">
+                <img src="images/thums/webpage_onsen_x400.png" alt="Webサイト">クリックで公開サイト(github)を表示</a><!--公開サイト(github)へのリンク-->
+            </div>
+            <table class="design_note">
+                <tr><th>作品の目的</th><td>温泉旅館集客（練習用）</td></tr>
+                <tr><th>使用ツール</th><td>VS Code (html/css<del>/JavaScript</del>)</td></tr>
+                <tr><th>作成時期</th><td>2025/3</td></tr>
+                <tr><th>デザイン<br>コンセプト</th><td>高年齢夫婦の旅行客をターゲットとし、見やすくわかりやすいデザイン</td></tr>
+            </table>
+            <!-- <span class="work_comment">高年齢夫婦の旅行客をターゲットとし、<br>見やすくわかりやすいデザインとした</span> -->
+        </div>
+    </section>
 
+    <section class="design_section">
+        <h4 class="design_title"><span class="design_type">ポスター</span>奥多摩観光ポスター</h4>
+        <div class="design_detail">
+            <!-- <span class="work_type">Photoshop作品<span class="work_year">2025年</span></span> -->
+            <div class="design_image">
+                <a href="#modal-01" class="modal-button"><img src="images/thums/poster_okutamax400.jpg" alt="ポスター">拡大表示</a>
+            </div>
+            <table class="design_note">
+                <tr><th>作品の目的</th><td>観光地の宣伝（練習用）</td></tr>
+                <tr><th>使用ツール</th><td>Photoshop</td></tr>
+                <tr><th>サイズ</th><td>A2 (420 x 594 (mm))</td></tr>
+                <tr><th>使用素材</th><td>訓練校提供写真</td></tr>
+                <tr><th>作成時間</th><td>6時間</td></tr>
+                <tr><th>作成時期</th><td>2025/1</td></tr>
+                <tr><th>デザイン<br>コンセプト</th><td>指定のキャッチコピー「巨樹、清流のまち　奥多摩」にあわせ、「巨樹」を強調。子供から大人まで幅広く興味をかきたてるよう、奥多摩にあふれる自然をアピールするため、提供された写真の中から複数の異なるタイプの写真を利用</td></tr>
+            </table>
+            <!-- <span class="work_comment">職業訓練所提供の写真素材のみを利用し、指定のキャッチコピーに合うようデザイン</span> -->
+            <div class="modal-wrapper" id="modal-01">
+                <a href="#!" class="modal-overlay"></a>
+                <div class="modal-window">
+                    <!--div class="modal-content"-->
+                        <!--p class="modal_title">モーダルの中身</p-->
+                        <a href="#!"><img src="images/poster_okutama544x768.jpg"></a>
+                    <!--/div-->
+                    <!--a href="#!" class="modal-close"><i class="far fa-times-circle"></i></a クローズアイコン（フォントが必要）-->
+                </div>
+            </div>                
+        </div>
+    </section>
+    <section class="design_section">
+        <h4 class="design_title"><span class="design_type">キャラクター</span>公園のマスコット</h4>
+        <div class="design_detail">
+            <!-- <span class="work_type">Illustrator作品<span class="work_year">2024年</span></span> -->
+            <div class="design_image">
+                <a href="#modal-02" class="modal-button"><img src="images/thums/kawakun_eda400x331.png" alt="キャラクター">拡大表示</a>
+            </div>
+            <table class="design_note">
+                <!-- <tr><th>作品タイプ</th><td>キャラクター(Illustrator作品)</td></tr> -->
+                <tr><th>作品の目的</th><td>公園のマスコット（練習用）</td></tr>
+                <tr><th>使用ツール</th><td>Illustrator</td></tr>
+                <tr><th>サイズ</th><td>107 x 67 (mm)</td></tr>
+                <!-- <tr><th>使用素材</th><td>訓練校提供写真</td></tr> -->
+                <tr><th>作成時間</th><td>3時間</td></tr>
+                <tr><th>作成時期</th><td>2024/12</td></tr>
+                <tr><th>デザイン<br>コンセプト</th><td>自ら撮影した写真を下絵にし、美しさと愛らしさを残すよう、ペンツールでキャラクター化</td></tr>
+            </table>
+            <!-- <span class="work_comment">自ら撮影した写真を下絵にし、美しさと愛らしさを残すよう、ペンツールでデザイン</span> -->
+            <div class="modal-wrapper" id="modal-02"><a href="#!" class="modal-overlay"></a>
+                <div class="modal-window"><a href="#!"><img src="images/kawakun_eda1457x1080.png"></a></div>
+            </div>            
+        </div>
+    </section>
+
+    <section class="design_section">
+            <!-- <span class="work_type">Photoshop作品<span class="work_year">2024年</span></span> -->
+            <h4 class="design_title"><span class="design_type">Webバナー</span>ツアー参加者募集</h4>
+        <div class="design_detail">
+            <div class="design_image">
+                <a href="#modal-03" class="modal-button"><img src="images/thums/webbanner_nz_x400.jpg" alt="Webバナー">拡大表示</a>
+            </div>
+            <table class="design_note">
+                <!-- <tr><th>作品タイプ</th><td>Webバナー(Photoshop作品)</td></tr> -->
+                <tr><th>作品の目的</th><td>ツアー参加者募集（練習用）</td></tr>
+                <tr><th>使用ツール</th><td>Photoshop</td></tr>
+                <tr><th>サイズ</th><td>300x600 (px)<!--
+                    箱型3 0 0 x 2 5 0 ( p x )
+                    横長7 2 8 x 9 0 ( p x )--></td></tr>
+                <tr><th>使用素材</th><td>自ら撮影した写真</td></tr>
+                <tr><th>作成時間</th><td>3時間</td></tr>
+                <tr><th>作成時期</th><td>2024/12</td></tr>
+                <tr><th>デザイン<br>コンセプト</th><td>ニュージーランドの明るく楽しい、自然あふれる雰囲気を出した。（写真は自ら撮影したもの）</td></tr>
+            </table>
+            <!-- <span class="work_comment">明るく楽しい、自然あふれる雰囲気を<br>出した。（写真は自ら撮影したもの）</span> -->
+            <div class="modal-wrapper" id="modal-03"><a href="#!" class="modal-overlay"></a>
+                <div class="modal-window"><a href="#!"><img src="images/webbanner_nz_300x600.jpg"></a></div>
+            </div>            
+        </div>
+    </section>
+
+    <section class="design_section">
+            <!-- <span class="work_type">Photoshop作品<span class="work_year">2024年</span></span> -->
+            <h4 class="design_title"><span class="design_type">Webバナー</span>レジャー施設宣伝</h4>
+        <div class="design_detail">
+            <div class="design_image">
+                <a href="#modal-04" class="modal-button"><img src="images/thums/webbanner_horrorx400.jpg" alt="Webバナー">拡大表示</a>
+            </div>
+            <table class="design_note">
+                <tr><th>作品の目的</th><td>レジャー施設宣伝（練習用）</td></tr>
+                <tr><th>使用ツール</th><td>Photoshop</td></tr>
+                <tr><th>サイズ</th><td>300x250 (px)</td></tr>
+                <tr><th>使用素材</th><td>訓練校提供写真</td></tr>
+                <tr><th>作成時間</th><td>1時間</td></tr>
+                <tr><th>作成時期</th><td>2024/12</td></tr>
+                <tr><th>デザイン<br>コンセプト</th><td>恐い雰囲気を強調するデザイン</td></tr>
+            </table>
+            <!-- <span class="work_comment">恐い雰囲気を強調するデザインとした</span> -->
+            <div class="modal-wrapper" id="modal-04"><a href="#!" class="modal-overlay"></a>
+                <div class="modal-window"><a href="#!"><img src="images/webbanner_horror300x250.jpg"></a></div>
+            </div>            
+        </div>
+    </section>
+
+    <section class="design_section">
+            <!-- <span class="work_type">Illustrator作品<span class="work_year">2024年</span></span> -->
+            <h4 class="design_title"><span class="design_type">名刺</span>旅行会社用の名刺</h4>
+        <div class="design_detail">
+            <div class="design_image">
+                <a href="#modal-05" class="modal-button"><img src="images/thums/card_name_aozorax400.jpg" alt="名刺">拡大表示</a>
+            </div>
+            <table class="design_note">
+                <tr><th>作品の目的</th><td>旅行会社社員用（練習用）</td></tr>
+                <tr><th>使用ツール</th><td>Illustrator</td></tr>
+                <tr><th>サイズ</th><td>91 x 55 (mm)</td></tr>
+                <!-- <tr><th>使用素材</th><td>訓練校提供写真</td></tr> -->
+                <tr><th>作成時間</th><td>3時間</td></tr>
+                <tr><th>作成時期</th><td>2024/12</td></tr>
+                <tr><th>デザイン<br>コンセプト</th><td>空と海をイメージして、爽やかで親しみやすい印象となるようデザイン</td></tr>
+            </table>
+            <!-- <span class="work_comment">空と海をイメージして、爽やかで親しみ<br>やすい印象となるようデザインとした</span> -->
+            <div class="modal-wrapper" id="modal-05"><a href="#!" class="modal-overlay"></a>
+                <div class="modal-window"><a href="#!"><img src="images/card_name_aozora.png"></a></div>
+            </div>            
+        </div>
+    </section>
+
+    <section class="design_section">
+            <!-- <span class="work_type">Illustrator作品<span class="work_year">2024年</span></span> -->
+            <h4 class="design_title"><span class="design_type">名刺</span>自分用の名刺</h4>
+        <div class="design_detail">
+            <div class="design_image">
+                <a href="#modal-06" class="modal-button"><img src="images/thums/card_name_kawakunx400.jpg" alt="名刺">拡大表示</a>
+            </div>
+            <table class="design_note">
+                <tr><th>作品の目的</th><td>自分用（練習用）</td></tr>
+                <tr><th>使用ツール</th><td>Illustrator</td></tr>
+                <tr><th>サイズ</th><td>91 x 55 (mm)</td></tr>
+                <!-- <tr><th>使用素材</th><td>訓練校提供写真</td></tr> -->
+                <tr><th>作成時間</th><td>1時間</td></tr>
+                <tr><th>作成時期</th><td>2024/12</td></tr>
+                <tr><th>デザイン<br>コンセプト</th><td>自ら作成したカワセミのキャラクターの色彩に合うようデザイン</td></tr>
+            </table>
+            <!-- <span class="work_comment">自ら作成したカワセミのキャラクター<br>の色彩に合うようデザインした</span> -->
+            <div class="modal-wrapper" id="modal-06"><a href="#!" class="modal-overlay"></a>
+                <div class="modal-window"><a href="#!"><img src="images/card_name_kawakun-753x768.jpg"></a></div>
+            </div>            
+        </div>
+    </section>
+
+    <section class="design_section">
+            <!-- <span class="work_type">Illustrator作品<span class="work_year">2024年</span></span> -->
+            <h4 class="design_title"><span class="design_type">キャラクター</span>蛇で表現した数字</h4>
+        <div class="design_detail">
+            <div class="design_image">
+                <a href="#modal-07" class="modal-button"><img src="images/thums/font2025x400.jpg" alt="キャラクター">拡大表示</a>
+            </div>
+            <table class="design_note">
+                <tr><th>作品の目的</th><td>年賀状利用（プライベート）</td></tr>
+                <tr><th>使用ツール</th><td>Illustrator</td></tr>
+                <tr><th>サイズ</th><td>55 x 15 (mm)</td></tr>
+                <!-- <tr><th>使用素材</th><td>訓練校提供写真</td></tr> -->
+                <tr><th>作成時間</th><td>2時間</td></tr>
+                <tr><th>作成時期</th><td>2024/12</td></tr>
+                <tr><th>デザイン<br>コンセプト</th><td>2025年の年賀状で利用するため、美しいグラデーションとし、蛇を素材としつつも恐くならず面白味のある顔になるようデザイン</td></tr>
+            </table>
+            <!-- <span class="work_comment">2025年の年賀状で利用するため、蛇を<br>素材としつつも面白味のある表現とした</span> -->
+            <div class="modal-wrapper" id="modal-07"><a href="#!" class="modal-overlay"></a>
+                <div class="modal-window"><a href="#!"><img src="images/font2025-1995x1335.png"></a></div>
+            </div>            
+        </div>
+    </section>
+
+    <section class="design_section">
+        <!-- <span class="work_type">Illustrator作品<span class="work_year">2025年</span></span> -->
+        <h4 class="design_title"><span class="design_type">パンフレット</span>ポートフォリオ</h4>
+        <div class="design_detail">
+            <div class="design_image">
+                <a href="#modal-08" class="modal-button"><img src="images/thums/portfoliox400.jpg" alt="パンフレット">拡大表示</a>
+            </div>
+            <table class="design_note">
+                <tr><th>作品の目的</th><td>自分のポートフォリオ</td></tr>
+                <tr><th>使用ツール</th><td>Illustrator</td></tr>
+                <tr><th>サイズ</th><td>A4 (210 x 297 (mm)) 14枚</td></tr>
+                <!-- <tr><th>使用素材</th><td>訓練校提供写真</td></tr> -->
+                <tr><th>作成時間</th><td>6時間</td></tr>
+                <tr><th>作成時期</th><td>2025/2</td></tr>
+                <tr><th>デザイン<br>コンセプト</th><td>自分のポートフォリオ。広い分野の技術があること、作品の多様性をアピール</td></tr>
+            </table>
+            <!-- <span class="work_comment">自分のポートフォリオ。広い分野の技術<br>があること、作品の多様性をアピール</span> -->
+            <div class="modal-wrapper" id="modal-08"><a href="#!" class="modal-overlay"></a>
+                <div class="modal-window"><a href="#!"><img src="images/portfolio-915x768.jpg"></a></div>
+            </div>            
+        </div>
+    </section>
+</main>
 <footer>
     <div class="footer_contents">
         <div class="name_address">
@@ -46,7 +293,7 @@
                 <img src="images/IMG_9018_9188fortwitter_tr400x400en.png"><h2 class="ourname">Atsushi Kase</h2>
             </div>
             <table class="address">
-                <tr><th>メール</td><td><img src="images/icon-rainbow-mail_32x32.png"></td><td>kaseあっとnifty.com</a></td></tr>
+                <tr><th>メール(コンタクト)</td><td><img src="images/icon-rainbow-mail_32x32.png"></td><td>kaseあっとnifty.com</a></td></tr>
                 <tr><th>Youtube</th><td><img src="images/icon-rainbow-youtube3_32x32.png"></td><td><a href="https://youtube.com/atsushikase" target="_blank">@atsushikase</a></td></tr>
                 <tr><th>Instagram</th><td><img src="images/icon-rainbow-insta3_32x32.png"></td><td><a href="https://www.instagram.com/a_kase/" target="_blank">@a_kase</a></td></tr>
                 <tr><th>X(Twitter)</th><td><img src="images/icon-rainbow-twitter1_32x32.png"></td><td><a href="https://x.com/a_kase" target="_blank">@a_kase</a></td></tr>
@@ -54,13 +301,18 @@
             </table>
         </div>
         <nav><ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="design.html">デザイン作品</a></li>
-            <li><a href="movie.html">映像作品</a></li>
-            <li><a href="photo.html">写真作品</a></li>
-            <li><a href="travellog.html">旅行記</a></li>
-            <li><a href="about.html">プロフィール</a></li>
-            <li><a href="contact.html">コンタクト</a></li>
+            <li class="sitemapmenu_item"><a href="index.html">HOME</a></li>
+            <div class="sitemapmenu1">
+                <li class="sitemapmenu1_item"><a href="index.html#design">デザイン作品一覧</a></li>
+                <li class="sitemapmenu1_item"><a href="index.html#movie">映像作品一覧</a></li>
+                <li class="sitemapmenu1_item"><a href="index.html#photo">写真作品</a></li>
+                <li class="sitemapmenu1_item"><a href="index.html#about">プロフィール</a></li>
+            </div>
+            <div class="sitemapmenu2">
+                <li class="sitemapmenu2_item"><a href="design.html">デザイン作品</a></li>
+                <li class="sitemapmenu2_item"><a href="movie.html">映像作品</a></li>
+                <li class="sitemapmenu2_item"><a href="travellog.html">旅行記</a></li>
+            </div>
         </ul></nav>
     </div>
     <ul>

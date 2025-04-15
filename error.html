@@ -20,25 +20,48 @@
 
 </head>
 <body>
-<header>
-    <h1><a href="index.html"><img src="images/logo_face_name_MVboli1.png" alt="加瀬 篤(KASE Atsushi)のポートフォリオ"></a></h1>
-    <nav><ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="design.html">デザイン作品</a></li>
-        <li><a href="movie.html">映像作品</a></li>
-        <li><a href="photo.html">写真作品</a></li>
-        <li><a href="travellog.html">旅行記</a></li>
-        <li><a href="about.html">プロフィール</a></li>
-        <li><a href="contact.html">コンタクト</a></li>
-    </ul></nav>
-</header>
-
+    <header>
+        <h1><a href="index.html"><img src="images/logo_face_name_MVboli1.png" alt="Atsushi Kase's Portfolio Site"></a></h1>
+        <nav>
+            <ul class="pc_menu">
+                <li><a href="index.html">HOME</a></li>
+                <li class="nav_item1"><a href="index.html#design">デザイン作品一覧</a></li>
+                <li class="nav_item1"><a href="index.html#movie">映像作品一覧</a></li>
+                <li class="nav_item1"><a href="index.html#photo">写真作品</a></li>
+                <li class="nav_item1"><a href="index.html#about">プロフィール</a></li>
+                <li class="nav_item2"><a href="design.html">デザイン作品</a></li>
+                <li class="nav_item2"><a href="movie.html">映像作品</a></li>
+                <li class="nav_item2"><a href="travellog.html">旅行記</a></li>
+            </ul>
+           <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
+           <input id="drawer_input" class="drawer_hidden" type="checkbox">
+           <!-- ハンバーガーアイコン -->
+           <label for="drawer_input" class="drawer_open"><span></span></label>
+           <!-- ハンバーガー内メニュー -->
+           <div class="drawer_nav_content">
+                <ul class="drawer_nav_list">
+                    <li class="drawer_nav_item"><a href="index.html">HOME</a></li>
+                    <div class="drawer_nav_menu1">
+                        <li class="drawer_nav_item"><a href="index.html#design">デザイン作品一覧</a></li>
+                        <li class="drawer_nav_item"><a href="index.html#movie">映像作品一覧</a></li>
+                        <li class="drawer_nav_item"><a href="index.html#photo">写真作品</a></li>
+                        <li class="drawer_nav_item"><a href="index.html#about">プロフィール</a></li>
+                    </div>
+                    <div class="drawer_nav_menu2">
+                        <li class="drawer_nav_item"><a href="design.html">デザイン作品</a></li>
+                        <li class="drawer_nav_item"><a href="movie.html">映像作品</a></li>
+                        <li class="drawer_nav_item"><a href="travellog.html">旅行記</a></li>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
 <main>
     <br><br><br><br><br>
     <h2 style="text-align: center;">ページ作成中</h2>
     <br><br><br>
 </main>
-
 <footer>
     <div class="footer_contents">
         <div class="name_address">
@@ -46,7 +69,7 @@
                 <img src="images/IMG_9018_9188fortwitter_tr400x400en.png"><h2 class="ourname">Atsushi Kase</h2>
             </div>
             <table class="address">
-                <tr><th>メール</td><td><img src="images/icon-rainbow-mail_32x32.png"></td><td>kaseあっとnifty.com</a></td></tr>
+                <tr><th>メール(コンタクト)</td><td><img src="images/icon-rainbow-mail_32x32.png"></td><td>kaseあっとnifty.com</a></td></tr>
                 <tr><th>Youtube</th><td><img src="images/icon-rainbow-youtube3_32x32.png"></td><td><a href="https://youtube.com/atsushikase" target="_blank">@atsushikase</a></td></tr>
                 <tr><th>Instagram</th><td><img src="images/icon-rainbow-insta3_32x32.png"></td><td><a href="https://www.instagram.com/a_kase/" target="_blank">@a_kase</a></td></tr>
                 <tr><th>X(Twitter)</th><td><img src="images/icon-rainbow-twitter1_32x32.png"></td><td><a href="https://x.com/a_kase" target="_blank">@a_kase</a></td></tr>
@@ -54,13 +77,18 @@
             </table>
         </div>
         <nav><ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="design.html">デザイン作品</a></li>
-            <li><a href="movie.html">映像作品</a></li>
-            <li><a href="photo.html">写真作品</a></li>
-            <li><a href="travellog.html">旅行記</a></li>
-            <li><a href="about.html">プロフィール</a></li>
-            <li><a href="contact.html">コンタクト</a></li>
+            <li class="sitemapmenu_item"><a href="index.html">HOME</a></li>
+            <div class="sitemapmenu1">
+                <li class="sitemapmenu1_item"><a href="index.html#design">デザイン作品一覧</a></li>
+                <li class="sitemapmenu1_item"><a href="index.html#movie">映像作品一覧</a></li>
+                <li class="sitemapmenu1_item"><a href="index.html#photo">写真作品</a></li>
+                <li class="sitemapmenu1_item"><a href="index.html#about">プロフィール</a></li>
+            </div>
+            <div class="sitemapmenu2">
+                <li class="sitemapmenu2_item"><a href="design.html">デザイン作品</a></li>
+                <li class="sitemapmenu2_item"><a href="movie.html">映像作品</a></li>
+                <li class="sitemapmenu2_item"><a href="travellog.html">旅行記</a></li>
+            </div>
         </ul></nav>
     </div>
     <ul>
