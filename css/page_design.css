@@ -40,7 +40,7 @@
 }
 .design_image img {
     width: 100%;
-    max-height: 50vh; /*20rem; */
+    max-height: 24rem; /*20rem;50vh */
     max-width: 80vw;
     object-fit: contain;
     /* box-shadow : 0 0 10px #2F1F1F ; Webサイトの下の「～」がおかしくなる */
