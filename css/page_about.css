@@ -37,6 +37,15 @@
 .about_detail {
     padding: 0 1rem;
 }
+.about_detail table {
+    margin-left: 1rem;
+}
+.about_detail th {
+    width: 7rem;
+    font-weight: normal;
+    vertical-align: top;
+    /* text-decoration: none; */
+}
 .about a,
 .about a:link,
 .about a:visited {
